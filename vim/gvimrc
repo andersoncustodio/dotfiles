@@ -1,0 +1,13 @@
+" {{{ 10 GUI
+" guifont
+" list of font names to be used in the GUI
+"set gfn=
+
+" guioptions set go=aegimrLtT
+" list of flags that specify how the GUI works
+set go=o
+
+" linespace
+" number of pixel lines to use between characters
+set lsp=4
+" }}}

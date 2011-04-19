@@ -1,0 +1,22 @@
+h1. dotfiles acustodioo
+
+Tested only on Linux
+
+h2. Reference in creating the vimrc
+
+* http://github.com/rtomayko/dotfiles
+* http://amix.dk/vim/vimrc.html
+* http://github.com/scrooloose/vimfiles
+* http://github.com/akitaonrails/vimfiles
+* http://snipt.net/voyeg3r/tag/vimrc
+* http://github.com/jceb/vimrc/
+* http://aurelio.net/vim/vimrc-ivan.txt
+
+h2. Dependencies
+* VIM Ruby Integration (Command-T)
+
+h2. Installing
+
+<pre><code>git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+make</code></pre>

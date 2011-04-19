@@ -1,0 +1,8 @@
+.DS_Store
+tags
+*~
+*.sw*
+mkmf.log
+.VimballRecord
+.netrwhist
+vim/spell/

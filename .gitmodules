@@ -1,0 +1,92 @@
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = git://github.com/wincent/Command-T.git
+	ignore = dirty
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/tsaleh/vim-supertab.git
+	ignore = dirty
+[submodule "vim/bundle/mru"]
+	path = vim/bundle/mru
+	url = git://github.com/ornicar/vim-mru.git
+	ignore = dirty
+[submodule "vim/bundle/auto-mkdir"]
+	path = vim/bundle/auto-mkdir
+	url = git://github.com/DataWraith/auto_mkdir.git
+	ignore = dirty
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+	ignore = dirty
+[submodule "vim/bundle/nerd-commenter"]
+	path = vim/bundle/nerd-commenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+	ignore = dirty
+[submodule "vim/bundle/textile"]
+	path = vim/bundle/textile
+	url = git://github.com/timcharper/textile.vim.git
+	ignore = dirty
+[submodule "vim/bundle/nerd-tree"]
+	path = vim/bundle/nerd-tree
+	url = git://github.com/scrooloose/nerdtree.git
+	ignore = dirty
+[submodule "vim/bundle/json"]
+	path = vim/bundle/json
+	url = git://github.com/leshill/vim-json.git
+	ignore = dirty
+[submodule "vim/bundle/bufexplorer"]
+	path = vim/bundle/bufexplorer
+	url = git://github.com/slack/vim-bufexplorer.git
+	ignore = dirty
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+	ignore = dirty
+[submodule "vim/bundle/zencode"]
+	path = vim/bundle/zencode
+	url = git://github.com/mattn/zencoding-vim.git
+	ignore = dirty
+[submodule "vim/bundle/git"]
+	path = vim/bundle/git
+	url = git://github.com/motemen/git-vim.git
+	ignore = dirty
+[submodule "vim/bundle/php-html-enhanced"]
+	path = vim/bundle/php-html-enhanced
+	url = git://github.com/acustodioo/php.vim-html-enhanced.git
+	ignore = dirty
+[submodule "vim/bundle/coffee-script"]
+	path = vim/bundle/coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+	ignore = dirty
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+	ignore = dirty
+[submodule "vim/bundle/securemodelines"]
+	path = vim/bundle/securemodelines
+	url = git://github.com/ciaranm/securemodelines.git
+	ignore = dirty
+[submodule "vim/bundle/delimit-mate"]
+	path = vim/bundle/delimit-mate
+	url = git://github.com/Raimondi/delimitMate.git
+	ignore = dirty
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = git://github.com/vim-scripts/matchit.zip.git
+	ignore = dirty
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = git://github.com/acustodioo/snipmate.vim.git
+	ignore = dirty
+[submodule "vim/bundle/addon-mw-utils"]
+	path = vim/bundle/addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+	ignore = dirty
+[submodule "vim/bundle/tlib"]
+	path = vim/bundle/tlib
+	url = git://github.com/tomtom/tlib_vim.git
+	ignore = dirty
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
+	url = git://github.com/tpope/vim-markdown.git
+	ignore = dirty

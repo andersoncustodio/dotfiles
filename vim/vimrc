@@ -377,6 +377,13 @@ vnoremap j gj
 vnoremap k gk
 " }
 
+" #Easy visual indentation {
+vmap \] >gv
+vmap \[ <gv
+nmap \] >>
+nmap \[ <<
+" }
+
 " #Abbreviations for your sanity {
 cab W w
 cab Q q

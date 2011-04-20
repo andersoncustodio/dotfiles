@@ -148,7 +148,6 @@ set ttym=xterm2
 
 " Quantidade de cores
 set t_Co=256
-
 " }}}
 
 " {{{ 12 messages and info
@@ -335,10 +334,6 @@ map <leader>r :MRU<CR>
 " {{{ Command-T
 noremap <leader>j :CommandT<cr>
 noremap <leader>y :CommandTFlush<cr>
-" }}}
-
-" {{{ Para o X deletar também quebra de linha
-nmap <S-x> <insert><backspace><right><esc>
 " }}}
 
 " {{{ Jump to last position of buffer when opening

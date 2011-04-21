@@ -1,14 +1,5 @@
-# References: http://www.jeremysands.com/archlinux/gentoo-bashrc-2008.0
-#             https://github.com/nelstrom/dotfiles
-
-#echo "loading .bashrc"
-if [[ -f ~/.profile ]] ; then
-	source ~/.profile
-fi
-
 # Bash customisations to be syncronised between machines.
-PROMPT_COMMAND=''
-PS1='\[\e[1;31m\]\a$PWD\a$(__git_ps1 " [GIT=%s]")\n\[\e[0m\]\[\e[1;2m\]\$\[\e[0m\] '
+PS1='\[\e[1;1m\]\u@\h:\[\e[1;31m\]\a$PWD\[\e[0m\]\[\e[1;2m\]\a$(__git_ps1 " [GIT=%s]")\n\$\[\e[0m\] '
 
 alias ls='ls --color=tty'
 alias grep='grep --colour=auto'

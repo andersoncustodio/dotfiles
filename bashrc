@@ -1,5 +1,5 @@
 # Bash customisations to be syncronised between machines.
-PS1='\[\e[1;1m\]\u@\h:\[\e[1;31m\]\a$PWD\[\e[0m\]\[\e[1;2m\]\a$(__git_ps1 " [GIT=%s]")\n\$\[\e[0m\] '
+PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]\a$PWD\[\e[0m\]\[\e[1;2m\]\a$(__git_ps1 " [%s]")\n\$\[\e[0m\] '
 
 alias ls='ls --color=tty'
 alias grep='grep --colour=auto'

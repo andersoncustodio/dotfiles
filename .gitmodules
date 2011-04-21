@@ -90,3 +90,7 @@
 	path = vim/bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
 	ignore = dirty
+[submodule "vim/bundle/ragtag"]
+	path = vim/bundle/ragtag
+	url = git://github.com/acustodioo/vim-ragtag.git
+	ignore = dirty

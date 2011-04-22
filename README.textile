@@ -2,7 +2,7 @@ h1. dotfiles acustodioo
 
 Tested only on Linux
 
-h2. Reference in creating the vimrc
+h2. References
 
 * http://github.com/rtomayko/dotfiles
 * http://amix.dk/vim/vimrc.html
@@ -11,12 +11,8 @@ h2. Reference in creating the vimrc
 * http://github.com/akitaonrails/vimfiles
 * http://snipt.net/voyeg3r/tag/vimrc
 * http://github.com/jceb/vimrc/
-* http://aurelio.net/vim/vimrc-ivan.txt
-
-h2. Reference in creating the bashrc
-
-* http://jeremysands.com/archlinux/gentoo-bashrc-2008.0
 * http://github.com/nelstrom/dotfiles
+* http://aurelio.net/vim/vimrc-ivan.txt
 
 h2. Dependencies
 

@@ -24,7 +24,7 @@ let g:mapleader = ","
 " {{{ 2 moving around, searching and patterns
 " whichwrap
 " list of flags specifying which commands wrap to another line (local to window)
-set ww+=<,>,h,l	
+set ww+=<,>,h,l
 
 " ignorecase: set (noic|ic)
 " ignore case when using a search pattern
@@ -48,19 +48,26 @@ syntax on
 set scr=9
 
 " scrolloff: set so=([0-9]+)
-" number of screen lines to show around the cursor 
+" number of screen lines to show around the cursor
 set so=3
 
 " cmdheight: set ch=([0-9]+)
-" number of lines used for the command-line 
+" number of lines used for the command-line
 set ch=1
 
+" list: set (nolist|list)
+" show <Tab> as ^I and end-of-line as $ (local to window)
+set list
+
+" listchars list of strings used for list mode
+set listchars=tab:▸\ ,eol:¬
+
 " number: set (nu|nonu)
-" show the line number for each line (local to window) 
+" show the line number for each line (local to window)
 set nu
 
 " wrap: set (wrap|nowrap)
-" long lines wrap 
+" long lines wrap
 set wrap
 
 " sidescroll: set ss=[0-9]+
@@ -68,7 +75,7 @@ set wrap
 set ss=0
 
 " linebreak: set (nolbr|lbr)
-" wrap long lines at a character in 'breakat' (local to window) 
+" wrap long lines at a character in 'breakat' (local to window)
 set lbr
 
 " breakat
@@ -78,20 +85,26 @@ set brk=\ \	-+;:,/?\&
 " showbreak
 " string to put before wrapped screen lines
 set sbr=
-
-" list: set (nolist|list)
-" show <Tab> as ^I and end-of-line as $ (local to window)
-set nolist
 " }}}
 
 " {{{ 5 syntax, highlighting and spelling
 " background "dark" or "light"; the background color brightness
 set bg=light
 
+" solarized
+let g:solarized_termcolors=256
+let g:solarized_visibility="low"
+colorscheme solarized
+
 " hlsearch set (nohls|hls)
 " highlight all matches for the last used search pattern
 set hls
 map <silent> <leader><cr> :noh<cr>
+
+
+" cursorline set (nocul|cul)
+" highlight the screen line of the cursor (local to window)
+set nocul
 
 " Spell
 map ,pt :set spell spelllang=pt<cr>
@@ -129,6 +142,9 @@ set tpm=1000
 " name of the used terminal
 set term=xterm
 
+" Colors
+set t_Co=256
+
 " ttyfast set (tf|notf)
 " terminal connection is fast
 set tf
@@ -145,10 +161,6 @@ set	mousef
 
 " ttymouse "xterm", "xterm2", "dec" or "netterm"; type of mouse
 set ttym=xterm2
-
-" Quantidade de cores
-set t_Co=256
-" }}}
 
 " {{{ 12 messages and info
 " showcmd: set (nosc|sc)
@@ -175,7 +187,8 @@ set bs=indent,eol,start
 
 " formatoptions
 " list of flags that tell how automatic formatting works (local to buffe)
-set fo-=o
+"set fo-=o
+set fo=croqln21
 
 " wrapmargin
 " margin from the right in which to break a line (local to buffer)
@@ -183,11 +196,16 @@ set wm=0
 
 " complete
 " specifies how Insert mode completion works for CTRL-N and CTRL-P (local to buffer)
-"set cpt=k,t
+set cpt=.,w,k,b,u,t,i cpt-=k cpt+=k
+
+" matchtime: set mat=([0-9]|10)
+" tenth of a second to show a match for 'showmatch'
+set mat=5
 
 " matchpairs
 " list of pairs that match for the "%" command (local to buffer)
-set mps=(:),{:},[:]
+" Plugin which enhances this feature: ~/.vim/bundle/matchit
+set mps=(:),{:},[:],<:>
 " }}}
 
 " {{{ 15 tabs and indenting
@@ -213,7 +231,7 @@ set nosi
 
 " cindent: set (nocin|cin)
 " enable specific indenting for C code (local to buffer)
-set cin 
+set cin
 
 " copyindent: set (noci|ci)
 " copy whitespace for indenting from previous line (local to buffer)
@@ -286,7 +304,7 @@ set ar
 set dir=~/.vim/tmp
 
 " swapfile: set (swf|noswf)
-" use a swap file for this buffer (local to buffer) 
+" use a swap file for this buffer (local to buffer)
 set noswf
 
 " updatecount
@@ -300,12 +318,12 @@ set ut=4000
 
 " {{{ 21 command line editing
 " history
-" how many command lines are remembered 
+" how many command lines are remembered
 set hi=1000
 
 " wildmode
 " specifies how command line completion works
-set wim=longest,list,full
+set wim=longest,list
 
 " wildignore
 " list of patterns to ignore files for file name completion
@@ -329,6 +347,11 @@ set fencs=ucs-bom,utf-8,latin1,cp80,default
 " {{{ MRU plugin
 let MRU_Max_Entries = 400
 map <leader>r :MRU<CR>
+" }}}
+
+" {{{ 26 various
+" viminfo list that specifies what to write in the viminfo file
+set vi='100,<50,s10,h,!
 " }}}
 
 " {{{ Command-T
@@ -372,6 +395,11 @@ vnoremap j gj
 vnoremap k gk
 " }}}
 
+" {{{do not menu with left / right in command line
+cnoremap <Left> <Space><BS><Left>
+cnoremap <Right> <Space><BS><Right>
+" }}}
+
 " {{{ Easy visual indentation
 vmap \] >gv
 vmap \[ <gv
@@ -393,7 +421,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" }}} 
+" }}}
 
 " {{{ Visual search mappings
 function! s:VSetSearch()
@@ -418,12 +446,7 @@ function! s:HighlightLongLines(width)
 		echomsg "Usage: HighlightLongLines [natural number]"
 	endif
 endfunction
-map <leader>hl :HighlightLongLines 
-" }}}
-
-" {{{ Shows useless spaces
-au BufNewFile,BufRead * syn match brancomala '\s\+$'
-hi brancomala ctermbg=red
+map <leader>hl :HighlightLongLines
 " }}}
 
 " vim: set foldmethod=marker :

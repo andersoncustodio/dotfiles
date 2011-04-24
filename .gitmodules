@@ -94,3 +94,11 @@
 	path = vim/bundle/ragtag
 	url = git://github.com/acustodioo/vim-ragtag.git
 	ignore = dirty
+[submodule "vim/bundle/align"]
+	path = vim/bundle/align
+	url = git://github.com/tsaleh/vim-align.git
+	ignore = dirty
+[submodule "vim/bundle/colors-solarized"]
+	path = vim/bundle/colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+	ignore = dirty

@@ -76,7 +76,7 @@
 	ignore = dirty
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
-	url = git://github.com/acustodioo/snipmate.vim.git
+	url = git://github.com/MarcWeber/snipmate.vim.git
 	ignore = dirty
 [submodule "vim/bundle/addon-mw-utils"]
 	path = vim/bundle/addon-mw-utils
@@ -101,4 +101,12 @@
 [submodule "vim/bundle/colors-solarized"]
 	path = vim/bundle/colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+	ignore = dirty
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = git://github.com/sjl/gundo.vim.git
+	ignore = dirty
+[submodule "vim/bundle/camel-case-motion"]
+	path = vim/bundle/camel-case-motion
+	url = git://github.com/bkad/CamelCaseMotion.git
 	ignore = dirty

@@ -3,6 +3,10 @@
 " behave very Vi compatible (not advisable)
 set nocp
 
+" runtimepath
+" list of directories used for runtime files and plugins
+set rtp+=~/dotfiles/vim,~/dotfiles/vim/after
+
 " necessary on some Linux distros for pathogen to properly load bundles
 filetype off
 
@@ -80,7 +84,7 @@ set lbr
 
 " breakat
 " which characters might cause a line break
-set brk=\ \	-+;:,/?\&
+set brk=\ \	-+;,/?\&
 
 " showbreak
 " string to put before wrapped screen lines
@@ -157,10 +161,11 @@ set mouse=a
 
 " mousefocus: set (nomousef|mousef)
 " the window with the mouse pointer becomes the current one
-set	mousef
+set mousef
 
 " ttymouse "xterm", "xterm2", "dec" or "netterm"; type of mouse
 set ttym=xterm2
+" }}}
 
 " {{{ 12 messages and info
 " showcmd: set (nosc|sc)
@@ -287,11 +292,11 @@ set nobk
 
 " backupskip
 " patterns that specify for which files a backup is not made
-set bsk=~/.vim/tmp/*
+set bsk=~/.tmp/*
 
 " backupdir
 " list of directories to put backup files in
-set bdir=~/.vim/tmp
+set bdir=~/.tmp
 
 " autoread: set (noar|ar)
 " automatically read a file when it was modified outside of Vim (global or local to buffer)
@@ -400,11 +405,22 @@ cnoremap <Left> <Space><BS><Left>
 cnoremap <Right> <Space><BS><Right>
 " }}}
 
-" {{{ Easy visual indentation
-vmap \] >gv
-vmap \[ <gv
-nmap \] >>
-nmap \[ <<
+" {{{ Easy indentation and bunbble
+" indentation multiple lines
+vmap <C-Right> >gv
+vmap <C-Left> <gv
+
+" indentation single lines
+nmap <C-Right> >>
+nmap <C-Left> <<
+
+" Bubble single lines
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
 " }}}
 
 " {{{ Abbreviations for your sanity
@@ -421,6 +437,12 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" }}}
+
+" {{{ Camel case motion
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
 " }}}
 
 " {{{ Visual search mappings

@@ -8,6 +8,7 @@ h2. References
 * http://amix.dk/vim/vimrc.html
 * http://aurelio.net/doc/dotfiles/vimrc.txt
 * http://github.com/scrooloose/vimfiles
+* http://vimcasts.org
 * http://github.com/akitaonrails/vimfiles
 * http://snipt.net/voyeg3r/tag/vimrc
 * http://github.com/jceb/vimrc/
@@ -20,6 +21,25 @@ h2. Dependencies
 
 h2. Installing
 
+h3. Creating folder for temporary files
+
+<pre><code>mkdir ~/.tmp</code></pre>
+
+h3. Cloning repository
+
 <pre><code>git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-make</code></pre>
+cd ~/dotfiles</code></pre>
+
+h3. Initializing and updating submodules
+
+<pre><code>git submodule update --init</code></pre>
+
+h3. Installing Command-T
+
+<pre><code>cd ~/dotfiles/vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make</code></pre>
+
+h3. Creating symbolic link
+
+<pre><code>ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/dotfiles/gitconfig ~/.gitconfig 
+ln -s ~/dotfiles/bashrc ~/.bashrc</code></pre>

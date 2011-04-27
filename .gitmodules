@@ -114,3 +114,23 @@
 	path = vim/bundle/camel-case-motion
 	url = git://github.com/bkad/CamelCaseMotion.git
 	ignore = dirty
+[submodule "vim/bundle/scss-syntax"]
+	path = vim/bundle/scss-syntax
+	url = git://github.com/cakebaker/scss-syntax.vim.git
+	ignore = dirty
+[submodule "vim/bundle/vim-ruby"]
+	path = vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+	ignore = dirty
+[submodule "vim/bundle/ruby-sinatra"]
+	path = vim/bundle/ruby-sinatra
+	url = git://github.com/hallison/vim-ruby-sinatra.git
+	ignore = dirty
+[submodule "vim/bundle/textobj-rubyblock"]
+	path = vim/bundle/textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+	ignore = dirty
+[submodule "vim/bundle/textobj-user"]
+	path = vim/bundle/textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+	ignore = dirty

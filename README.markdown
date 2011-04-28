@@ -24,6 +24,7 @@ Arch Linux:
 	$ pacman -S gvim ruby ctags ncurses
 
 Ubuntu:
+
 	$ apt-get install gvim ruby exuberant-ctags ncurses-term
 
 ### Creating folder for temporary files ###

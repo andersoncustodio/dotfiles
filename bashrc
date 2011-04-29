@@ -3,15 +3,18 @@ PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\] \a$PWD\[\e[0m\]\a$(__git_ps1 " [%s]")\n\$\[\e[
 
 alias ls='ls --color=tty'
 alias grep='grep --colour=auto'
-alias tree='tree -C' # -C outputs colour
 
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 
-alias t='tree'
-alias tl='t | less -R' # -R makes less understand color
+alias las='xl ls --color=tty -la'
+
+alias catl='xl cat'
+
+alias t='tree -C'
+alias ts='xl tree -C'
 
 alias v='vim'
 
@@ -55,4 +58,11 @@ function cdf() {
 	for f in $p; do
 		cd *$f*/
 	done
+}
+
+# x command | less -R
+# Changes to repos-public directory.
+# http://dpaste.org/TeF8/
+function xl() {
+	$* | less -R
 }

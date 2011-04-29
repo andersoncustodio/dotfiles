@@ -10,6 +10,9 @@ set rtp+=~/dotfiles/vim,~/dotfiles/vim/after
 " necessary on some Linux distros for pathogen to properly load bundles
 filetype off
 
+" NERD_commenter
+let g:NERDSpaceDelims = 1
+
 " Load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -127,7 +130,11 @@ set stl+=\[FILE=%{&ff}\|%{&enc}\|%Y]
 set stl+=\[POS=%l,%c\|%L\|%P]
 set stl+=\[ASCII=%03.3b]
 set stl+=\[HEX=%02.2B]
-set stl+=[GIT=%{GitBranch()}]
+
+if exists('GitBranch')
+	set stl+=[GIT=%{GitBranch()}]
+endif
+
 set stl+=\[F=%{foldlevel('.')}]
 
 " hidden: set (nohi|dhid)
@@ -346,7 +353,7 @@ set	wmnu
 " {{{ 25 multi-byte characters
 " fileencodings
 " automatically detected character encodings
-set fencs=ucs-bom,utf-8,latin1,cp80,default
+set fencs=ucs-bom,utf-8,latin1,cp850,default
 " }}}
 
 " {{{ MRU plugin

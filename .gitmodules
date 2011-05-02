@@ -134,3 +134,7 @@
 	path = vim/bundle/textobj-user
 	url = git://github.com/kana/vim-textobj-user.git
 	ignore = dirty
+[submodule "vim/bundle/enter-indent"]
+	path = vim/bundle/enter-indent
+	url = git://github.com/acustodioo/vim-enter-indent.git
+	ignore = dirty

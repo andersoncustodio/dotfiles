@@ -44,6 +44,10 @@ Ubuntu:
 
 	cd ~/dotfiles/vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make
 
+### Setup String
+
+	git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles && cd ~/dotfiles && git submodule update --init && cd ~/dotfiles/vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make && cd
+
 ### Creating symbolic link ###
 
 	ln -s ~/dotfiles/vim/vimrc ~/.vimrc

@@ -130,10 +130,7 @@ set stl+=\[FILE=%{&ff}\|%{&enc}\|%Y]
 set stl+=\[POS=%l,%c\|%L\|%P]
 set stl+=\[ASCII=%03.3b]
 set stl+=\[HEX=%02.2B]
-
-if exists('GitBranch')
-	set stl+=[GIT=%{GitBranch()}]
-endif
+set stl+=[GIT=%{GitBranch()}]
 
 set stl+=\[F=%{foldlevel('.')}]
 

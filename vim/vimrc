@@ -5,7 +5,7 @@ set nocp
 
 " runtimepath
 " list of directories used for runtime files and plugins
-set rtp+=~/dotfiles/vim,~/dotfiles/vim/after
+set rtp+=~/dotfiles/vim,~/dotfiles/vim/after,~/dotfiles/vim/pathogen
 
 " necessary on some Linux distros for pathogen to properly load bundles
 filetype off
@@ -364,8 +364,8 @@ set vi='100,<50,s10,h,!
 " }}}
 
 " {{{ Command-T
-noremap <leader>j :CommandT<cr>
-noremap <leader>y :CommandTFlush<cr>
+noremap <silent> <leader>j :CommandT<cr>
+noremap <silent> <leader>y :CommandTFlush<cr>
 " }}}
 
 " {{{ Jump to last position of buffer when opening
@@ -444,9 +444,9 @@ map <C-l> <C-w>l
 " }}}
 
 " {{{ Camel case motion
-map <S-W> <Plug>CamelCaseMotion_w
-map <S-B> <Plug>CamelCaseMotion_b
-map <S-E> <Plug>CamelCaseMotion_e
+map <silent> <S-W> <Plug>CamelCaseMotion_w
+map <silent> <S-B> <Plug>CamelCaseMotion_b
+map <silent> <S-E> <Plug>CamelCaseMotion_e
 " }}}
 
 " {{{ Visual search mappings

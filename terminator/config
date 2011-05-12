@@ -14,11 +14,11 @@
 [profiles]
   [[default]]
     use_system_font = False
+    background_color = "#ffffd7"
     split_to_group = True
     foreground_color = "#585858"
     cursor_color = "#ededbe"
     font = Monospace 11
-    background_color = "#ffffd7"
     word_chars = "-A-Za-z0-9,./?%&#:_=+@~"
     cursor_blink = False
 [layouts]

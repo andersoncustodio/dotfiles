@@ -110,10 +110,6 @@
 	path = vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
 	ignore = dirty
-[submodule "vim/bundle/camel-case-motion"]
-	path = vim/bundle/camel-case-motion
-	url = git://github.com/bkad/CamelCaseMotion.git
-	ignore = dirty
 [submodule "vim/bundle/scss-syntax"]
 	path = vim/bundle/scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git

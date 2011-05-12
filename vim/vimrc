@@ -64,10 +64,14 @@ set ch=1
 
 " list: set (nolist|list)
 " show <Tab> as ^I and end-of-line as $ (local to window)
-set list
+if &term != "linux"
+	set list
+endif
 
 " listchars list of strings used for list mode
-set listchars=tab:▸\ ,eol:¬
+if &term != "linux"
+	set lcs=tab:▸\ ,trail:·,eol:¬,precedes:«,extends:»
+endif
 
 " number: set (nu|nonu)
 " show the line number for each line (local to window)
@@ -96,31 +100,40 @@ set sbr=
 
 " {{{ 5 syntax, highlighting and spelling
 " background "dark" or "light"; the background color brightness
-set bg=light
+if &term != "linux"
+	set bg=light
 
-" solarized
-let g:solarized_termcolors=256
-let g:solarized_visibility="low"
-colorscheme solarized
+	" solarized
+	let g:solarized_termcolors=256
+	let g:solarized_visibility="low"
+	colorscheme solarized
+endif
 
 " hlsearch set (nohls|hls)
 " highlight all matches for the last used search pattern
-set hls
-map <silent> <leader><cr> :noh<cr>
-
+set nohls
+map <silent> <leader><cr> :call NohChange()<cr>
+function NohChange()
+	if &hls == 1
+		set nohls
+	else
+		set hls
+	endif
+endf
 
 " cursorline set (nocul|cul)
 " highlight the screen line of the cursor (local to window)
 set nocul
 
 " Spell
-map ,pt :set spell spelllang=pt<cr>
-map ,en :set spell spelllang=en<cr>
-map ,ns :set nospell<cr>
+map <silent> ,pt :set spell spelllang=pt<cr>
+map <silent> ,en :set spell spelllang=en<cr>
+map <silent> ,ns :set nospell<cr>
 " }}}
 
 " {{{ 6 multiple windows
 " laststatus: set ls=[0-2]
+"
 " when to use a status line for the last window
 set ls=2
 
@@ -148,10 +161,14 @@ set tpm=1000
 " {{{ 8 terminal
 " term set term=xterm
 " name of the used terminal
-set term=xterm
+if &term != "linux"
+	set term=xterm
+endif
 
 " Colors
-set t_Co=256
+if &term != "linux"
+	set t_Co=256
+endif
 
 " ttyfast set (tf|notf)
 " terminal connection is fast
@@ -272,7 +289,7 @@ set fdn=3
 " {{{ 19 reading and writing files
 " modeline: set (ml|noml)
 " enable using settings from modelines when reading a file (local to buffer)
-set ml
+set noml
 
 " modelines: set mls=[0-9]+
 " number of lines to check for modelines
@@ -336,11 +353,11 @@ set wim=longest,list
 
 " wildignore
 " list of patterns to ignore files for file name completion
-set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,/*.mkv,*.ttf,*.TTF,*.db
-set wig+=*.wav,*.ps,*.avi,*.wmv,*.flv,*.dvi,*.rmvb,*.mov
+set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,*.mkv,*.ttf,*.TTF,*.db,*.dvi,*.aux,*.idx,*.ilg,*.ind,*.log,*.out,*.toc,*.aux
+set wig+=*.wav,*.ps,*.avi,*.wmv,*.flv,*.rmvb,*.mov
 set wig+=*.jpg,*.png,*.gif,*.bmp,*.xcf,*.psd,*.ai,*.svg
 set wig+=*.svn,.git/*
-set wig+=*.tar,*.gz,*.rar,*.zip,*.iso
+set wig+=*.tar,*.gz,*.rar,*.zip,*.iso,*.jar
 
 " command-line completion shows a list of matches
 " wildmenu set (nowmnu|wmnu)
@@ -389,7 +406,7 @@ let g:user_zen_settings = {
 " {{{ Shortcuts for tabs
 map <leader>tn :tabnew 
 map <leader>tf :tabfirst<cr>
-map <leader>tc :tabclose<cr>
+map <leader>tc :q<cr>
 map <leader>tm :tabmove 
 map <leader>tg :tabn 
 
@@ -397,43 +414,9 @@ nmap <tab> gt
 nmap <s-tab> gT
 " }}}
 
-" {{{ Sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-" }}}
-
 " {{{do not menu with left / right in command line
 cnoremap <Left> <Space><BS><Left>
 cnoremap <Right> <Space><BS><Right>
-" }}}
-
-" {{{ Easy indentation and bunbble
-" indentation multiple lines
-vmap <C-Right> >gv
-vmap <C-Left> <gv
-
-" indentation single lines
-nmap <C-Right> >>
-nmap <C-Left> <<
-
-" Bubble single lines
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-
-" Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
-" }}}
-
-" {{{ Abbreviations for your sanity
-cab W w
-cab Q q
-cab E e
-cab Wq wq
-cab wQ wq
-cab WQ wq
 " }}}
 
 " {{{ Key mapping for window navigation
@@ -441,24 +424,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" }}}
-
-" {{{ Camel case motion
-map <silent> <S-W> <Plug>CamelCaseMotion_w
-map <silent> <S-B> <Plug>CamelCaseMotion_b
-map <silent> <S-E> <Plug>CamelCaseMotion_e
-" }}}
-
-" {{{ Visual search mappings
-function! s:VSetSearch()
-	let temp = @@
-	norm! gvy
-	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-	let @@ = temp
-endfunction
-
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 " }}}
 
 " {{{ define :HighlightLongLines command to highlight the offending parts of
@@ -472,7 +437,7 @@ function! s:HighlightLongLines(width)
 		echomsg "Usage: HighlightLongLines [natural number]"
 	endif
 endfunction
-map <leader>hl :HighlightLongLines
+map <leader>hl :HighlightLongLines 
 " }}}
 
 " vim: set foldmethod=marker :

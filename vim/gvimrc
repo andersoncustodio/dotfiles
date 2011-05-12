@@ -1,7 +1,7 @@
 " {{{ 10 GUI
 " guifont
 " list of font names to be used in the GUI
-"set gfn=
+set gfn=Monospace\ 11
 
 " guioptions set go=aegimrLtT
 " list of flags that specify how the GUI works

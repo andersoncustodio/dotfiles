@@ -23,7 +23,7 @@ Tested only on Linux
 
 ### Ubuntu
 
-	$ apt-get install gvim ruby exuberant-ctags ncurses-term
+	$ apt-get install gvim ruby ruby-dev exuberant-ctags ncurses-term
 
 ## Installing
 

@@ -31,7 +31,7 @@ let g:mapleader = ","
 " {{{ 2 moving around, searching and patterns
 " whichwrap
 " list of flags specifying which commands wrap to another line (local to window)
-set ww+=<,>,h,l
+set ww+=<,>,[,],h,l
 
 " ignorecase: set (noic|ic)
 " ignore case when using a search pattern
@@ -95,7 +95,7 @@ set brk=\ \	-+;,/?\&
 
 " showbreak
 " string to put before wrapped screen lines
-set sbr=
+set sbr=...
 " }}}
 
 " {{{ 5 syntax, highlighting and spelling
@@ -126,9 +126,9 @@ endf
 set nocul
 
 " Spell
-map <silent> ,pt :set spell spelllang=pt<cr>
-map <silent> ,en :set spell spelllang=en<cr>
-map <silent> ,ns :set nospell<cr>
+map <silent> \pt :set spell spelllang=pt<cr>
+map <silent> \en :set spell spelllang=en<cr>
+map <silent> \ns :set nospell<cr>
 " }}}
 
 " {{{ 6 multiple windows
@@ -224,6 +224,20 @@ set wm=0
 " specifies how Insert mode completion works for CTRL-N and CTRL-P (local to buffer)
 set cpt=.,w,k,b,u,t,i cpt-=k cpt+=k
 
+" completeopt
+" whether to use a popup menu for Insert mode completion
+set cot=menu,longest,preview
+
+" omnifunc
+" function for filetype-specific Insert mode completion (local to buffer)
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+
 " matchtime: set mat=([0-9]|10)
 " tenth of a second to show a match for 'showmatch'
 set mat=5
@@ -243,9 +257,18 @@ set ts=4
 " number of spaces used for each step of (auto)indent (local to buffer)
 set sw=4
 
+
+" softtabstop: set sts=([0-9]+)
+" if non-zero, number of spaces to insert for a <Tab> (local to buffer)
+set sts=4
+
+" shiftround set (nosr|sr)
+" round to 'shiftwidth' for "<<" and ">>"
+set sr 
+
 " expandtab: set noet et
 " expand <Tab> to spaces in Insert mode (local to buffer)
-set noet
+set et
 
 " autoindent: set (noai|ai)
 " automatically set the indent of a new line (local to buffer)
@@ -327,7 +350,7 @@ set ar
 " {{{ 20 the swap file
 " directory
 " list of directories for the swap file
-set dir=~/.vim/tmp
+set dir=~/.tmp
 
 " swapfile: set (swf|noswf)
 " use a swap file for this buffer (local to buffer)
@@ -353,9 +376,9 @@ set wim=longest,list
 
 " wildignore
 " list of patterns to ignore files for file name completion
-set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,*.mkv,*.ttf,*.TTF,*.db,*.dvi,*.aux,*.idx,*.ilg,*.ind,*.log,*.out,*.toc,*.aux
-set wig+=*.wav,*.ps,*.avi,*.wmv,*.flv,*.rmvb,*.mov
-set wig+=*.jpg,*.png,*.gif,*.bmp,*.xcf,*.psd,*.ai,*.svg
+set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,*.ttf,*.TTF,*.db,*.dvi,*.aux,*.idx,*.ilg,*.ind,*.log,*.out,*.toc,*.aux,*.pyc,*.pyo
+set wig+=*.wav,*.ps,*.avi,*.wmv,*.flv,*.rmvb,*.mov,*.mkv,*.mp4
+set wig+=*.jpg,*.png,*.gif,*.bmp,*.ico,*.xcf,*.psd,*.ai,*.svg
 set wig+=*.svn,.git/*
 set wig+=*.tar,*.gz,*.rar,*.zip,*.iso,*.jar
 
@@ -381,8 +404,9 @@ set vi='100,<50,s10,h,!
 " }}}
 
 " {{{ Command-T
-noremap <silent> <leader>j :CommandT<cr>
-noremap <silent> <leader>y :CommandTFlush<cr>
+noremap \j :CommandT<cr>
+noremap \y :CommandTFlush<cr>
+noremap \b :CommandTBuffer<cr>
 " }}}
 
 " {{{ Jump to last position of buffer when opening
@@ -390,8 +414,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " }}}
 
 " {{{ Nerd Tree
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+silent! nmap <silent> \p :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR> 
 " }}}
 
 " {{{ Enabling Zencoding
@@ -404,14 +428,10 @@ let g:user_zen_settings = {
 " }}}
 
 " {{{ Shortcuts for tabs
-map <leader>tn :tabnew 
-map <leader>tf :tabfirst<cr>
-map <leader>tc :q<cr>
-map <leader>tm :tabmove 
-map <leader>tg :tabn 
-
-nmap <tab> gt
-nmap <s-tab> gT
+map \tn :tabnew 
+map \tm :tabmove 
+map <Tab> gt
+map <S-Tab> gT
 " }}}
 
 " {{{do not menu with left / right in command line

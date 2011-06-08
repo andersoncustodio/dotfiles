@@ -1,7 +1,7 @@
 " {{{ 10 GUI
 " guifont
 " list of font names to be used in the GUI
-set gfn=Monospace\ 11
+set gfn=Monospace\ 10
 
 " guioptions set go=aegimrLtT
 " list of flags that specify how the GUI works
@@ -9,5 +9,9 @@ set go=o
 
 " linespace
 " number of pixel lines to use between characters
-set lsp=4
+set lsp=2
+
+"When the GUI starts, t_vb is reset to its default value.
+"Reassert that no flash or beep is wanted.
+set visualbell t_vb=
 " }}}

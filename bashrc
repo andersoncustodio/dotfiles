@@ -1,45 +1,38 @@
 # Bash customisations to be syncronised between machines.
-PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\] \a$PWD\[\e[0m\]\a$(__git_ps1 " [%s]")\n\$\[\e[0m\] '
+PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]'
+PS1+=' \a$PWD\[\e[0m\]'
+[[ -x /usr/bin/git ]] && PS1+='\a$(__git_ps1 " [%s]")'
+PS1+='\n\$\[\e[0m\] '
 
-alias ls='ls --color=tty'
-alias grep='grep --colour=auto'
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
 
-alias l='ls'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
+# append history to ~\.bash_history when exiting shell
+shopt -s histappend
 
-alias las='xl ls --color=tty -la'
-
-alias catl='xl cat'
-
-alias t='tree -C'
-alias ts='xl tree -C'
-
-alias v='vim'
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# History
-export HISTCONTROL=erasedups # when adding an item to history, delete itentical commands upstream
-export HISTSIZE=10000 # save 10000 items in history
-shopt -s histappend # append history to ~\.bash_history when exiting shell
-
+export EDITOR="vim"
 
 # .. => cd ..
 # .. 2 => cd .. && cd ..
 # Changes to repos-public directory.
 # http://dpaste.org/E0aa/
 function ..() {
-	if [ "$1" == "" ]; then
-		cd ..
-	else
-		for ((i=1; i <= $1; i++)); do
-			cd ..
-		done
-	fi
+    if [ "$1" == "" ]; then
+        cd ..
+    else
+        for ((i=1; i <= $1; i++)); do
+            cd ..
+        done
+    fi
 }
 
 # Fuzzy cd
@@ -48,21 +41,16 @@ function ..() {
 # Changes to repos-public directory.
 # http://dpaste.org/qhsb/
 function cdf() {
-	p=$(echo $* | tr "/" "\n")
+    p=$(echo $* | tr "/" "\n")
 
-	if [ $(echo $1 | cut -b 1) == "/" ]; then
-		cd /*$(echo $p | cut -d " " -f 1)*/
-		p=$(echo $p | cut -d " " -f 2-)
-	fi
+    if [ $(echo $1 | cut -b 1) == "/" ]; then
+        cd /*$(echo $p | cut -d " " -f 1)*/
+        p=$(echo $p | cut -d " " -f 2-)
+    fi
 
-	for f in $p; do
-		cd *$f*/
-	done
+    for f in $p; do
+        cd *$f*/
+    done
 }
 
-# x command | less -R
-# Changes to repos-public directory.
-# http://dpaste.org/TeF8/
-function xl() {
-	$* | less -R
-}
+# vim:et:sw=4:ts=4

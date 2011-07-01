@@ -1,7 +1,14 @@
+# rvm use
+function rvm_ps1() {
+    RVMP=`rvm-prompt i v`
+    [[ $RVMP != '' ]] && echo ' ('$RVMP')'
+}
+
 # Bash customisations to be syncronised between machines.
 PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]'
 PS1+=' \a$PWD\[\e[0m\]'
-[[ -x /usr/bin/git ]] && PS1+='\a$(__git_ps1 " [%s]")'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && PS1+='`rvm_ps1`'
+[[ -s '/usr/bin/git' ]] && PS1+='\a$(__git_ps1 " [%s]")'
 PS1+='\n\$\[\e[0m\] '
 
 # don't put duplicate lines in the history. See bash(1) for more options

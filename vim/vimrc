@@ -143,8 +143,7 @@ set stl+=\[FILE=%{&ff}\|%{&enc}\|%Y]
 set stl+=\[POS=%l,%c\|%L\|%P]
 set stl+=\[ASCII=%03.3b]
 set stl+=\[HEX=%02.2B]
-set stl+=[GIT=%{GitBranch()}]
-
+set stl+=\[GIT=%{GitBranch()}]
 set stl+=\[F=%{foldlevel('.')}]
 
 " hidden: set (nohi|dhid)
@@ -256,7 +255,6 @@ set ts=4
 " shiftwidth: set sw=([0-9]+)
 " number of spaces used for each step of (auto)indent (local to buffer)
 set sw=4
-
 
 " softtabstop: set sts=([0-9]+)
 " if non-zero, number of spaces to insert for a <Tab> (local to buffer)

@@ -9,7 +9,6 @@ Tested only on Linux
 * http://aurelio.net/doc/dotfiles/vimrc.txt
 * http://github.com/scrooloose/vimfiles
 * http://vimcasts.org
-* http://github.com/akitaonrails/vimfiles
 * http://snipt.net/voyeg3r/tag/vimrc
 * http://github.com/jceb/vimrc/
 * http://github.com/nelstrom/dotfiles
@@ -19,11 +18,11 @@ Tested only on Linux
 
 ### Arch Linux
 
-	$ pacman -S gvim ruby ctags ncurses
+	# pacman -S gvim ruby ctags ncurses
 
 ### Ubuntu
 
-	$ apt-get install gvim ruby ruby-dev exuberant-ctags ncurses-term
+	$ sudo apt-get install vim-gtk ruby ruby-dev exuberant-ctags ncurses-term
 
 ## Installing
 
@@ -47,6 +46,7 @@ Tested only on Linux
 ### Creating symbolic link
 
 	ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+	ln -s ~/dotfiles/vim/gvimrc ~/.gvimrc
 	ln -s ~/dotfiles/gitconfig ~/.gitconfig 
 	ln -s ~/dotfiles/bashrc ~/.bashrc
 

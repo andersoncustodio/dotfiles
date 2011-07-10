@@ -1,4 +1,5 @@
 # rvm use
+RVM_PATH="$HOME/.rvm/scripts/rvm"
 function rvm_ps1() {
     RVMP=`rvm-prompt i v`
     [[ $RVMP != '' ]] && echo ' ('$RVMP')'
@@ -7,7 +8,7 @@ function rvm_ps1() {
 # Bash customisations to be syncronised between machines.
 PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]'
 PS1+=' \a$PWD\[\e[0m\]'
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && PS1+='`rvm_ps1`'
+[[ -s $RVM_PATH ]] && source $RVM_PATH && PS1+='`rvm_ps1`'
 [[ -s '/usr/bin/git' ]] && PS1+='\a$(__git_ps1 " [%s]")'
 PS1+='\n\$\[\e[0m\] '
 

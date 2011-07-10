@@ -26,6 +26,9 @@ filetype indent on
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
+
+" matchpairs
+let b:delimitMate_matchpairs = '(:),[:],{:}'
 " }}}
 
 " {{{ 2 moving around, searching and patterns
@@ -229,13 +232,13 @@ set cot=menu,longest,preview
 
 " omnifunc
 " function for filetype-specific Insert mode completion (local to buffer)
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
+au FileType python setl omnifunc=pythoncomplete#Complete
+au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+au FileType html setl omnifunc=htmlcomplete#CompleteTags
+au FileType css setl omnifunc=csscomplete#CompleteCSS
+au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+au FileType php setl omnifunc=phpcomplete#CompletePHP
+au FileType c setl omnifunc=ccomplete#Complete
 
 " matchtime: set mat=([0-9]|10)
 " tenth of a second to show a match for 'showmatch'
@@ -266,7 +269,7 @@ set sr
 
 " expandtab: set noet et
 " expand <Tab> to spaces in Insert mode (local to buffer)
-set et
+set noet
 
 " autoindent: set (noai|ai)
 " automatically set the indent of a new line (local to buffer)
@@ -287,6 +290,10 @@ set noci
 " preserveindent: set (nopi|pi)
 " preserve kind of whitespace when changing indent (local to buffer)
 set nopi
+
+" tab by type
+au FileType *ruby setl et ts=2 sw=2 sts=2
+au FileType python setl et
 " }}}
 
 " {{{ 16 folding: set (fen|nofen)

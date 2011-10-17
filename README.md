@@ -18,11 +18,11 @@ Tested only on Linux
 
 ### Arch Linux
 
-	# pacman -S gvim ruby ctags ncurses
+	# pacman -S git gvim ctags ncurses curl
 
 ### Ubuntu
 
-	$ sudo apt-get install vim-gtk ruby ruby-dev exuberant-ctags ncurses-term
+	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl
 
 ## Installing
 
@@ -39,17 +39,18 @@ Tested only on Linux
 	cd ~/dotfiles
 	git submodule update --init
 
-### Installing Command-T
-
-	cd ~/dotfiles/vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make
-
 ### Creating symbolic link
 
 	ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 	ln -s ~/dotfiles/vim/gvimrc ~/.gvimrc
+	echo "source ~/dotfiles/bashrc" >> ~/.bashrc
 	ln -s ~/dotfiles/gitconfig ~/.gitconfig 
-	ln -s ~/dotfiles/bashrc ~/.bashrc
+
+### Update submodules
+
+    git submodule foreach git checkout master
+    git submodule foreach git pull
 
 ## Setup String
 
-	git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles && cd ~/dotfiles && git submodule update --init && cd ~/dotfiles/vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make && cd
+	git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles && cd ~/dotfiles && git submodule update --init

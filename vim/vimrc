@@ -72,8 +72,10 @@ if &term != "linux"
 endif
 
 " listchars list of strings used for list mode
-if &term != "linux"
+if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
 	set lcs=tab:▸\ ,trail:·,eol:¬,precedes:«,extends:»
+else
+	set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
 endif
 
 " number: set (nu|nonu)
@@ -269,7 +271,7 @@ set sr
 
 " expandtab: set noet et
 " expand <Tab> to spaces in Insert mode (local to buffer)
-set noet
+set et
 
 " autoindent: set (noai|ai)
 " automatically set the indent of a new line (local to buffer)
@@ -292,8 +294,7 @@ set noci
 set nopi
 
 " tab by type
-au FileType *ruby setl et ts=2 sw=2 sts=2
-au FileType python setl et
+au FileType *ruby setl ts=2 sw=2 sts=2
 " }}}
 
 " {{{ 16 folding: set (fen|nofen)
@@ -381,11 +382,7 @@ set wim=longest,list
 
 " wildignore
 " list of patterns to ignore files for file name completion
-set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,*.ttf,*.TTF,*.db,*.dvi,*.aux,*.idx,*.ilg,*.ind,*.log,*.out,*.toc,*.aux,*.pyc,*.pyo
-set wig+=*.wav,*.ps,*.avi,*.wmv,*.flv,*.rmvb,*.mov,*.mkv,*.mp4
-set wig+=*.jpg,*.png,*.gif,*.bmp,*.ico,*.xcf,*.psd,*.ai,*.svg
-set wig+=*.svn,.git/*
-set wig+=*.tar,*.gz,*.rar,*.zip,*.iso,*.jar
+set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,*.ttf,*.TTF,*.db,*.dvi,*.aux,*.idx,*.ilg,*.ind,*.log,*.out,*.,*.wav,*.ps,*.avi,*.wmv,*.flv,*.rmvb,*.mov,*.mkv,*.mp4,*.jpg,*.png,*.gif,*.bmp,*.ico,*.xcf,*.psd,*.ai,*.svg,*.svn,.git/*,*.tar,*.gz,*.rar,*.zip,*.iso,*.jar
 
 " command-line completion shows a list of matches
 " wildmenu set (nowmnu|wmnu)
@@ -393,6 +390,11 @@ set	wmnu
 " }}}
 
 " {{{ 25 multi-byte characters
+" encoding
+" character encoding used in Vim: "latin1", "utf-8"
+" euc-jp", "big5", etc.
+set enc=utf-8
+
 " fileencodings
 " automatically detected character encodings
 set fencs=ucs-bom,utf-8,latin1,cp850,default
@@ -408,10 +410,17 @@ map <leader>r :MRU<CR>
 set vi='100,<50,s10,h,!
 " }}}
 
-" {{{ Command-T
-noremap \j :CommandT<cr>
-noremap \y :CommandTFlush<cr>
-noremap \b :CommandTBuffer<cr>
+" {{{ ctrlp
+if has("win32")
+	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+else
+	let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+endif
+" }}}
+
+" {{{ Tabularize
+nmap \a :Tabularize /
+vmap \a :Tabularize /
 " }}}
 
 " {{{ Jump to last position of buffer when opening
@@ -465,4 +474,4 @@ endfunction
 map <leader>hl :HighlightLongLines 
 " }}}
 
-" vim: set foldmethod=marker :
+" vim:noet:foldmethod=marker

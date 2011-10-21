@@ -172,3 +172,23 @@
 	path = vim/bundle/css3-syntax
 	url = git://github.com/hail2u/vim-css3-syntax.git
 	ignore = dirty
+[submodule "vim/bundle/grep"]
+	path = vim/bundle/grep
+	url = git://github.com/vim-scripts/grep.vim.git
+	ignore = dirty
+[submodule "vim/bundle/abolish"]
+	path = vim/bundle/abolish
+	url = git://github.com/tpope/vim-abolish.git
+	ignore = dirty
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+	ignore = dirty
+[submodule "vim/bundle/session"]
+	path = vim/bundle/session
+	url = git://github.com/xolox/vim-session.git
+	ignore = dirty
+[submodule "vim/bundle/shell"]
+	path = vim/bundle/shell
+	url = git://github.com/xolox/vim-shell.git
+	ignore = dirty

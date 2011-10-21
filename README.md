@@ -1,7 +1,5 @@
 # dotfiles acustodioo
 
-Tested only on Linux
-
 ## References
 
 * http://github.com/rtomayko/dotfiles
@@ -18,11 +16,11 @@ Tested only on Linux
 
 ### Arch Linux
 
-	# pacman -S git gvim ctags ncurses curl
+	# pacman -S git gvim ctags ncurses curl wmctrl
 
 ### Ubuntu
 
-	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl
+	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl wmctrl
 
 ## Installing
 
@@ -32,12 +30,7 @@ Tested only on Linux
 
 ### Cloning repository
 
-	git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles
-
-### Initializing and updating submodules
-
-	cd ~/dotfiles
-	git submodule update --init
+	git clone --recursive git://github.com/acustodioo/dotfiles.git ~/dotfiles
 
 ### Creating symbolic link
 
@@ -48,9 +41,7 @@ Tested only on Linux
 
 ### Update submodules
 
-    git submodule foreach git checkout master
-    git submodule foreach git pull
+	git submodule foreach git checkout master
+	git submodule foreach git pull
 
-## Setup String
-
-	git clone git://github.com/acustodioo/dotfiles.git ~/dotfiles && cd ~/dotfiles && git submodule update --init
+<!-- vim:noet -->

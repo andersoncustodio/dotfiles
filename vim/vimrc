@@ -25,10 +25,10 @@ let g:NERDSpaceDelims = 1
 
 " Session
 let g:session_directory = '~/.tmp'
-let g:shell_fullscreen_items = 'm'
 let g:session_autoload = 'no'
 
 " Shell
+let g:shell_fullscreen_items = 'm'
 map <Leader>fs :Fullscreen<CR>
 map <Leader>op :Open<CR>
 

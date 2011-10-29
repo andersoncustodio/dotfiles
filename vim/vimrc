@@ -4,7 +4,6 @@
 set nocp
 
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
@@ -27,12 +26,19 @@ let g:NERDSpaceDelims = 1
 let g:session_directory = '~/.tmp'
 let g:session_autoload = 'no'
 
+" Ctrlp
+let g:ctrlp_working_path_mode = 0
+map <silent><leader><C-p> :ClearCtrlPCache<CR>:CtrlP<CR>
+
 " Shell
 let g:shell_fullscreen_items = 'm'
 map <Leader>fs :Fullscreen<CR>
 map <Leader>op :Open<CR>
 
-" matchpairs
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+
+" Matchpairs
 let b:delimitMate_matchpairs = '(:),[:],{:}'
 
 " necessary on some Linux distros for pathogen to properly load bundles
@@ -134,14 +140,7 @@ endif
 " hlsearch set (nohls|hls)
 " highlight all matches for the last used search pattern
 set nohls
-map <silent> <leader><cr> :call NohChange()<cr>
-function NohChange()
-	if &hls == 1
-		set nohls
-	else
-		set hls
-	endif
-endf
+map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
 
 " cursorline set (nocul|cul)
 " highlight the screen line of the cursor (local to window)
@@ -161,11 +160,13 @@ set ls=2
 
 " statusline
 " alternate format to be used for a status line
-set stl+=\[FILE=%{&ff}\|%{&enc}\|%Y]
+set stl+=\[FILE=%{&ff}\|%{&fenc}\|%Y]
 set stl+=\[POS=%l,%c\|%L\|%P]
 set stl+=\[ASCII=%03.3b]
 set stl+=\[HEX=%02.2B]
+set stl+=\[UTF-8=0x%B]
 set stl+=\[GIT=%{GitBranch()}]
+set stl+=\[RVM=%{exists('g:loaded_rvm')?rvm#statusline():''}]
 set stl+=\[F=%{foldlevel('.')}]
 
 " hidden: set (nohi|dhid)
@@ -232,6 +233,11 @@ set novb
 " }}}
 
 " {{{ 14 editing text
+
+" textwidth
+" line length above which to break a line (local to buffer)
+set tw=150
+
 " backspace
 " specifies what <BS>, CTRL-W, etc. can do in Insert mode
 set bs=indent,eol,start
@@ -253,16 +259,6 @@ set cpt=.,w,k,b,u,t,i cpt-=k cpt+=k
 " whether to use a popup menu for Insert mode completion
 set cot=menu,longest,preview
 
-" omnifunc
-" function for filetype-specific Insert mode completion (local to buffer)
-au FileType python setl omnifunc=pythoncomplete#Complete
-au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
-au FileType html setl omnifunc=htmlcomplete#CompleteTags
-au FileType css setl omnifunc=csscomplete#CompleteCSS
-au FileType xml setl omnifunc=xmlcomplete#CompleteTags
-au FileType php setl omnifunc=phpcomplete#CompletePHP
-au FileType c setl omnifunc=ccomplete#Complete
-
 " matchtime: set mat=([0-9]|10)
 " tenth of a second to show a match for 'showmatch'
 set mat=5
@@ -281,6 +277,10 @@ set ts=4
 " shiftwidth: set sw=([0-9]+)
 " number of spaces used for each step of (auto)indent (local to buffer)
 set sw=4
+
+" smarttaba set (nosta|sta)
+" <Tab> in an indent inserts 'shiftwidth' spaces
+set sta
 
 " softtabstop: set sts=([0-9]+)
 " if non-zero, number of spaces to insert for a <Tab> (local to buffer)
@@ -314,7 +314,7 @@ set noci
 " preserve kind of whitespace when changing indent (local to buffer)
 set nopi
 
-" tab by type
+" {{{ Tab by type
 au FileType *ruby setl ts=2 sw=2 sts=2
 " }}}
 
@@ -344,6 +344,11 @@ set noml
 " modelines: set mls=[0-9]+
 " number of lines to check for modelines
 set mls=5
+
+
+" bomb set (nobomb|bomb)
+" prepend a Byte Order Mark to the file (local to buffer)
+set nobomb
 
 " fileformat
 " end-of-line format: "dos", "unix" or "mac" (local to buffer)
@@ -407,7 +412,14 @@ set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pd
 
 " command-line completion shows a list of matches
 " wildmenu set (nowmnu|wmnu)
-set	wmnu
+set wmnu
+
+" automatically save and restore undo history
+" undofile set (noudf|udf)
+set udf
+
+" undodir list of directories for undo files
+set udir=~/.tmp
 " }}}
 
 " {{{ 25 multi-byte characters
@@ -416,6 +428,10 @@ set	wmnu
 " euc-jp", "big5", etc.
 set enc=utf-8
 
+" fileencoding
+" character encoding for the current file (local to buffer)
+set fenc=utf-8
+
 " fileencodings
 " automatically detected character encodings
 set fencs=ucs-bom,utf-8,latin1,cp850,default
@@ -423,12 +439,18 @@ set fencs=ucs-bom,utf-8,latin1,cp850,default
 
 " {{{ MRU plugin
 let MRU_Max_Entries = 400
-map <leader>r :MRU<CR>
+map <leader>mr :MRU<CR>
 " }}}
 
 " {{{ 26 various
 " viminfo list that specifies what to write in the viminfo file
 set vi='100,<50,s10,h,!
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<CR>:pwd<CR>
 " }}}
 
 " {{{ Tabularize
@@ -442,6 +464,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 
 " {{{ Nerd Tree
 nmap <silent> <f2> :NERDTreeToggle<CR>
+nmap <silent> <f3> :TagbarToggle<CR>
 " }}}
 
 " {{{ Enabling Zencoding

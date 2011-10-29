@@ -1,3 +1,6 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # rvm use
 RVM_PATH="$HOME/.rvm/scripts/rvm"
 function rvm_ps1() {
@@ -29,10 +32,19 @@ shopt -s checkwinsize
 
 export EDITOR="vim"
 
+# put ~/bin on PATH if you have it
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+
+# disk usage with human sizes and minimal depth
+alias du1='du -h --max-depth=1'
+alias fn='find . -name'
+alias hi='history | tail -20'
+
+# notify of bg job completion immediately
+set -o notify
+
 # .. => cd ..
 # .. 2 => cd .. && cd ..
-# Changes to repos-public directory.
-# http://dpaste.org/E0aa/
 function ..() {
     if [ "$1" == "" ]; then
         cd ..
@@ -46,8 +58,6 @@ function ..() {
 # Fuzzy cd
 # Usage:
 # cdf public
-# Changes to repos-public directory.
-# http://dpaste.org/qhsb/
 function cdf() {
     p=$(echo $* | tr "/" "\n")
 

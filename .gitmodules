@@ -48,17 +48,9 @@
 	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 	ignore = dirty
-[submodule "vim/bundle/zencode"]
-	path = vim/bundle/zencode
-	url = git://github.com/mattn/zencoding-vim.git
-	ignore = dirty
 [submodule "vim/bundle/git"]
 	path = vim/bundle/git
 	url = git://github.com/motemen/git-vim.git
-	ignore = dirty
-[submodule "vim/bundle/php-html-enhanced"]
-	path = vim/bundle/php-html-enhanced
-	url = git://github.com/acustodioo/php.vim-html-enhanced.git
 	ignore = dirty
 [submodule "vim/bundle/coffee-script"]
 	path = vim/bundle/coffee-script
@@ -94,7 +86,7 @@
 	ignore = dirty
 [submodule "vim/bundle/snipmate-snippets"]
 	path = vim/bundle/snipmate-snippets
-	url = git://github.com/acustodioo/snipmate-snippets.git
+	url = git://github.com/acustodioo/vim-snippets.git
 	ignore = dirty
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
@@ -102,7 +94,7 @@
 	ignore = dirty
 [submodule "vim/bundle/ragtag"]
 	path = vim/bundle/ragtag
-	url = git://github.com/acustodioo/vim-ragtag.git
+	url = git://github.com/tpope/vim-ragtag.git
 	ignore = dirty
 [submodule "vim/bundle/align"]
 	path = vim/bundle/align
@@ -158,7 +150,7 @@
 	ignore = dirty
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular
+	url = git://github.com/godlygeek/tabular.git
 	ignore = dirty
 [submodule "vim/bundle/html5"]
 	path = vim/bundle/html5
@@ -204,7 +196,35 @@
 	path = vim/bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
 	ignore = dirty
-[submodule "vim/bundle/repmo"]
-	path = vim/bundle/repmo
-	url = git://github.com/vim-scripts/repmo.vim.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
+	ignore = dirty
+[submodule "vim/bundle/ack"]
+	path = vim/bundle/ack
+	url = git://github.com/mileszs/ack.vim.git
+	ignore = dirty
+[submodule "vim/bundle/rvm"]
+	path = vim/bundle/rvm
+	url = git://github.com/tpope/vim-rvm.git
+	ignore = dirty
+[submodule "vim/bundle/activity-log"]
+	path = vim/bundle/activity-log
+	url = git://github.com/AD7six/vim-activity-log.git
+	ignore = dirty
+[submodule "vim/bundle/repeat"]
+	path = vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
+	ignore = dirty
+[submodule "vim/bundle/endwise"]
+	path = vim/bundle/endwise
+	url = git://github.com/tpope/vim-endwise.git
+	ignore = dirty
+[submodule "vim/bundle/easymotion"]
+	path = vim/bundle/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
+	ignore = dirty
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
 	ignore = dirty

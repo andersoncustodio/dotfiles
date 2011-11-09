@@ -9,7 +9,7 @@ let g:mapleader = ","
 
 " runtimepath
 " list of directories used for runtime files and plugins
-set rtp+=~/dotfiles/vim,~/dotfiles/vim/after,~/dotfiles/vim/pathogen
+set rtp+=~/.vim,~/.vim/after,~/.vim/pathogen
 
 "syntastic settings
 let g:syntastic_enable_signs=1
@@ -226,6 +226,10 @@ set smd
 " report
 " threshold for reporting number of changed lines
 set report=2
+
+" confirm set (nocf|cf)
+" start a dialog when a command fails
+set cf
 
 " visualbell set (novb|vb)
 " use a visual bell instead of beeping

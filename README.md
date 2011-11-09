@@ -30,14 +30,7 @@
 
 ### Cloning repository
 
-	git clone --recursive git://github.com/acustodioo/dotfiles.git ~/dotfiles
-
-### Creating symbolic link
-
-	ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-	ln -s ~/dotfiles/vim/gvimrc ~/.gvimrc
-	echo "source ~/dotfiles/bashrc" >> ~/.bashrc
-	ln -s ~/dotfiles/gitconfig ~/.gitconfig 
+	git clone --recursive git://github.com/acustodioo/dotfiles.git
 
 ### Update submodules
 

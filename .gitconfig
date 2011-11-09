@@ -14,10 +14,6 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	ls = ls-files
 	dcommit = svn dcommit --rmdir --verbose
-    sb = submodule
-    sba = submodule add
-    sbp = submodule foreach git pull
-    sbs = submodule status
 
 	; Show files ignored by git
 	ign = ls-files -o -i --exclude-standard
@@ -36,3 +32,5 @@
 	smtpserverport = 587
 	smtpencryption = tls
 	smtpuser = acustodioo@gmail.com
+
+# vim:noet

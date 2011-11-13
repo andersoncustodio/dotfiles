@@ -24,16 +24,13 @@
 
 ## Installing
 
-### Creating folder for temporary files
-
-	mkdir ~/.tmp
-
 ### Cloning repository
 
 	git clone --recursive git://github.com/acustodioo/dotfiles.git
 
 ### Update submodules
 
+	git submodule foreach cheackout master
 	git submodule foreach git pull
 
 <!-- vim:noet -->

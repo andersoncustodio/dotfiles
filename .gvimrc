@@ -4,7 +4,7 @@
 if has("mac")
 	set gfn=Monaco:h12
 elseif has("unix")
-	if &guifont == ""
+	if &gfn == ""
 		set gfn=bitstream\ vera\ sans\ mono\ 11
 	endif
 elseif has("win32")

@@ -11,24 +11,46 @@ let g:mapleader = ","
 " list of directories used for runtime files and plugins
 set rtp+=~/.vim,~/.vim/after,~/.vim/pathogen
 
-"syntastic settings
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=2
+" Create tmp directorys
+if !isdirectory(expand('~/.vim-tmp'))
+	call mkdir(expand('~/.vim-tmp/backup'), 'p')
+	call mkdir(expand('~/.vim-tmp/swap'), 'p')
+	call mkdir(expand('~/.vim-tmp/undo'), 'p')
+	call mkdir(expand('~/.vim-tmp/session'), 'p')
+endif
 
-"nerdtree settings
+" Syntastic settings
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 2
+
+" Nerdtree settings
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
+
+" Indent guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 " NERD_commenter
 let g:NERDSpaceDelims = 1
 
+" PHP
+let g:PHP_default_indenting = 0
+
 " Session
-let g:session_directory = '~/.tmp'
+let g:session_directory = '~/.vim-tmp/session'
 let g:session_autoload = 'no'
 
 " Ctrlp
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_cache_dir = '~/.vim-tmp/ctrlp'
 map <silent><leader><C-p> :ClearCtrlPCache<CR>:CtrlP<CR>
+
+if !has('win32')
+	set wig+=*/.git/*,*/.hg/*,*/.svn/*
+else
+	set wig+=.git\*,.hg\*,.svn\* 
+endif
 
 " Shell
 let g:shell_fullscreen_items = 'm'
@@ -45,7 +67,7 @@ let b:delimitMate_matchpairs = '(:),[:],{:}'
 filetype off
 
 " Load pathogen managed plugins
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 " Enable filetype
@@ -90,16 +112,11 @@ set ch=1
 
 " list: set (nolist|list)
 " show <Tab> as ^I and end-of-line as $ (local to window)
-if &term != "linux"
-	set list
-endif
+set list
+map <silent> <leader>li :set list!<bar>set nolist?<cr>
 
 " listchars list of strings used for list mode
-if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
-	set lcs=tab:▸\ ,trail:·,eol:¬,precedes:«,extends:»
-else
-	set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
-endif
+set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
 
 " number: set (nu|nonu)
 " show the line number for each line (local to window)
@@ -128,12 +145,12 @@ set sbr=...
 
 " {{{ 5 syntax, highlighting and spelling
 " background "dark" or "light"; the background color brightness
-if &term != "linux"
+if &term != 'linux' && &term != 'win32'
 	set bg=light
 
 	" solarized
 	let g:solarized_termcolors=256
-	let g:solarized_visibility="low"
+	let g:solarized_visibility='low'
 	colorscheme solarized
 endif
 
@@ -160,14 +177,29 @@ set ls=2
 
 " statusline
 " alternate format to be used for a status line
-set stl+=\[FILE=%{&ff}\|%{&fenc}\|%Y]
-set stl+=\[POS=%l,%c\|%L\|%P]
-set stl+=\[ASCII=%03.3b]
-set stl+=\[HEX=%02.2B]
-set stl+=\[UTF-8=0x%B]
-set stl+=\[GIT=%{GitBranch()}]
-set stl+=\[RVM=%{exists('g:loaded_rvm')?rvm#statusline():''}]
-set stl+=\[F=%{foldlevel('.')}]
+fun! RVM_Status()
+	let rvm = exists('g:loaded_rvm')?rvm#string():''
+	if  rvm != ''
+		return ' RVM(' . rvm . ') '
+	else
+		return ''
+	endif
+endf
+
+fun! FugitiveStatus()
+	let branch = GitBranch()
+
+	if branch != ''
+		return ' GIT(' . GitBranch() . ') '
+	else
+		return ''
+	endif
+endf
+
+set stl+=\FILE(%{&ff}\|%{&fenc}\|%Y)
+set stl+=\ POS(%l,%c\|%L\|%P)
+set stl+=\%{FugitiveStatus()}
+set stl+=\%{RVM_Status()}
 
 " hidden: set (nohi|dhid)
 " don't unload a buffer when no longer shown in a window
@@ -183,14 +215,9 @@ set tpm=1000
 " {{{ 8 terminal
 " term set term=xterm
 " name of the used terminal
-if &term != "linux"
-	set term=xterm
-endif
-
+" set term=xterm
 " Colors
-if &term != "linux"
-	set t_Co=256
-endif
+set t_Co=256
 
 " ttyfast set (tf|notf)
 " terminal connection is fast
@@ -319,7 +346,7 @@ set noci
 set nopi
 
 " {{{ Tab by type
-au FileType *ruby setl ts=2 sw=2 sts=2
+au FileType ruby setl ts=2 sw=2 sts=2
 " }}}
 
 " {{{ 16 folding: set (fen|nofen)
@@ -364,7 +391,7 @@ set ffs=unix,mac,dos
 
 " autowrite: set (noaw|aw)
 " automatically write a file when leaving a modified buffer
-set aw
+set noaw
 
 " backup: set (nobk|bk)
 " keep a backup after overwriting a file
@@ -372,11 +399,11 @@ set nobk
 
 " backupskip
 " patterns that specify for which files a backup is not made
-set bsk=~/.tmp/*
+" set bsk=~/.tmp/*
 
 " backupdir
 " list of directories to put backup files in
-set bdir=~/.tmp
+set bdir=~/.vim-tmp/backup
 
 " autoread: set (noar|ar)
 " automatically read a file when it was modified outside of Vim (global or local to buffer)
@@ -386,11 +413,11 @@ set ar
 " {{{ 20 the swap file
 " directory
 " list of directories for the swap file
-set dir=~/.tmp
+set dir=~/.vim-tmp/swap
 
 " swapfile: set (swf|noswf)
 " use a swap file for this buffer (local to buffer)
-set noswf
+set swf
 
 " updatecount
 " number of characters typed to cause a swap file update
@@ -423,7 +450,7 @@ set wmnu
 set udf
 
 " undodir list of directories for undo files
-set udir=~/.tmp
+set udir=~/.vim-tmp/undo
 " }}}
 
 " {{{ 25 multi-byte characters
@@ -453,8 +480,17 @@ set vi='100,<50,s10,h,!
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+map Y y$
+
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" remap the Home key to behave like ^
+map <silent> <Home> ^
+imap <silent> <Home> <Esc>^i
+
+" trim
+map <silent> \tr :%s/\s*$//<CR>
 " }}}
 
 " {{{ Tabularize
@@ -469,15 +505,6 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " {{{ Nerd Tree
 nmap <silent> <f2> :NERDTreeToggle<CR>
 nmap <silent> <f3> :TagbarToggle<CR>
-" }}}
-
-" {{{ Enabling Zencoding
-let g:user_zen_settings = {
-	\ 'php'  : {'extends' : 'html', 'filters' : 'c'},
-	\ 'xml'  : {'extends' : 'html'},
-	\ 'haml' : {'extends' : 'html'},
-	\ 'erb'  : {'extends' : 'html'},
-\}
 " }}}
 
 " {{{ Shortcuts for tabs
@@ -512,5 +539,11 @@ function! s:HighlightLongLines(width)
 endfunction
 map <leader>hl :HighlightLongLines 
 " }}}
+
+let g:snipMate = {
+	\ 'php': 'php,php-html,html,javascript',
+	\ 'ruby': 'ruby-rails,html,javascript',
+	\ 'eruby': 'eruby-rails,html,javascript',
+	\ }
 
 " vim:noet:foldmethod=marker

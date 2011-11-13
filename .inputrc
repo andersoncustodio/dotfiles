@@ -1,0 +1,26 @@
+# do not bell on tab-completion
+set bell-style bell
+
+set expand-tilde off
+set input-meta off
+set convert-meta on
+set output-meta off
+set horizontal-scroll-mode off
+set history-preserve-point on
+set mark-directories on
+set mark-symlinked-directories on
+set match-hidden-files on
+
+# completion settings
+set page-completions off
+set completion-query-items 2000
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set completion-prefix-display-length 10
+set print-completions-horizontally off
+
+# Use Vi mode
+set editing-mode vi
+set -o mode-keys vi
+set -o status-keys vi

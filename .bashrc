@@ -4,9 +4,8 @@
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# put ~/bin on PATH if you have it
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
 # rvm use
 RVM_PATH="$HOME/.rvm/scripts/rvm"
@@ -19,7 +18,7 @@ function rvm_ps1() {
 PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]'
 PS1+=' \a$PWD\[\e[0m\]'
 [[ -s $RVM_PATH ]] && source $RVM_PATH && PS1+='`rvm_ps1`'
-[[ -s '/usr/bin/git' ]] && PS1+='\a$(__git_ps1 " [%s]")'
+[[ __git_ps1 ]] && PS1+='\a$(__git_ps1 " [%s]")'
 PS1+='\n\$\[\e[0m\] '
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -39,39 +38,20 @@ shopt -s checkwinsize
 
 export EDITOR="vim"
 
-# put ~/bin on PATH if you have it
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
-
-# notify of bg job completion immediately
-set -o notify
+# for tmux: export 256color
+export TERM=xterm-256color
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[[ -f ~/.bash/aliases ]] && source ~/.bash/aliases
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
+[[ -f /etc/bash_completion ]] && ! shopt -oq posix && source /etc/bash_completion
 
-# .. => cd ..
-# .. 2 => cd .. && cd ..
-function ..() {
-    if [ "$1" == "" ]; then
-        cd ..
-    else
-        for ((i=1; i <= $1; i++)); do
-            cd ..
-        done
-    fi
-}
+# Autocomplete
+[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
+[[ -r ~/.bash/completion/rails/rails.bash ]] && source ~/.bash/completion/rails/rails.bash
 
 # Fuzzy cd
 # Usage:

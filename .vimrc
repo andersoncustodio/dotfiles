@@ -22,6 +22,7 @@ endif
 " Syntastic settings
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
+let g:syntastic_auto_jump = 1
 
 " Nerdtree settings
 let g:NERDTreeMouseMode = 2
@@ -40,6 +41,7 @@ let g:PHP_default_indenting = 0
 " Session
 let g:session_directory = '~/.vim-tmp/session'
 let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
 
 " Ctrlp
 let g:ctrlp_working_path_mode = 0
@@ -57,11 +59,17 @@ let g:shell_fullscreen_items = 'm'
 map <Leader>fs :Fullscreen<CR>
 map <Leader>op :Open<CR>
 
+" Easy Motion
+let g:EasyMotion_leader_key = ';'
+
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
 " Matchpairs
 let b:delimitMate_matchpairs = '(:),[:],{:}'
+
+" Lusty
+let g:LustyExplorerSuppressRubyWarning = 1
 
 " necessary on some Linux distros for pathogen to properly load bundles
 filetype off
@@ -163,6 +171,10 @@ map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
 " highlight the screen line of the cursor (local to window)
 set nocul
 
+" colorcolumn set cc=[0-9]
+" columns to highlight (local to window)
+map \cc :set cc=79
+
 " Spell
 map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
@@ -171,34 +183,23 @@ map <silent> \ns :set nospell<cr>
 
 " {{{ 6 multiple windows
 " laststatus: set ls=[0-2]
-"
 " when to use a status line for the last window
 set ls=2
 
 " statusline
 " alternate format to be used for a status line
 fun! RVM_Status()
-	let rvm = exists('g:loaded_rvm')?rvm#string():''
-	if  rvm != ''
-		return ' RVM(' . rvm . ') '
-	else
-		return ''
-	endif
+	let rvm = exists('g:loaded_rvm') ? rvm#string() : ''
+	return rvm != '' ? ' RVM(' . rvm . ') ' : ''
 endf
 
-fun! FugitiveStatus()
-	let branch = GitBranch()
-
-	if branch != ''
-		return ' GIT(' . GitBranch() . ') '
-	else
-		return ''
-	endif
+fun! Git_Status()
+	return substitute(fugitive#statusline(), ',', ' ', 'g')
 endf
 
-set stl+=\FILE(%{&ff}\|%{&fenc}\|%Y)
+set stl=\FILE(%{&ff}\|%{&fenc}\|%Y)
 set stl+=\ POS(%l,%c\|%L\|%P)
-set stl+=\%{FugitiveStatus()}
+set stl+=\%{Git_Status()}
 set stl+=\%{RVM_Status()}
 
 " hidden: set (nohi|dhid)
@@ -441,6 +442,10 @@ set wim=longest,list
 " list of patterns to ignore files for file name completion
 set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pdf,*.chm,*.ttf,*.TTF,*.db,*.dvi,*.aux,*.idx,*.ilg,*.ind,*.log,*.out,*.,*.wav,*.ps,*.avi,*.wmv,*.flv,*.rmvb,*.mov,*.mkv,*.mp4,*.jpg,*.png,*.gif,*.bmp,*.ico,*.xcf,*.psd,*.ai,*.svg,*.svn,.git/*,*.tar,*.gz,*.rar,*.zip,*.iso,*.jar
 
+" wildignorecase set (nowic|wic)
+" ignore case when completing file names
+if !has('win32') | set wic | endif
+
 " command-line completion shows a list of matches
 " wildmenu set (nowmnu|wmnu)
 set wmnu
@@ -524,20 +529,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" }}}
-
-" {{{ define :HighlightLongLines command to highlight the offending parts of
-" lines that are longer than the specified length (defaulting to 80)
-command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-function! s:HighlightLongLines(width)
-	let targetWidth = a:width != '' ? a:width : 79
-	if targetWidth > 0
-		exec 'match Todo /\%>' . (targetWidth) . 'v/'
-	else
-		echomsg "Usage: HighlightLongLines [natural number]"
-	endif
-endfunction
-map <leader>hl :HighlightLongLines 
 " }}}
 
 let g:snipMate = {

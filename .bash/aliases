@@ -17,11 +17,17 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # easy return directory
-alias ..='cd ..'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
-alias ..4='cd ../../../..'
-alias ..5='cd ../../../../..'
+# .. => cd ..
+# .. 2 => cd .. && cd ..
+function ..() {
+    if [ "$1" == "" ]; then
+        cd ..
+    else
+        for ((i=1; i <= $1; i++)); do
+            cd ..
+        done
+    fi
+}
 
 # some more ls aliases
 alias ll='ls -alF'

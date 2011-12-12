@@ -36,7 +36,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export EDITOR="vim"
+export EDITOR='vim'
 
 # for tmux: export 256color
 export TERM=xterm-256color

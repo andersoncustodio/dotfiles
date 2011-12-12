@@ -1,3 +1,10 @@
+if has('win32')
+    let b:did_indent = 1
+    set inde=
+    set cin cino=(0,W4,m1
+    finish
+endif
+
 " Better indent support for PHP by making it possible to indent HTML sections
 " as well.
 if exists("b:did_indent")

@@ -11,6 +11,7 @@
 * http://github.com/jceb/vimrc/
 * http://github.com/nelstrom/dotfiles
 * http://aurelio.net/vim/vimrc-ivan.txt
+* http://github.com/blueyed/dotfiles
 
 ## Dependencies
 
@@ -22,15 +23,12 @@
 
 	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl wmctrl
 
-## Installing
+### Windows
 
-### Cloning repository
-
-	git clone --recursive git://github.com/acustodioo/dotfiles.git
-
-### Update submodules
-
-	git submodule foreach cheackout master
-	git submodule foreach git pull
+* [Git](http://code.google.com/p/msysgit/)
+* [gvim](http://cream.sourceforge.net/download.html)
+* [ctags](http://ctags.sourceforge.net/)
+* [Python 2](http://python.org/download/)
+* [curl](http://curl.haxx.se/download.html)
 
 <!-- vim:noet -->

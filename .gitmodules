@@ -77,6 +77,10 @@
 	path = .vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
 	ignore = dirty
+[submodule ".vim/bundle/match-tag"]
+	path = .vim/bundle/match-tag
+	url = git://github.com/gregsexton/MatchTag.git
+	ignore = dirty
 [submodule ".vim/bundle/snipmate"]
 	path = .vim/bundle/snipmate
 	url = git://github.com/acustodioo/vim-snipmate.git
@@ -113,9 +117,9 @@
 	path = .vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/scss-syntax"]
-	path = .vim/bundle/scss-syntax
-	url = git://github.com/cakebaker/scss-syntax.vim.git
+[submodule ".vim/bundle/haml"]
+	path = .vim/bundle/haml
+	url = git://github.com/tpope/vim-haml.git
 	ignore = dirty
 [submodule ".vim/bundle/ruby"]
 	path = .vim/bundle/ruby
@@ -189,9 +193,9 @@
 	path = .vim/bundle/shell
 	url = git://github.com/xolox/vim-shell.git
 	ignore = dirty
-[submodule ".vim/bundle/search-complete"]
-	path = .vim/bundle/search-complete
-	url = git://github.com/vim-scripts/SearchComplete.git
+[submodule ".vim/bundle/cmdline-completion"]
+	path = .vim/bundle/cmdline-completion
+	url = git://github.com/acustodioo/vim-cmdline-completion.git
 	ignore = dirty
 [submodule ".vim/bundle/loremipsum"]
 	path = .vim/bundle/loremipsum
@@ -213,10 +217,6 @@
 	path = .vim/bundle/rvm
 	url = git://github.com/tpope/vim-rvm.git
 	ignore = dirty
-[submodule ".vim/bundle/activity-log"]
-	path = .vim/bundle/activity-log
-	url = git://github.com/AD7six/vim-activity-log.git
-	ignore = dirty
 [submodule ".vim/bundle/repeat"]
 	path = .vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
@@ -232,6 +232,10 @@
 [submodule ".vim/bundle/rails"]
 	path = .vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
+	ignore = dirty
+[submodule ".vim/bundle/bundler"]
+	path = .vim/bundle/bundler
+	url = git://github.com/tpope/vim-bundler.git
 	ignore = dirty
 [submodule ".vim/bundle/jade"]
 	path = .vim/bundle/jade
@@ -253,10 +257,37 @@
 	path = .vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
 	ignore = dirty
-# Tmux
+[submodule ".vim/bundle/conque"]
+	path = .vim/bundle/conque
+	url = git://github.com/rson/vim-conque.git
+	ignore = dirty
 [submodule ".vim/bundle/tmux"]
 	path = .vim/bundle/tmux
 	url = git://github.com/acustodioo/vim-tmux.git
+	ignore = dirty
+[submodule ".vim/bundle/cocoa"]
+	path = .vim/bundle/cocoa
+	url = git://github.com/msanders/cocoa.vim.git
+	ignore = dirty
+[submodule ".vim/bundle/calc"]
+	path = .vim/bundle/calc
+	url = git://github.com/gregsexton/VimCalc.git
+	ignore = dirty
+[submodule ".vim/bundle/tabman"]
+	path = .vim/bundle/tabman
+	url = git://github.com/kien/tabman.vim.git
+	ignore = dirty
+[submodule ".vim/bundle/fakeclip"]
+	path = .vim/bundle/fakeclip
+	url = git://github.com/kana/vim-fakeclip.git
+	ignore = dirty
+[submodule ".vim/bundle/sudo-edit"]
+	path = .vim/bundle/sudo-edit
+	url = git://github.com/chrisbra/SudoEdit.vim.git
+	ignore = dirty
+[submodule ".vim/bundle/lusty"]
+	path = .vim/bundle/lusty
+	url = git://github.com/sjbach/lusty.git
 	ignore = dirty
 # Bash
 [submodule ".bash/completion/rails"]

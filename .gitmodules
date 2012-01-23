@@ -15,7 +15,7 @@
 	ignore = dirty
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
-	url = git://github.com/tsaleh/vim-supertab.git
+	url = git://github.com/ervandew/supertab.git
 	ignore = dirty
 [submodule ".vim/bundle/mru"]
 	path = .vim/bundle/mru
@@ -53,10 +53,6 @@
 	path = .vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 	ignore = dirty
-[submodule ".vim/bundle/git"]
-	path = .vim/bundle/git
-	url = git://github.com/motemen/git-vim.git
-	ignore = dirty
 [submodule ".vim/bundle/coffee-script"]
 	path = .vim/bundle/coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
@@ -75,7 +71,7 @@
 	ignore = dirty
 [submodule ".vim/bundle/matchit"]
 	path = .vim/bundle/matchit
-	url = git://github.com/vim-scripts/matchit.zip.git
+	url = git://github.com/tmhedberg/matchit.git
 	ignore = dirty
 [submodule ".vim/bundle/match-tag"]
 	path = .vim/bundle/match-tag
@@ -165,10 +161,6 @@
 	path = .vim/bundle/html5
 	url = git://github.com/othree/html5.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/css-color"]
-	path = .vim/bundle/css-color
-	url = git://github.com/skammer/vim-css-color.git
-	ignore = dirty
 [submodule ".vim/bundle/css3-syntax"]
 	path = .vim/bundle/css3-syntax
 	url = git://github.com/hail2u/vim-css3-syntax.git
@@ -196,10 +188,6 @@
 [submodule ".vim/bundle/cmdline-completion"]
 	path = .vim/bundle/cmdline-completion
 	url = git://github.com/acustodioo/vim-cmdline-completion.git
-	ignore = dirty
-[submodule ".vim/bundle/loremipsum"]
-	path = .vim/bundle/loremipsum
-	url = git://github.com/vim-scripts/loremipsum.git
 	ignore = dirty
 [submodule ".vim/bundle/indent-guides"]
 	path = .vim/bundle/indent-guides
@@ -268,10 +256,6 @@
 [submodule ".vim/bundle/cocoa"]
 	path = .vim/bundle/cocoa
 	url = git://github.com/msanders/cocoa.vim.git
-	ignore = dirty
-[submodule ".vim/bundle/calc"]
-	path = .vim/bundle/calc
-	url = git://github.com/gregsexton/VimCalc.git
 	ignore = dirty
 [submodule ".vim/bundle/tabman"]
 	path = .vim/bundle/tabman

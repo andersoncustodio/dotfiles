@@ -16,7 +16,7 @@ function rvm_ps1() {
 
 # Bash customisations to be syncronised between machines.
 PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]'
-PS1+=' \a$PWD\[\e[0m\]'
+PS1+=' \w\[\e[0m\]'
 [[ -s $RVM_PATH ]] && source $RVM_PATH && PS1+='`rvm_ps1`'
 [[ __git_ps1 ]] && PS1+='\a$(__git_ps1 " [%s]")'
 PS1+='\n\$\[\e[0m\] '

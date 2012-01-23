@@ -48,11 +48,11 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cache_dir = '~/.vim-tmp/ctrlp'
 map <silent><leader><C-p> :ClearCtrlPCache<CR>:CtrlP<CR>
 
-if !has('win32')
-	set wig+=*/.git/*,*/.hg/*,*/.svn/*
-else
-	set wig+=.git\*,.hg\*,.svn\* 
-endif
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " Shell
 let g:shell_fullscreen_items = 'm'
@@ -153,7 +153,8 @@ set sbr=...
 
 " {{{ 5 syntax, highlighting and spelling
 " background "dark" or "light"; the background color brightness
-if &term != 'linux' && &term != 'win32'
+if isdirectory(expand('~/.vim/bundle/solarized'))
+	\ && &term != 'linux' && &term != 'win32'
 	set bg=light
 
 	" solarized
@@ -181,7 +182,7 @@ map <silent> \en :set spell spelllang=en<cr>
 map <silent> \ns :set nospell<cr>
 " }}}
 
-" {{{ 6 multiple windows
+"  6 multiple windows
 " laststatus: set ls=[0-2]
 " when to use a status line for the last window
 set ls=2
@@ -194,7 +195,8 @@ fun! RVM_Status()
 endf
 
 fun! Git_Status()
-	return substitute(fugitive#statusline(), ',', ' ', 'g')
+    let git_status = exists('g:loaded_fugitive') ? fugitive#statusline() : ''
+	return substitute(git_status, ',', ' ', 'g') . ' '
 endf
 
 set stl=\FILE(%{&ff}\|%{&fenc}\|%Y)
@@ -205,7 +207,7 @@ set stl+=\%{RVM_Status()}
 " hidden: set (nohi|dhid)
 " don't unload a buffer when no longer shown in a window
 set hid
-" }}}
+" 
 
 " {{{ 7 multiple tab pages
 " tabpagemax: set tpm=([0-9]+)
@@ -444,7 +446,7 @@ set wig+=*.o,*.o.*,*.a,*.i,*.obj,*.bak,*.exe,.dll,*.com,*.class,*.au,*.djvu,*.pd
 
 " wildignorecase set (nowic|wic)
 " ignore case when completing file names
-if !has('win32') | set wic | endif
+if exists('&wic') | set wic | endif
 
 " command-line completion shows a list of matches
 " wildmenu set (nowmnu|wmnu)
@@ -452,10 +454,10 @@ set wmnu
 
 " automatically save and restore undo history
 " undofile set (noudf|udf)
-set udf
+if exists('&udf') | set udf | endif
 
 " undodir list of directories for undo files
-set udir=~/.vim-tmp/undo
+if exists('&udir') | set udir=~/.vim-tmp/undo | endif
 " }}}
 
 " {{{ 25 multi-byte characters
@@ -529,6 +531,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-w>- <C-w>4-
+map <C-w>+ <C-w>3+
+map <C-w>= <C-w>+
 " }}}
 
 let g:snipMate = {

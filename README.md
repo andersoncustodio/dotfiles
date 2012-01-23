@@ -17,11 +17,11 @@
 
 ### Arch Linux
 
-	# pacman -S git gvim ctags ncurses curl wmctrl
+	# pacman -S bash-completion openssh git gvim ctags ncurses curl wmctrl ack
 
 ### Ubuntu
 
-	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl wmctrl
+	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl wmctrl ack-grep
 
 ### Windows
 

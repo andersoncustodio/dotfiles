@@ -273,8 +273,7 @@
 	path = .vim/bundle/lusty
 	url = git://github.com/sjbach/lusty.git
 	ignore = dirty
-# Bash
-[submodule ".bash/completion/rails"]
-	path = .bash/completion/rails
-	url = git://github.com/jweslley/rails_completion.git
+[submodule ".vim/bundle/web2py"]
+	path = .vim/bundle/web2py
+	url = git://github.com/pancurster/vim_web2py_syntax.git
 	ignore = dirty

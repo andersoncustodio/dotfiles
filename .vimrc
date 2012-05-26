@@ -66,7 +66,7 @@ let g:EasyMotion_leader_key = ';'
 nnoremap <F5> :GundoToggle<CR>
 
 " Matchpairs
-let b:delimitMate_matchpairs = '(:),[:],{:}'
+let delimitMate_matchpairs = '(:),[:],{:}'
 
 " Lusty
 let g:LustyExplorerSuppressRubyWarning = 1
@@ -207,7 +207,6 @@ set stl+=\%{RVM_Status()}
 " hidden: set (nohi|dhid)
 " don't unload a buffer when no longer shown in a window
 set hid
-" 
 
 " {{{ 7 multiple tab pages
 " tabpagemax: set tpm=([0-9]+)

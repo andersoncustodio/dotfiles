@@ -102,6 +102,12 @@ set is
 set magic
 " }}}
 
+" {{{ 3 tags
+" tags	list of file names to search for tags (global or local to buffer)
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" }}}
+
 " {{{ 4 displaying text
 " Active syntax
 syntax on

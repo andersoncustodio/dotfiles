@@ -24,4 +24,6 @@ set lsp=2
 set visualbell t_vb=
 " }}}
 
+set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
+
 " vim:noet:foldmethod=marker

@@ -77,10 +77,6 @@
 	path = .vim/bundle/match-tag
 	url = git://github.com/gregsexton/MatchTag.git
 	ignore = dirty
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = git://github.com/acustodioo/vim-snipmate.git
-	ignore = dirty
 [submodule ".vim/bundle/addon-mw-utils"]
 	path = .vim/bundle/addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
@@ -88,10 +84,6 @@
 [submodule ".vim/bundle/tlib"]
 	path = .vim/bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
-	ignore = dirty
-[submodule ".vim/bundle/snippets"]
-	path = .vim/bundle/snippets
-	url = git://github.com/acustodioo/vim-snippets.git
 	ignore = dirty
 [submodule ".vim/bundle/markdown"]
 	path = .vim/bundle/markdown
@@ -281,3 +273,14 @@
 	path = .vim/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
 	ignore = dirty
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+	ignore = dirty
+[submodule ".vim/bundle/yank-ring"]
+	path = .vim/bundle/yank-ring
+	url = git://github.com/vim-scripts/YankRing.vim.git
+	ignore = dirty
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = git://github.com/SirVer/ultisnips.git

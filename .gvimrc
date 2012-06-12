@@ -1,29 +1,19 @@
-" {{{ 10 GUI
-" guifont
-" list of font names to be used in the GUI
 if has("mac")
-	set gfn=Monaco:h12
-elseif has("unix")
-	if &gfn == ""
-		set gfn=bitstream\ vera\ sans\ mono\ 11
-	endif
+	set guifont=Monaco:h12
+elseif has("unix") && &gfn == ""
+	set guifont=bitstream\ vera\ sans\ mono\ 11
 elseif has("win32")
-	set guifont=Consolas:h11,Courier\ New:h10
+	set guifont=Consolas:h11:cANSI
 endif
 
-" guioptions set go=aegimrLtT
-" list of flags that specify how the GUI works
-set go=o
-
-" linespace
-" number of pixel lines to use between characters
-set lsp=2
+set guioptions=o
+set linespace=2
 
 "When the GUI starts, t_vb is reset to its default value.
 "Reassert that no flash or beep is wanted.
 set visualbell t_vb=
-" }}}
 
 set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
+set guicursor=n-v-c:block-Cursor,ve:block-Cursor,o:block-Cursor,i-ci:block-Cursor,r-cr:block-Cursor,sm:block-Cursor
 
 " vim:noet:foldmethod=marker

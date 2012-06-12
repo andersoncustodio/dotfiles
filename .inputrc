@@ -19,8 +19,3 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set completion-prefix-display-length 10
 set print-completions-horizontally off
-
-# Use Vi mode
-# set editing-mode vi
-# set -o mode-keys vi
-# set -o status-keys vi

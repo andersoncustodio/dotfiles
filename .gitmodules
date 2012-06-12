@@ -237,10 +237,6 @@
 	path = .vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/conque"]
-	path = .vim/bundle/conque
-	url = git://github.com/rson/vim-conque.git
-	ignore = dirty
 [submodule ".vim/bundle/tmux"]
 	path = .vim/bundle/tmux
 	url = git://github.com/acustodioo/vim-tmux.git
@@ -252,10 +248,6 @@
 [submodule ".vim/bundle/tabman"]
 	path = .vim/bundle/tabman
 	url = git://github.com/kien/tabman.vim.git
-	ignore = dirty
-[submodule ".vim/bundle/fakeclip"]
-	path = .vim/bundle/fakeclip
-	url = git://github.com/kana/vim-fakeclip.git
 	ignore = dirty
 [submodule ".vim/bundle/sudo-edit"]
 	path = .vim/bundle/sudo-edit
@@ -277,10 +269,19 @@
 	path = .vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
 	ignore = dirty
-[submodule ".vim/bundle/yank-ring"]
-	path = .vim/bundle/yank-ring
-	url = git://github.com/vim-scripts/YankRing.vim.git
-	ignore = dirty
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = git://github.com/SirVer/ultisnips.git
+	ignore = dirty
+[submodule ".vim/bundle/indentobject"]
+	path = .vim/bundle/indentobject
+	url = git://github.com/austintaylor/vim-indentobject.git
+	ignore = dirty
+[submodule ".vim/bundle/clam"]
+	path = .vim/bundle/clam
+	url = git://github.com/sjl/clam.vim.git
+	ignore = dirty
+[submodule ".vim/snippets"]
+	path = .vim/snippets
+	url = git://github.com/acustodioo/vim-snippets.git
+	ignore = dirty

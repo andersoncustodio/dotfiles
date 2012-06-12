@@ -1,4 +1,4 @@
-" {{{ 1 important
+"  1 important
 " compatible: set (nocp|cp)
 " behave very Vi compatible (not advisable)
 set nocp
@@ -25,8 +25,13 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_auto_jump = 1
 
 " Nerdtree settings
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
+nmap <silent> <f2> :NERDTreeToggle<CR>
+
+" tag bar
+nmap <silent> <f3> :TagbarToggle<CR>
 
 " Indent guides
 let g:indent_guides_start_level = 2
@@ -68,9 +73,6 @@ nnoremap <F5> :GundoToggle<CR>
 " Matchpairs
 let delimitMate_matchpairs = '(:),[:],{:}'
 
-" Lusty
-let g:LustyExplorerSuppressRubyWarning = 1
-
 " necessary on some Linux distros for pathogen to properly load bundles
 filetype off
 
@@ -82,7 +84,7 @@ call pathogen#helptags()
 filetype on
 filetype plugin on
 filetype indent on
-" }}}
+" 
 
 " {{{ 2 moving around, searching and patterns
 " whichwrap
@@ -130,7 +132,11 @@ set list
 map <silent> <leader>li :set list!<bar>set nolist?<cr>
 
 " listchars list of strings used for list mode
-set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
+if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
+	set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
+else
+	set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
+endif
 
 " number: set (nu|nonu)
 " show the line number for each line (local to window)
@@ -239,11 +245,11 @@ set ek
 " {{{ 9 using the mouse
 " mouse
 " list of flags for using the mouse
-set mouse=a
+set mouse=
 
 " mousefocus: set (nomousef|mousef)
 " the window with the mouse pointer becomes the current one
-set mousef
+set nomousef
 
 " ttymouse "xterm", "xterm2", "dec" or "netterm"; type of mouse
 set ttym=xterm2
@@ -297,6 +303,20 @@ set cpt=.,w,k,b,u,t,i cpt-=k cpt+=k
 " completeopt
 " whether to use a popup menu for Insert mode completion
 set cot=menu,longest,preview
+
+
+" omnifunc
+" function for filetype-specific Insert mode completion (local to buffer)
+set ofu=syntaxcomplete#Complete
+
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType phtml set omnifunc=phpcomplete#CompletePHP
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType c set omnifunc=ccomplete#Complete
 
 " matchtime: set mat=([0-9]|10)
 " tenth of a second to show a match for 'showmatch'
@@ -514,10 +534,6 @@ vmap \a :Tabularize /
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 " }}}
 
-" {{{ Nerd Tree
-nmap <silent> <f2> :NERDTreeToggle<CR>
-nmap <silent> <f3> :TagbarToggle<CR>
-" }}}
 
 " {{{ Shortcuts for tabs
 map \tn :tabnew 
@@ -541,10 +557,11 @@ map <C-w>+ <C-w>3+
 map <C-w>= <C-w>+
 " }}}
 
-let g:snipMate = {
-	\ 'php': 'php,php-html,html,javascript',
-	\ 'ruby': 'ruby-rails,html,javascript',
-	\ 'eruby': 'eruby-rails,html,javascript',
-	\ }
+" UltiSnips
+let g:UltiSnipsSnippetDirectories = ['snippets']
+au FileType php call UltiSnipsAddFiletypes('.phtml.html')
+au FileType phtml call UltiSnipsAddFiletypes('.php.html')
+au FileType ruby call UltiSnipsAddFiletypes('.ruby-rails.html.javascript')
+au FileType eruby call UltiSnipsAddFiletypes('.eruby-rails.html.javascript')
 
 " vim:noet:foldmethod=marker

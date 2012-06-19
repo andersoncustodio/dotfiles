@@ -285,3 +285,11 @@
 	path = .vim/snippets
 	url = git://github.com/acustodioo/vim-snippets.git
 	ignore = dirty
+[submodule ".vim/bundle/emacs-command-line"]
+	path = .vim/bundle/emacs-command-line
+	url = git://github.com/acustodioo/vim-emacscommandline.git
+	ignore = dirty
+[submodule ".vim/bundle/php-stuff"]
+	path = .vim/bundle/php-stuff
+	url = git://github.com/paulyg/Vim-PHP-Stuff.git
+	ignore = dirty

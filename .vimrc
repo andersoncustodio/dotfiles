@@ -9,7 +9,7 @@ let g:mapleader = ","
 
 " runtimepath
 " list of directories used for runtime files and plugins
-set rtp+=~/.vim,~/.vim/after,~/.vim/pathogen
+let &rtp='~/.vim,~/.vim/after,~/.vim/pathogen,' . &rtp
 
 " Create tmp directorys
 if !isdirectory(expand('~/.vim-tmp'))
@@ -275,6 +275,8 @@ set cf
 " visualbell set (novb|vb)
 " use a visual bell instead of beeping
 set novb
+
+set titlestring=%(\ %M%)\ %(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ %t\ -\ %{v:servername}
 " }}}
 
 " {{{ 14 editing text
@@ -463,7 +465,7 @@ set hi=1000
 
 " wildmode
 " specifies how command line completion works
-set wim=longest,list
+set wim=list:longest,full
 
 " wildignore
 " list of patterns to ignore files for file name completion

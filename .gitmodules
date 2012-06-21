@@ -73,10 +73,6 @@
 	path = .vim/bundle/matchit
 	url = git://github.com/tmhedberg/matchit.git
 	ignore = dirty
-[submodule ".vim/bundle/match-tag"]
-	path = .vim/bundle/match-tag
-	url = git://github.com/gregsexton/MatchTag.git
-	ignore = dirty
 [submodule ".vim/bundle/addon-mw-utils"]
 	path = .vim/bundle/addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git

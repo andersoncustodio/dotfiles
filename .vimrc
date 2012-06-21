@@ -9,7 +9,7 @@ let g:mapleader = ","
 
 " runtimepath
 " list of directories used for runtime files and plugins
-let &rtp='~/.vim,~/.vim/after,~/.vim/pathogen,' . &rtp
+let &rtp='~/.vim,~/.vim/pathogen,' . &rtp . ',~/.vim/after'
 
 " Create tmp directorys
 if !isdirectory(expand('~/.vim-tmp'))
@@ -276,7 +276,7 @@ set cf
 " use a visual bell instead of beeping
 set novb
 
-set titlestring=%(\ %M%)\ %(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ %t\ -\ %{v:servername}
+set titlestring=%(%{expand(\"%:p:h\")}%)\\%t%(\ %a%)%(\ %M%)\ -\ %{v:servername}
 " }}}
 
 " {{{ 14 editing text

@@ -91,7 +91,7 @@
 	ignore = dirty
 [submodule ".vim/bundle/align"]
 	path = .vim/bundle/align
-	url = git://github.com/tsaleh/vim-align.git
+	url = git://github.com/jezcope/vim-align.git
 	ignore = dirty
 [submodule ".vim/bundle/solarized"]
 	path = .vim/bundle/solarized
@@ -140,10 +140,6 @@
 [submodule ".vim/bundle/scala"]
 	path = .vim/bundle/scala
 	url = git://github.com/akhil/scala-vim-bundle.git
-	ignore = dirty
-[submodule ".vim/bundle/tabular"]
-	path = .vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
 	ignore = dirty
 [submodule ".vim/bundle/html5"]
 	path = .vim/bundle/html5
@@ -288,4 +284,16 @@
 [submodule ".vim/bundle/php-stuff"]
 	path = .vim/bundle/php-stuff
 	url = git://github.com/paulyg/Vim-PHP-Stuff.git
+	ignore = dirty
+[submodule ".vim/bundle/golang"]
+	path = .vim/bundle/golang
+	url = git://github.com/jnwhiteh/vim-golang.git
+	ignore = dirty
+[submodule ".vim/bundle/latex"]
+	path = .vim/bundle/latex
+	url = git://github.com/LaTeX-Box-Team/LaTeX-Box
+	ignore = dirty
+[submodule ".vim/bundle/zoom-win"]
+	path = .vim/bundle/zoom-win
+	url = git://github.com/vim-scripts/ZoomWin.git
 	ignore = dirty

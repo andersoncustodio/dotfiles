@@ -189,6 +189,7 @@ set nocul
 map \cc :set cc=79
 
 " Spell
+set spellcapcheck=[.?!]\_[\])'"^I ]\+
 map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
 map <silent> \ns :set nospell<cr>

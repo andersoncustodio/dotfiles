@@ -6,7 +6,7 @@ elseif has("win32")
 	set guifont=Consolas:h11:cANSI
 endif
 
-set guioptions=
+set guioptions=e
 set linespace=2
 
 "When the GUI starts, t_vb is reset to its default value.

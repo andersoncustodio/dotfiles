@@ -213,9 +213,9 @@
 	path = .vim/bundle/jade
 	url = git://github.com/statianzo/vim-jade.git
 	ignore = dirty
-[submodule ".vim/bundle/visual-star-search"]
-	path = .vim/bundle/visual-star-search
-	url = git://github.com/nelstrom/vim-visual-star-search.git
+[submodule ".vim/bundle/visualstar"]
+	path = .vim/bundle/visualstar
+	url = git://github.com/thinca/vim-visualstar.git
 	ignore = dirty
 [submodule ".vim/bundle/visincr"]
 	path = .vim/bundle/visincr
@@ -244,10 +244,6 @@
 [submodule ".vim/bundle/sudo-edit"]
 	path = .vim/bundle/sudo-edit
 	url = git://github.com/chrisbra/SudoEdit.vim.git
-	ignore = dirty
-[submodule ".vim/bundle/lusty"]
-	path = .vim/bundle/lusty
-	url = git://github.com/sjbach/lusty.git
 	ignore = dirty
 [submodule ".vim/bundle/web2py"]
 	path = .vim/bundle/web2py

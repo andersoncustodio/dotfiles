@@ -5,7 +5,9 @@
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # put ~/bin on PATH if you have it
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+PATH="$HOME/bin:$PATH"
+PATH="/usr/local/bin:$PATH"
+PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # rvm use
 RVM_PATH="$HOME/.rvm/scripts/rvm"
@@ -13,6 +15,8 @@ function rvm_ps1() {
     RVMP=`rvm-prompt i v`
     [[ $RVMP != '' ]] && echo ' ('$RVMP')'
 }
+
+GIT_PS1_SHOWDIRTYSTATE=true # PS1 integration
 
 # Bash customisations to be syncronised between machines.
 PS1='\[\e[1;1m\]\u@\h\[\e[1;31m\]'
@@ -36,6 +40,13 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# config editor
+if [[ `which mvim` ]]; then
+    export VISUAL='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
+else
+    export VISUAL='gvim'
+fi
+
 export EDITOR='vim'
 
 # for tmux: export 256color
@@ -47,11 +58,11 @@ export TERM=xterm-256color
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-[[ -f /etc/bash_completion ]] && ! shopt -oq posix && source /etc/bash_completion
-
-# Autocomplete
-[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
-[[ -r ~/.bash/completion/rails/rails.bash ]] && source ~/.bash/completion/rails/rails.bash
+# Set git autocompletion
+test -f /etc/bash_completion && ! shopt -oq posix && source /etc/bash_completion
+test -f /opt/local/etc/bash_completion && source /opt/local/etc/bash_completion
+test -f `brew --prefix`/etc/bash_completion && source `brew --prefix`/etc/bash_completion
+test -r $rvm_path/scripts/completion && source $rvm_path/scripts/completion
 
 # Fuzzy cd
 # Usage:

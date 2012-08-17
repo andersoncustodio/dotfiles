@@ -2,18 +2,23 @@
 
 ## References
 
-* http://github.com/rtomayko/dotfiles
 * http://amix.dk/vim/vimrc.html
 * http://aurelio.net/doc/dotfiles/vimrc.txt
-* http://github.com/scrooloose/vimfiles
-* http://vimcasts.org
-* http://snipt.net/voyeg3r/tag/vimrc
+* http://aurelio.net/vim/vimrc-ivan.txt
+* http://github.com/akitaonrails/vimfiles
+* http://github.com/blueyed/dotfiles
 * http://github.com/jceb/vimrc/
 * http://github.com/nelstrom/dotfiles
-* http://aurelio.net/vim/vimrc-ivan.txt
-* http://github.com/blueyed/dotfiles
+* http://github.com/rtomayko/dotfiles
+* http://github.com/scrooloose/vimfiles
+* http://snipt.net/voyeg3r/tag/vimrc
+* http://vimcasts.org
 
 ## Dependencies
+
+### OS X
+
+	$ brew install coreutils bash-completion ctags git macvim ack
 
 ### Arch Linux
 

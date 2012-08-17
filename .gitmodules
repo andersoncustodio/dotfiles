@@ -93,10 +93,6 @@
 	path = .vim/bundle/align
 	url = git://github.com/jezcope/vim-align.git
 	ignore = dirty
-[submodule ".vim/bundle/solarized"]
-	path = .vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-	ignore = dirty
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
@@ -292,4 +288,16 @@
 [submodule ".vim/bundle/zoom-win"]
 	path = .vim/bundle/zoom-win
 	url = git://github.com/vim-scripts/ZoomWin.git
+	ignore = dirty
+[submodule ".vim/bundle/less"]
+	path = .vim/bundle/less
+	url = git://github.com/groenewege/vim-less.git
+	ignore = dirty
+[submodule ".vim/bundle/narrow-region"]
+	path = .vim/bundle/narrow-region
+	url = git://github.com/chrisbra/NrrwRgn.git
+	ignore = dirty
+[submodule ".vim/bundle/molokai"]
+	path = .vim/bundle/molokai
+	url = git://github.com/tomasr/molokai.git
 	ignore = dirty

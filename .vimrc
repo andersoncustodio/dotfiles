@@ -19,6 +19,11 @@ if !isdirectory(expand('~/.vim-tmp'))
 	call mkdir(expand('~/.vim-tmp/session'), 'p')
 endif
 
+" Power Line
+if has("mac")
+	let g:Powerline_symbols = 'fancy'
+endif
+
 " Syntastic settings
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
@@ -41,7 +46,7 @@ let g:indent_guides_guide_size = 1
 let g:NERDSpaceDelims = 1
 
 " PHP
-let g:PHP_default_indenting = 0
+let g:PHP_vintage_case_default_indent = 1
 
 " Session
 let g:session_directory = '~/.vim-tmp/session'
@@ -165,14 +170,9 @@ set sbr=...
 
 " {{{ 5 syntax, highlighting and spelling
 " background "dark" or "light"; the background color brightness
-if isdirectory(expand('~/.vim/bundle/solarized'))
+if isdirectory(expand('~/.vim/bundle/molokai'))
 	\ && &term != 'linux' && &term != 'win32'
-	set bg=light
-
-	" solarized
-	let g:solarized_termcolors=256
-	let g:solarized_visibility='low'
-	colorscheme solarized
+	colorscheme molokai
 endif
 
 " hlsearch set (nohls|hls)
@@ -225,6 +225,9 @@ set hid
 " tabpagemax: set tpm=([0-9]+)
 " maximum number of tab pages to open for -p and "tab all"
 set tpm=1000
+
+set showtabline=2
+
 " }}}
 
 " {{{ 8 terminal
@@ -246,7 +249,7 @@ set ek
 " {{{ 9 using the mouse
 " mouse
 " list of flags for using the mouse
-set mouse=
+set mouse=a
 
 " mousefocus: set (nomousef|mousef)
 " the window with the mouse pointer becomes the current one

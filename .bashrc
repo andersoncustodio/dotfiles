@@ -7,7 +7,6 @@
 # put ~/bin on PATH if you have it
 PATH="$HOME/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
-PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # rvm use
 RVM_PATH="$HOME/.rvm/scripts/rvm"
@@ -40,11 +39,11 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# config editor
+# editor
 if [[ `which mvim` ]]; then
     export VISUAL='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 else
-    export VISUAL='gvim'
+    export VISUAL='gvim -f -c "au VimLeave * !open -a Terminal"'
 fi
 
 export EDITOR='vim'
@@ -61,8 +60,13 @@ export TERM=xterm-256color
 # Set git autocompletion
 test -f /etc/bash_completion && ! shopt -oq posix && source /etc/bash_completion
 test -f /opt/local/etc/bash_completion && source /opt/local/etc/bash_completion
-test -f `brew --prefix`/etc/bash_completion && source `brew --prefix`/etc/bash_completion
 test -r $rvm_path/scripts/completion && source $rvm_path/scripts/completion
+
+# brew
+if [[ `which brew` ]]; then
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    test -f `brew --prefix`/etc/bash_completion && source `brew --prefix`/etc/bash_completion
+fi
 
 # Fuzzy cd
 # Usage:

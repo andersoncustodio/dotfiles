@@ -1,5 +1,5 @@
 if has("mac")
-	set guifont=Menlo:h14
+	set guifont=Menlo:h17
 	set transparency=1
 elseif has("unix") && &gfn == ""
 	set guifont=bitstream\ vera\ sans\ mono\ 11

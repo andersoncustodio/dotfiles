@@ -30,6 +30,15 @@
 
 ### Windows
 
+## Install
+	git clone --recursive git://github.com/acustodioo/dotfiles.git
+
+	sh dotfiles/autolink.sh
+
+Command line vim
+
+	:BundleInstall  
+
 * [Git](http://code.google.com/p/msysgit/)
 * [gvim](http://cream.sourceforge.net/download.html)
 * [ctags](http://ctags.sourceforge.net/)

@@ -9,7 +9,7 @@ let g:mapleader = ","
 
 " runtimepath
 " list of directories used for runtime files and plugins
-let &rtp='~/.vim,~/.vim/pathogen,' . &rtp . ',~/.vim/after'
+let &rtp='~/.vim,~/.vim/vundle,' . &rtp . ',~/.vim/after'
 
 " Create tmp directorys
 if !isdirectory(expand('~/.vim-tmp'))
@@ -82,8 +82,9 @@ let delimitMate_matchpairs = '(:),[:],{:}'
 filetype off
 
 " Load pathogen managed plugins
-call pathogen#infect()
-call pathogen#helptags()
+call vundle#rc()
+
+source ~/.vim/Bundle.vim
 
 " Enable filetype
 filetype on
@@ -561,7 +562,7 @@ map <C-l> <C-w>l
 " }}}
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories = ['snippets']
+let g:UltiSnipsSnippetDirectories = ['bundle/vim-snippets']
 au FileType php call UltiSnipsAddFiletypes('.phtml.html')
 au FileType phtml call UltiSnipsAddFiletypes('.php.html')
 au FileType ruby call UltiSnipsAddFiletypes('.ruby-rails.html.javascript')

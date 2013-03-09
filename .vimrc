@@ -83,8 +83,8 @@ filetype off
 
 " Load pathogen managed plugins
 call vundle#rc()
+source ~/.bundle.vim
 
-source ~/.vim/Bundle.vim
 
 " Enable filetype
 filetype on

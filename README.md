@@ -30,19 +30,20 @@
 
 ### Windows
 
-## Install
-	git clone --recursive git://github.com/acustodioo/dotfiles.git
-
-	sh dotfiles/autolink.sh
-
-Command line vim
-
-	:BundleInstall  
-
 * [Git](http://code.google.com/p/msysgit/)
 * [gvim](http://cream.sourceforge.net/download.html)
 * [ctags](http://ctags.sourceforge.net/)
-* [Python 2](http://python.org/download/)
+* [Python 2.6](http://python.org/download/)
 * [curl](http://curl.haxx.se/download.html)
+
+## Install
+
+	git clone --recursive git://github.com/acustodioo/dotfiles.git
+
+	Windowns: run with administrator dotfiles/install.bat
+
+	Linux: sh dotfiles/install.sh
+
+	Command line vim: :BundleInstall
 
 <!-- vim:noet -->

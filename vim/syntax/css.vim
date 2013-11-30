@@ -21,7 +21,7 @@ runtime! syntax/css/css3-preslev.vim
 runtime! syntax/css/css3-regions.vim
 runtime! syntax/css/css3-ruby.vim
 runtime! syntax/css/css3-selectors.vim
-runtime! syntax/css/css3-text.vim
+" runtime! syntax/css/css3-text.vim
 runtime! syntax/css/css3-transforms.vim
 runtime! syntax/css/css3-transitions.vim
 runtime! syntax/css/css3-ui.vim

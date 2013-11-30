@@ -9,7 +9,7 @@ let g:mapleader = ","
 
 " runtimepath
 " list of directories used for runtime files and plugins
-let &rtp='~/.vim,~/.vim/vundle,' . &rtp . ',~/.vim/after'
+set rtp+=~/.vim/bundle/vundle
 
 " Create tmp directorys
 if !isdirectory(expand('~/.vim-tmp'))
@@ -20,19 +20,18 @@ if !isdirectory(expand('~/.vim-tmp'))
 endif
 
 " Power Line
-if has("mac")
-	let g:Powerline_symbols = 'fancy'
-endif
+let g:Powerline_symbols = 'fancy'
 
 " Syntastic settings
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
-let g:syntastic_auto_jump = 1
+let g:syntastic_auto_jump = 0
 
 " Nerdtree settings
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
+let g:nerdtree_tabs_open_on_gui_startup = 0
 nmap <silent> <f2> :NERDTreeToggle<CR>
 
 " tag bar
@@ -53,10 +52,22 @@ let g:session_directory = '~/.vim-tmp/session'
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 
+" Easymotion
+let g:EasyMotion_leader_key = '<space>'
+
 " Ctrlp
+" let g:ctrlp_map = '<space>p'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cache_dir = '~/.vim-tmp/ctrlp'
-map <silent><leader><C-p> :ClearCtrlPCache<CR>:CtrlP<CR>
+let g:ctrlp_clear_cache_on_exit = 0
+map <silent>,<C-p> :CtrlPClearCache<CR>:CtrlP<CR>
+
+" Yankring
+map <silent>\ys :YRShow<CR>
+
+" Past 0
+map <silent>,p "0p
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$',
@@ -69,11 +80,13 @@ let g:shell_fullscreen_items = 'm'
 map <Leader>fs :Fullscreen<CR>
 map <Leader>op :Open<CR>
 
-" Easy Motion
-let g:EasyMotion_leader_key = ';'
+map <Leader>sh :VimShell<CR>
+
+" Backup
+let g:WriteBackup_BackupDir = '~/.vim-tmp/backup'
 
 " Gundo
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F4> :GundoToggle<CR>
 
 " Matchpairs
 let delimitMate_matchpairs = '(:),[:],{:}'
@@ -83,19 +96,28 @@ filetype off
 
 " Load pathogen managed plugins
 call vundle#rc()
-source ~/.bundle.vim
+
+if filereadable(expand('~/.bundlerc'))
+	source ~/.bundlerc
+endif
+
 
 
 " Enable filetype
 filetype on
 filetype plugin on
 filetype indent on
-" 
+"
 
 " {{{ 2 moving around, searching and patterns
 " whichwrap
 " list of flags specifying which commands wrap to another line (local to window)
 set ww+=<,>,[,],h,l
+
+
+"startofline: set(nosol|sol)
+" many jump commands move the cursor to the first non-blank character of a line
+set nosol
 
 " ignorecase: set (noic|ic)
 " ignore case when using a search pattern
@@ -112,7 +134,6 @@ set magic
 
 " {{{ 3 tags
 " tags	list of file names to search for tags (global or local to buffer)
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " }}}
 
@@ -134,7 +155,7 @@ set ch=1
 
 " list: set (nolist|list)
 " show <Tab> as ^I and end-of-line as $ (local to window)
-set list
+set nolist
 map <silent> <leader>li :set list!<bar>set nolist?<cr>
 
 " listchars list of strings used for list mode
@@ -171,10 +192,6 @@ set sbr=...
 
 " {{{ 5 syntax, highlighting and spelling
 " background "dark" or "light"; the background color brightness
-if isdirectory(expand('~/.vim/bundle/molokai'))
-	\ && &term != 'linux' && &term != 'win32'
-	colorscheme molokai
-endif
 
 " hlsearch set (nohls|hls)
 " highlight all matches for the last used search pattern
@@ -187,7 +204,7 @@ set nocul
 
 " colorcolumn set cc=[0-9]
 " columns to highlight (local to window)
-map \cc :set cc=79
+" set cc=79
 
 " Spell
 set spellcapcheck=[.?!]\_[\])'"^I ]\+
@@ -203,20 +220,7 @@ set ls=2
 
 " statusline
 " alternate format to be used for a status line
-fun! RVM_Status()
-	let rvm = exists('g:loaded_rvm') ? rvm#string() : ''
-	return rvm != '' ? ' RVM(' . rvm . ') ' : ''
-endf
-
-fun! Git_Status()
-    let git_status = exists('g:loaded_fugitive') ? fugitive#statusline() : ''
-	return substitute(git_status, ',', ' ', 'g') . ' '
-endf
-
-set stl=\FILE(%{&ff}\|%{&fenc}\|%Y)
-set stl+=\ POS(%l,%c\|%L\|%P)
-set stl+=\%{Git_Status()}
-set stl+=\%{RVM_Status()}
+" set stl=
 
 " hidden: set (nohi|dhid)
 " don't unload a buffer when no longer shown in a window
@@ -225,9 +229,9 @@ set hid
 " {{{ 7 multiple tab pages
 " tabpagemax: set tpm=([0-9]+)
 " maximum number of tab pages to open for -p and "tab all"
-set tpm=1000
+" set tpm=1000
 
-set showtabline=2
+set showtabline=0
 
 " }}}
 
@@ -281,7 +285,8 @@ set cf
 " use a visual bell instead of beeping
 set novb
 
-set titlestring=%(%{expand(\"%:p:h\")}%)\\%t%(\ %a%)%(\ %M%)\ -\ %{v:servername}
+" set titlestring=%{v:servername}\ -\ %(%{expand(\"%:p:h\")}%)\\%t%(\ %a%)%(\ %M%)
+set titlestring=%{v:servername}
 " }}}
 
 " {{{ 14 editing text
@@ -332,7 +337,7 @@ set mat=5
 " matchpairs
 " list of pairs that match for the "%" command (local to buffer)
 " Plugin which enhances this feature: ~/.vim/bundle/matchit
-set mps=(:),{:},[:],<:>
+" set mps=(:),{:},[:],<:>
 " }}}
 
 " {{{ 15 tabs and indenting
@@ -430,7 +435,7 @@ set noaw
 
 " backup: set (nobk|bk)
 " keep a backup after overwriting a file
-set nobk
+set bk
 
 " backupskip
 " patterns that specify for which files a backup is not made
@@ -442,7 +447,7 @@ set bdir=~/.vim-tmp/backup
 
 " autoread: set (noar|ar)
 " automatically read a file when it was modified outside of Vim (global or local to buffer)
-set ar
+set noar
 " }}}
 
 " {{{ 20 the swap file
@@ -529,24 +534,39 @@ map <silent> <Home> ^
 imap <silent> <Home> <Esc>^i
 
 " trim
-map <silent> \tr :%s/\s*$//<CR>
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
 " }}}
 
+
+map <silent>\rg :PickRGB<CR>
+map <silent>\he :PickHEX<CR>
+map <silent>\hs :PickHSL<CR>
+map <silent>\ha :PickRAW<CR>
+
 " {{{ Tabularize
-nmap \a :Tabularize /
-vmap \a :Tabularize /
+nmap \a :Align
+vmap \a :Align
 " }}}
 
 " {{{ Jump to last position of buffer when opening
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " }}}
 
 
-" {{{ Shortcuts for tabs
-map \tn :tabnew 
-map \tm :tabmove 
-map <Tab> gt
-map <S-Tab> gT
+" {{{ Shortcuts for buffer
+
+map \bo e:<Space>
+
+map <Tab> :bn<CR>
+map <S-Tab> :bp<CR>
+
+
 " }}}
 
 " {{{do not menu with left / right in command line
@@ -554,18 +574,17 @@ cnoremap <Left> <Space><BS><Left>
 cnoremap <Right> <Space><BS><Right>
 " }}}
 
-" {{{ Key mapping for window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-" }}}
-
 " UltiSnips
+let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsSnippetDirectories = ['bundle/vim-snippets']
-au FileType php call UltiSnipsAddFiletypes('.phtml.html')
-au FileType phtml call UltiSnipsAddFiletypes('.php.html')
 au FileType ruby call UltiSnipsAddFiletypes('.ruby-rails.html.javascript')
 au FileType eruby call UltiSnipsAddFiletypes('.eruby-rails.html.javascript')
+
+" Iniciar vim maximizado
+function Maximize_Window()
+  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+endfunction
+
+au GUIEnter * call Maximize_Window()
 
 " vim:noet:foldmethod=marker

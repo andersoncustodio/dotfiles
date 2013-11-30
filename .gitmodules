@@ -1,7 +1,0 @@
-# vim:noet
-
-# Vim
-[submodule ".vim/vundle"]
-	path = .vim/vundle
-	url = git://github.com/gmarik/vundle.git
-	ignore = dirty

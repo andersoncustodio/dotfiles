@@ -1,10 +1,10 @@
 # do not bell on tab-completion
 set bell-style bell
 
-set expand-tilde off
-set input-meta off
-set convert-meta on
-set output-meta off
+# set expand-tilde off
+# set input-meta off
+# set convert-meta on
+# set output-meta off
 set horizontal-scroll-mode off
 set history-preserve-point on
 set mark-directories on

@@ -2,12 +2,12 @@ if has("mac")
 	set guifont=Menlo:h17
 	set transparency=1
 elseif has("unix") && &gfn == ""
-	set guifont=bitstream\ vera\ sans\ mono\ 11
+	set guifont=Ubuntu\ Mono\ for\ Powerline\ 15
 elseif has("win32")
 	set guifont=Consolas:h11:cANSI
 endif
 
-set guioptions=e
+set guioptions=
 set linespace=2
 
 "When the GUI starts, t_vb is reset to its default value.
@@ -15,5 +15,6 @@ set linespace=2
 set visualbell t_vb=
 
 set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
+
 
 " vim:noet:foldmethod=marker

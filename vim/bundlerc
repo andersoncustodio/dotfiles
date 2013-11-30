@@ -1,0 +1,149 @@
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" Web Developer
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-haml'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'groenewege/vim-less'
+Bundle 'mattn/zencoding-vim'
+
+" PHP
+Bundle 'fix-php-html-indent'
+Bundle '2072/PHP-Indenting-for-VIm'
+Bundle 'shawncplus/phpcomplete.vim'
+
+" Ruby
+Bundle 'slim-template/slim-rails'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'hallison/vim-ruby-sinatra'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'tpope/vim-rvm'
+
+" Go
+Bundle 'jnwhiteh/vim-golang'
+
+" Python
+Bundle 'pancurster/vim_web2py_syntax'
+
+" Javascript
+Bundle 'pangloss/vim-javascript'
+Bundle 'itspriddle/vim-jquery'
+
+" Extends VIM
+Bundle 'ervandew/supertab'
+Bundle 'ornicar/vim-mru'
+Bundle 'DataWraith/auto_mkdir'
+Bundle 'tpope/vim-surround'
+Bundle 'ciaranm/securemodelines'
+
+" Bundle 'xolox/vim-session'
+" Bundle 'xolox/vim-shell'
+" Bundle 'xolox/vim-easytags'
+
+" snipprts
+Bundle 'SirVer/ultisnips'
+Bundle 'acustodioo/vim-snippets'
+
+" Format Suporte
+Bundle 'juvenn/mustache.vim'
+Bundle 'timcharper/textile.vim'
+Bundle 'leshill/vim-json'
+Bundle 'statianzo/vim-jade'
+Bundle 'tpope/vim-markdown'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+
+" Utilitários
+Bundle 'kien/ctrlp.vim'
+Bundle 'LustyJuggler'
+Bundle 'LustyExplorer'
+Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+
+" Bundle 'jistr/vim-nerdtree-tabs'
+
+Bundle 'skwp/vim-powerline'
+Bundle 'tomasr/molokai'
+Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'wavded/vim-stylus'
+
+" Colors
+Bundle 'PickAColor.vim'
+Bundle 'ap/vim-css-color'
+
+" Git
+Bundle 'tpope/vim-fugitive'
+Bundle 'mattn/gist-vim'
+" Bundle 'fholgado/minibufexpl.vim'
+
+Bundle 'slack/vim-bufexplorer'
+
+Bundle 'tpope/vim-unimpaired'
+Bundle 'Raimondi/delimitMate'
+
+Bundle 'perrywky/vim-matchit'
+
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-ragtag'
+Bundle 'jezcope/vim-align'
+Bundle 'kana/vim-textobj-user'
+Bundle 'acustodioo/vim-enter-indent'
+Bundle 'greyblake/vim-preview'
+Bundle 'akhil/scala-vim-bundle'
+Bundle 'vim-scripts/grep.vim'
+Bundle 'tpope/vim-abolish'
+Bundle 'scrooloose/syntastic'
+Bundle 'acustodioo/vim-cmdline-completion'
+
+Bundle 'nathanaelkane/vim-indent-guides'
+" Bundle 'Yggdroot/indentLine'
+
+Bundle 'majutsushi/tagbar'
+
+" Bundle 'vim-scripts/YankRing.vim'
+
+Bundle 'mileszs/ack.vim'
+
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-bundler'
+Bundle 'thinca/vim-visualstar'
+Bundle 'vim-scripts/VisIncr'
+Bundle 'tpope/vim-cucumber'
+Bundle 'acustodioo/vim-tmux'
+Bundle 'msanders/cocoa.vim'
+" Bundle 'kien/tabman.vim'
+Bundle 'chrisbra/SudoEdit.vim'
+" Bundle 'vimez/vim-showmarks'
+Bundle 'austintaylor/vim-indentobject'
+Bundle 'sjl/clam.vim'
+
+Bundle 'acustodioo/vim-emacscommandline'
+
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'chrisbra/NrrwRgn'
+
+Bundle 'TrimBlank'
+
+Bundle 'writebackup'
+Bundle 'writebackupVersionControl'
+
+Bundle 'tpope/vim-tbone'
+Bundle 'ShowTrailingWhitespace'
+Bundle 'voronkovich/php-getter-setter.vim'
+
+Bundle 'evanmiller/nginx-vim-syntax'
+
+Bundle 'editorconfig/editorconfig-vim'
+Bundle 'joonty/vdebug'
+
+Bundle 'Rename'
+
+
+" vim:ft=vim

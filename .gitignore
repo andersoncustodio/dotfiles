@@ -5,6 +5,3 @@ tags
 mkmf.log
 .VimballRecord
 .netrwhist
-.vim/spell/
-.vim/tmp/
-.vim/bundle

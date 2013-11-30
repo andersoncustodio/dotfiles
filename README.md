@@ -18,32 +18,19 @@
 
 ### OS X
 
-	$ brew install coreutils bash-completion ctags git macvim ack
+	$ brew install coreutils zsh bash-completion ctags git macvim ack
 
 ### Arch Linux
 
-	# pacman -S bash-completion openssh git gvim ctags ncurses curl wmctrl ack
+	$ sudo pacman -S zsh bash-completion openssh git gvim ctags ncurses curl wmctrl ack
 
 ### Ubuntu
 
-	$ sudo apt-get install git vim-gtk exuberant-ctags ncurses-term curl wmctrl ack-grep
-
-### Windows
-
-* [Git](http://code.google.com/p/msysgit/)
-* [gvim](http://cream.sourceforge.net/download.html)
-* [ctags](http://ctags.sourceforge.net/)
-* [Python 2.6](http://python.org/download/)
-* [curl](http://curl.haxx.se/download.html)
+	$ sudo apt-get install zsh git vim-gtk exuberant-ctags ncurses-term curl wmctrl ack-grep
 
 ## Install
 
-	git clone --recursive git://github.com/acustodioo/dotfiles.git
-
-	Windowns: run with administrator dotfiles/install.bat
-
-	Linux: sh dotfiles/install.sh
-
-	Command line vim: :BundleInstall
+	cd ~
+	git clone git://github.com/acustodioo/dotfiles.git
 
 <!-- vim:noet -->

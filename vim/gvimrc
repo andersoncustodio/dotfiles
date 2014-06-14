@@ -1,5 +1,5 @@
 if has("mac")
-	set guifont=Menlo:h17
+	set guifont=Menlo:h19
 	set transparency=1
 elseif has("unix") && &gfn == ""
 	set guifont=Ubuntu\ Mono\ for\ Powerline\ 15
@@ -7,8 +7,9 @@ elseif has("win32")
 	set guifont=Consolas:h11:cANSI
 endif
 
-set guioptions=
-set linespace=2
+set guioptions=c
+set linespace=7
+
 
 "When the GUI starts, t_vb is reset to its default value.
 "Reassert that no flash or beep is wanted.

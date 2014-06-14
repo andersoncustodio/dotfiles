@@ -1,4 +1,5 @@
 "  1 important
+" prepend a Byte Order Mark to the file (local to buffer)
 " compatible: set (nocp|cp)
 " behave very Vi compatible (not advisable)
 set nocp
@@ -9,7 +10,7 @@ let g:mapleader = ","
 
 " runtimepath
 " list of directories used for runtime files and plugins
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 
 " Create tmp directorys
 if !isdirectory(expand('~/.vim-tmp'))
@@ -18,78 +19,6 @@ if !isdirectory(expand('~/.vim-tmp'))
 	call mkdir(expand('~/.vim-tmp/undo'), 'p')
 	call mkdir(expand('~/.vim-tmp/session'), 'p')
 endif
-
-" Power Line
-let g:Powerline_symbols = 'fancy'
-
-" Syntastic settings
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_auto_jump = 0
-
-" Nerdtree settings
-let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 40
-let g:nerdtree_tabs_open_on_gui_startup = 0
-nmap <silent> <f2> :NERDTreeToggle<CR>
-
-" tag bar
-nmap <silent> <f3> :TagbarToggle<CR>
-
-" Indent guides
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-
-" NERD_commenter
-let g:NERDSpaceDelims = 1
-
-" PHP
-let g:PHP_vintage_case_default_indent = 1
-
-" Session
-let g:session_directory = '~/.vim-tmp/session'
-let g:session_autoload = 'no'
-let g:session_autosave = 'yes'
-
-" Easymotion
-let g:EasyMotion_leader_key = '<space>'
-
-" Ctrlp
-" let g:ctrlp_map = '<space>p'
-let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_cache_dir = '~/.vim-tmp/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 0
-map <silent>,<C-p> :CtrlPClearCache<CR>:CtrlP<CR>
-
-" Yankring
-map <silent>\ys :YRShow<CR>
-
-" Past 0
-map <silent>,p "0p
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-  \ 'file': '\.exe$\|\.so$\|\.dll$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-" Shell
-let g:shell_fullscreen_items = 'm'
-map <Leader>fs :Fullscreen<CR>
-map <Leader>op :Open<CR>
-
-map <Leader>sh :VimShell<CR>
-
-" Backup
-let g:WriteBackup_BackupDir = '~/.vim-tmp/backup'
-
-" Gundo
-nnoremap <F4> :GundoToggle<CR>
-
-" Matchpairs
-let delimitMate_matchpairs = '(:),[:],{:}'
 
 " necessary on some Linux distros for pathogen to properly load bundles
 filetype off
@@ -101,13 +30,10 @@ if filereadable(expand('~/.bundlerc'))
 	source ~/.bundlerc
 endif
 
-
-
 " Enable filetype
 filetype on
 filetype plugin on
 filetype indent on
-"
 
 " {{{ 2 moving around, searching and patterns
 " whichwrap
@@ -319,16 +245,16 @@ set cot=menu,longest,preview
 
 " omnifunc
 " function for filetype-specific Insert mode completion (local to buffer)
-set ofu=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType phtml set omnifunc=phpcomplete#CompletePHP
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType php setl omnifunc=phpcomplete#CompletePHP
+autocmd FileType phtml setl omnifunc=phpcomplete#CompletePHP
+autocmd FileType python setl omnifunc=pythoncomplete#Complete
+autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
+autocmd FileType c setl omnifunc=ccomplete#Complete
 
 " matchtime: set mat=([0-9]|10)
 " tenth of a second to show a match for 'showmatch'
@@ -384,10 +310,6 @@ set noci
 " preserveindent: set (nopi|pi)
 " preserve kind of whitespace when changing indent (local to buffer)
 set nopi
-
-" {{{ Tab by type
-au FileType ruby setl ts=2 sw=2 sts=2
-" }}}
 
 " {{{ 16 folding: set (fen|nofen)
 " foldenable
@@ -512,11 +434,6 @@ set fenc=utf-8
 set fencs=ucs-bom,utf-8,latin1,cp850,default
 " }}}
 
-" {{{ MRU plugin
-let MRU_Max_Entries = 400
-map <leader>mr :MRU<CR>
-" }}}
-
 " {{{ 26 various
 " viminfo list that specifies what to write in the viminfo file
 set vi='100,<50,s10,h,!
@@ -533,7 +450,7 @@ map <leader>cd :cd %:p:h<CR>:pwd<CR>
 map <silent> <Home> ^
 imap <silent> <Home> <Esc>^i
 
-" trim
+" {{ trim
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -544,47 +461,20 @@ map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
 " }}}
 
 
-map <silent>\rg :PickRGB<CR>
-map <silent>\he :PickHEX<CR>
-map <silent>\hs :PickHSL<CR>
-map <silent>\ha :PickRAW<CR>
-
-" {{{ Tabularize
-nmap \a :Align
-vmap \a :Align
-" }}}
-
 " {{{ Jump to last position of buffer when opening
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " }}}
 
 
 " {{{ Shortcuts for buffer
-
-map \bo e:<Space>
-
+map \bo :e<Space>
 map <Tab> :bn<CR>
 map <S-Tab> :bp<CR>
-
-
 " }}}
 
 " {{{do not menu with left / right in command line
 cnoremap <Left> <Space><BS><Left>
 cnoremap <Right> <Space><BS><Right>
 " }}}
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsSnippetDirectories = ['bundle/vim-snippets']
-au FileType ruby call UltiSnipsAddFiletypes('.ruby-rails.html.javascript')
-au FileType eruby call UltiSnipsAddFiletypes('.eruby-rails.html.javascript')
-
-" Iniciar vim maximizado
-function Maximize_Window()
-  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-endfunction
-
-au GUIEnter * call Maximize_Window()
 
 " vim:noet:foldmethod=marker

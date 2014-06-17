@@ -33,19 +33,25 @@
 
 ### Set zsh as your login shell:
 
-	chsh -s $(which zsh)
+	$ chsh -s $(which zsh)
 
 ## Install
 
 ### Clone repository
 
-	git clone git://github.com/acustodioo/dotfiles.git
+	$ git clone git://github.com/acustodioo/dotfiles.git
 
 ### Create symbol link
 
-	ln -s ~/dotfiles/gitconfig ~/.gitconfig
-	ln -s ~/dotfiles/vim ~/.vim
-	ln -s ~/dotfiles/gvim ~/.gvim
-	ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+	$ ln -s ~/dotfiles/gitconfig ~/.gitconfig
+	$ ln -s ~/dotfiles/vimrc ~/.vimrc
+	$ ln -s ~/dotfiles/gvimrc ~/.gvimrc
+	$ ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+### Install Vundle
+
+	$ mkdir -p ~/.vim/bundle
+	$ cd ~/.vim/bundle && git clone https://github.com/gmarik/Vundle.vim.git
+	$ vim +PluginInstall +qall
 
 <!-- vim:noet -->

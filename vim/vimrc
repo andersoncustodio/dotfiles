@@ -191,6 +191,25 @@ set ttym=xterm2
 " }}}
 
 " {{{ 12 messages and info
+if has("mac")
+	set guifont=Menlo:h14
+	set transparency=1
+elseif has("unix") && &gfn == ""
+	set guifont=Ubuntu\ Mono\ for\ Powerline\ 15
+elseif has("win32")
+	set guifont=Consolas:h11:cANSI
+endif
+
+" guioptions: set go=
+" list of flags that specify how the GUI works
+set go=c
+
+" linespace: set lsp=[0-9]+
+" number of pixel lines to use between characters
+set lsp=3
+" }}}
+
+" {{{ 12 messages and info
 " showcmd: set (nosc|sc)
 " show (partial) command keys in the status line
 set sc

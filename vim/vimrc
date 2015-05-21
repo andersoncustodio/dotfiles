@@ -190,7 +190,9 @@ set nomousef
 set ttym=xterm2
 " }}}
 
+
 " {{{ 12 messages and info
+
 if has("mac")
 	set guifont=Menlo:h14
 	set transparency=1
@@ -207,6 +209,11 @@ set go=c
 " linespace: set lsp=[0-9]+
 " number of pixel lines to use between characters
 set lsp=3
+
+set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
+
+
+" vim:noet:foldmethod=marker
 " }}}
 
 " {{{ 12 messages and info
@@ -228,7 +235,11 @@ set cf
 
 " visualbell set (novb|vb)
 " use a visual bell instead of beeping
-set novb
+set vb t_vb=
+
+"When the GUI starts, t_vb is reset to its default value.
+"Reassert that no flash or beep is wanted.
+set visualbell t_vb=
 
 " set titlestring=%{v:servername}\ -\ %(%{expand(\"%:p:h\")}%)\\%t%(\ %a%)%(\ %M%)
 set titlestring=%{v:servername}
@@ -460,7 +471,7 @@ set vi='100,<50,s10,h,!
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-map Y y$
+nmap Y y$
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<CR>:pwd<CR>

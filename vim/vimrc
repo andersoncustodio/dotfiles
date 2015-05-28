@@ -210,9 +210,6 @@ set go=c
 " number of pixel lines to use between characters
 set lsp=3
 
-set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
-
-
 " vim:noet:foldmethod=marker
 " }}}
 

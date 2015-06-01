@@ -13,27 +13,6 @@ Plugin 'groenewege/vim-less'
 Plugin 'mattn/emmet-vim'
 Plugin 'mklabs/grunt.vim'
 
-" PHP
-Plugin 'voronkovich/php-getter-setter.vim'
-Plugin 'andersoncustodio/vim-fix-php-html-indent'
-Plugin '2072/PHP-Indenting-for-VIm'
-    let g:PHP_vintage_case_default_indent = 1
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'evidens/vim-twig'
-Plugin 'xsbeats/vim-blade'
-
-" Ruby
-Plugin 'vim-ruby/vim-ruby'
-    autocmd FileType ruby setl ts=2 sw=2 sts=2
-    autocmd FileType yaml setl ts=2 sw=2 sts=2
-    autocmd FileType scss setl ts=2 sw=2 sts=2
-Plugin 'tpope/vim-rails'
-Plugin 'hallison/vim-ruby-sinatra'
-Plugin 'slim-template/slim-rails'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'bootleq/vim-textobj-rubysymbol'
-Plugin 'tpope/vim-rvm'
-
 " Go
 Plugin 'jnwhiteh/vim-golang'
 

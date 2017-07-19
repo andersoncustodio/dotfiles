@@ -14,6 +14,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'mklabs/grunt.vim'
 
 " PHP
+Plugin 'StanAngeloff/php.vim'
 Plugin 'voronkovich/php-getter-setter.vim'
 Plugin 'andersoncustodio/vim-fix-php-html-indent'
 Plugin '2072/PHP-Indenting-for-VIm'
@@ -74,7 +75,7 @@ Plugin 'andersoncustodio/vim-snippets'
 Plugin 'juvenn/mustache.vim'
 Plugin 'timcharper/textile.vim'
 Plugin 'leshill/vim-json'
-Plugin 'digitaltoad/vim-jade'
+Plugin 'digitaltoad/vim-pug'
     autocmd FileType jade setl ts=2 sw=2 sts=2
 Plugin 'tpope/vim-markdown'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
@@ -91,8 +92,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
     \ 'link': 'some_bad_symbolic_links',
     \ }
     map <silent>,<C-p> :CtrlPClearCache<CR>:CtrlP<CR>
-Plugin 'LustyJuggler'
-Plugin 'LustyExplorer'
+
+" Lusty
+Plugin 'sjbach/lusty'
 
 " Gundo
 Plugin 'sjl/gundo.vim'
@@ -108,9 +110,9 @@ Plugin 'scrooloose/nerdtree'
     let g:nerdtree_tabs_open_on_gui_startup = 0
     nmap <silent> <f2> :NERDTreeToggle<CR>
 
-" Power Line
-Plugin 'skwp/vim-powerline'
-    let g:Powerline_symbols = 'fancy'
+" A like Power Line
+Plugin 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
 
 " Easymotion
 Plugin 'Lokaltog/vim-easymotion'

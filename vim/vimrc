@@ -197,7 +197,7 @@ if has("mac")
 	set guifont=Menlo:h14
 	set transparency=1
 elseif has("unix") && &gfn == ""
-	set guifont=Ubuntu\ Mono\ for\ Powerline\ 15
+	set guifont=Source\ Code\ Pro\ for\ Powerline
 elseif has("win32")
 	set guifont=Consolas:h11:cANSI
 endif

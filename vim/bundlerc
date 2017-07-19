@@ -92,6 +92,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
     \ 'link': 'some_bad_symbolic_links',
     \ }
     map <silent>,<C-p> :CtrlPClearCache<CR>:CtrlP<CR>
+Plugin 'ivalkeen/vim-ctrlp-tjump'
+    nnoremap <c-]> :CtrlPtjump<cr>
+    vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
 " Lusty
 Plugin 'sjbach/lusty'

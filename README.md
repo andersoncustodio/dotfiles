@@ -1,4 +1,4 @@
-# dotfiles acustodioo
+# dotfiles Anderson Custódio
 
 ## References
 
@@ -19,39 +19,39 @@
 
 ### OS X
 
-	$ brew install coreutils zsh ctags git macvim ack
+	brew install coreutils zsh ctags git macvim ack
 
-	$ rvm get head --auto-dotfiles
+	rvm get head --auto-dotfiles
 
 ### Arch Linux
 
-	$ sudo pacman -S zsh openssh git gvim ctags ncurses curl wmctrl ack
+	sudo pacman -S zsh openssh git gvim ctags ncurses curl wmctrl ack
 
 ### Ubuntu
 
-	$ sudo apt-get install zsh git vim-gtk exuberant-ctags ncurses-term curl wmctrl ack-grep
+	sudo apt-get install zsh git vim-gtk exuberant-ctags ncurses-term curl wmctrl ack-grep
 
 ### Set zsh as your login shell:
 
-	$ chsh -s $(which zsh)
+	chsh -s $(which zsh)
 
 ## Install
 
 ### Clone repository
 
-	$ git clone git://github.com/acustodioo/dotfiles.git
+	git clone git://github.com/andersoncustodio/dotfiles.git
 
 ### Create symbol link
 
-	$ ln -s ~/dotfiles/gitconfig ~/.gitconfig
-	$ ln -s ~/dotfiles/vimrc ~/.vimrc
-	$ ln -s ~/dotfiles/gvimrc ~/.gvimrc
-	$ ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+	ln -s ~/dotfiles/gitconfig ~/.gitconfig
+	ln -s ~/dotfiles/vim/bundlerc ~/.bundlerc
+	ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+	ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ### Install Vundle
 
-	$ mkdir -p ~/.vim/bundle
-	$ cd ~/.vim/bundle && git clone https://github.com/gmarik/Vundle.vim.git
-	$ vim +PluginInstall +qall
+	mkdir -p ~/.vim/bundle
+	cd ~/.vim/bundle && git clone https://github.com/gmarik/Vundle.vim.git
+	vim +PluginInstall +qall
 
 <!-- vim:noet -->

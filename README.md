@@ -47,6 +47,7 @@
 	ln -s ~/dotfiles/vim/bundlerc ~/.bundlerc
 	ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 	ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+	ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 
 ### Install Vundle
 

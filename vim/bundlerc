@@ -13,6 +13,11 @@ Plugin 'groenewege/vim-less'
 Plugin 'mattn/emmet-vim'
 Plugin 'mklabs/grunt.vim'
 
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Quramy/tsuquyomi'
+
 " PHP
 Plugin 'StanAngeloff/php.vim'
 Plugin 'voronkovich/php-getter-setter.vim'
@@ -254,7 +259,7 @@ Plugin 'ciaranm/securemodelines'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-tbone'
 Plugin 'ShowTrailingWhitespace'
-Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'chr4/nginx.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'joonty/vdebug'
 Plugin 'Rename'

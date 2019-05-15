@@ -42,4 +42,6 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-fugitive'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-eunuch'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 

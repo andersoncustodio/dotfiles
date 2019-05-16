@@ -9,8 +9,8 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
 let g:NERDTreeWinPos = 'left'
 let g:nerdtree_tabs_open_on_gui_startup = 0
-nmap <silent> ,<f2> :NERDTreeToggle<CR>
-nmap <silent> <f2> :NERDTreeFind<CR>
+nmap <silent> <f2> :NERDTreeToggle<CR>
+nmap <silent> ,<f2> :NERDTreeFind<CR>
 
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
@@ -26,6 +26,9 @@ map <silent>,<C-p> :CtrlPClearCache<CR>:CtrlP<CR>
 
 Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<space>'
+
+Plug 'w0rp/ale'
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
@@ -44,4 +47,6 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'andersoncustodio/vim-emacscommandline'
+
 

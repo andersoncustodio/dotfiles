@@ -111,8 +111,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`
 
 
 " Shortcuts for nav tabs
-map \tn :tabnew<Space>
-map <Tab> :tabnext<CR>
-map <S-Tab> :tabprev<CR>
+map \bo :e<Space>
+map <Tab> :bn<CR>
+map <S-Tab> :bp<CR>
 
 " vim:noet:foldmethod=marker

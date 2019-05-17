@@ -39,7 +39,7 @@
 
 ### Clone repository
 
-	git clone git://github.com/andersoncustodio/dotfiles.git
+    git clone https://github.com/andersoncustodio/dotfiles.git
 
 ### Create symbol link
 
@@ -49,8 +49,5 @@
 	ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 
-### Install Vundle
-
-	mkdir -p ~/.vim/bundle
-	cd ~/.vim/bundle && git clone https://github.com/gmarik/Vundle.vim.git
-	vim +PluginInstall +qall
+### Install new plugins
+	vim +PlugInstall +qall

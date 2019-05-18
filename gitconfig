@@ -30,10 +30,10 @@
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
-	smtpuser = acustodioo@gmail.com
-
-# vim:noet
+	smtpuser = contato@andersoncustodio.com
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+
+# vim:noet

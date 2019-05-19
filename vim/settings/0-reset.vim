@@ -350,7 +350,7 @@ set fdn=3
 " {{{ 19 reading and writing files
 " modeline: set (ml|noml)
 " enable using settings from modelines when reading a file (local to buffer)
-set noml
+set ml
 
 " modelines: set mls=[0-9]+
 " number of lines to check for modelines

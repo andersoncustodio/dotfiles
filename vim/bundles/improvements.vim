@@ -25,7 +25,9 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'
 
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'jonsmithers/vim-html-template-literals'
 
-Plug 'mxw/vim-jsx'
+Plug 'Yggdroot/indentLine'
+
 Plug 'andersoncustodio/vim-emacscommandline'

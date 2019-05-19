@@ -23,6 +23,9 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'
+
 Plug 'pangloss/vim-javascript'
+Plug 'jonsmithers/vim-html-template-literals'
+
 Plug 'mxw/vim-jsx'
 Plug 'andersoncustodio/vim-emacscommandline'

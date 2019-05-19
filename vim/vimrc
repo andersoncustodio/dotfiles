@@ -1,78 +1,28 @@
-set nocp
-
-" With a map leader it's possible to do extra key combinations
-let mapleader = ","
-let g:mapleader = ","
-
-" Create tmp directorys
-if !isdirectory(expand('~/.vim-tmp'))
-	call mkdir(expand('~/.vim-tmp/backup'), 'p')
-	call mkdir(expand('~/.vim-tmp/swap'), 'p')
-	call mkdir(expand('~/.vim-tmp/undo'), 'p')
-endif
-
-" necessary on some Linux distros for pathogen to properly load bundles
-filetype off
+" Default vim path ini all versions
+set rtp +=~/.vim
 
 " vim plug
-set rtp +=~/.vim,~/dotfiles/vim
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+    autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin('~/.vim/plugged')
-	if filereadable(expand('~/.bundlerc'))
-		for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
-		  exe 'source' fpath
-		endfor
+    if filereadable(expand('~/.bundlerc'))
+        for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
+          exe 'source' fpath
+        endfor
 
-		source ~/.bundlerc
-	endif
+        source ~/.bundlerc
+    endif
 call plug#end()
 
 for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
-" Enable filetype
-filetype on
-filetype plugin on
-filetype indent on
-
-syntax on
-
-
-
-set nu
-set wrap
-set hid
-set ar
-set vb t_vb=
-set titlestring=%{v:servername}
-
-" indent
-set et
-set ai
-set sta
-set sw=4
-set ts=4
-set bs=indent,eol,start
-
-" show <Tab> as ^I and end-of-line as $ (local to window)
-set nolist
 map <silent> <leader>li :set list!<bar>set nolist?<cr>
-
-" listchars list of strings used for list mode
-if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
-	set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
-else
-	set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
-endif
-
-" highlight all matches for the last used search pattern
-set nohls
 map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
 
 " Spell
@@ -81,19 +31,9 @@ map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
 map <silent> \ns :set nospell<cr>
 
-" automatically save and restore undo history
-if exists('&udf') | set udf | endif
-if exists('&udir') | set udir=~/.vim-tmp/undo | endif
-
-" swap file
-set dir=~/.vim-tmp/swap
-
-" keep a backup after overwriting a file
-set bk
-set bdir=~/.vim-tmp/backup
 
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<CR>:pwd<CR>
+map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
 
 
 " trim
@@ -103,12 +43,8 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
+
 map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
-
-
-" Jump to last position of buffer when opening
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
 
 " Shortcuts for nav tabs
 map \bo :e<Space>

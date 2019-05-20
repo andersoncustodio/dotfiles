@@ -155,7 +155,7 @@ set tf
 
 " esckeys set (ek|noek)
 " recognize keys that start with <Esc> in Insert mode
-set ek
+if exists('&noek') | set noek | endif
 " }}}
 
 " {{{ 9 using the mouse
@@ -168,7 +168,7 @@ set mouse=a
 set nomousef
 
 " ttymouse "xterm", "xterm2", "dec" or "netterm"; type of mouse
-set ttym=xterm2
+if exists('&ttym') | set ttym=xterm2 | end
 " }}}
 
 

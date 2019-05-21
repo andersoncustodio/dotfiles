@@ -31,3 +31,6 @@ Plug 'jonsmithers/vim-html-template-literals'
 Plug 'Yggdroot/indentLine'
 
 Plug 'andersoncustodio/vim-emacscommandline'
+Plug 'andersoncustodio/vim-cmdline-completion'
+
+Plug 'bfredl/nvim-miniyank'

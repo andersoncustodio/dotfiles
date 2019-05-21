@@ -21,8 +21,6 @@
 
 	brew install coreutils zsh ctags git macvim ack
 
-	rvm get head --auto-dotfiles
-
 ### Arch Linux
 
 	sudo pacman -S zsh openssh git gvim ctags ncurses curl wmctrl ack
@@ -41,13 +39,30 @@
 
     git clone https://github.com/andersoncustodio/dotfiles.git
 
-### Create symbol link
+### ~/.gitconfig
 
-	ln -s ~/dotfiles/gitconfig ~/.gitconfig
-	ln -s ~/dotfiles/vim/bundlerc ~/.bundlerc
-	ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-	ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-	ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+    [include]
+        path = ~/dotfiles/gitconfig
 
-### Install new plugins
-	vim +PlugInstall +qall
+    # additional settings
+    # [user]
+    #     name = andersoncustodio
+    #     email = contato@andersoncustodio.com
+
+### ~/.vimrc
+
+    source ~/dotfiles/vim/vimrc
+
+    " additional settings
+    " color gruvbox
+
+### ~/.bundlerc
+
+    " additional vim plugin
+    " Plug 'morhetz/gruvbox'
+
+### ~/.tmux.conf
+
+    source ~/dotfiles/tmux/tmux.conf
+
+    " additional tmux config

@@ -31,7 +31,6 @@ map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
 map <silent> \ns :set nospell<cr>
 
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
 

@@ -39,6 +39,11 @@ set is
 " magic: set (magic|nomagic)
 " change the way backslashes are used in search patterns
 set magic
+
+
+"nosplit": Shows the effects of a command incrementally, as you type.
+"split"	 : Also shows partial off-screen results in a preview window.
+if exists('&inccommand') | set inccommand=split | endif
 " }}}
 
 " {{{ 3 tags
@@ -161,7 +166,7 @@ if exists('&noek') | set noek | endif
 " {{{ 9 using the mouse
 " mouse
 " list of flags for using the mouse
-set mouse=a
+set mouse=""
 
 " mousefocus: set (nomousef|mousef)
 " the window with the mouse pointer becomes the current one

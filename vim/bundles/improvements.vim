@@ -3,7 +3,7 @@ Plug 'juvenn/mustache.vim'
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
 
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'w0rp/ale'

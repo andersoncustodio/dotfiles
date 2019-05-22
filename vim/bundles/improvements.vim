@@ -32,8 +32,16 @@ Plug 'mxw/vim-jsx'
 Plug 'jonsmithers/vim-html-template-literals'
 
 Plug 'Yggdroot/indentLine'
+Plug 'sbdchd/neoformat'
 
 Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'
+
+Plug 'ncm2/ncm2', Cond(has('nvim'))
+Plug 'roxma/nvim-yarp', Cond(has('nvim'))
+Plug 'ncm2/ncm2-bufword', Cond(has('nvim'))
+Plug 'ncm2/ncm2-path', Cond(has('nvim'))
+Plug 'fgrsnau/ncm2-otherbuf', Cond(has('nvim'))
+
 
 Plug 'bfredl/nvim-miniyank'

@@ -8,6 +8,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+" Helper conditional install bundle
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin('~/.vim/plugged')
     if filereadable(expand('~/.bundlerc'))
         for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
@@ -29,6 +35,8 @@ map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
 set spellcapcheck=[.?!]\_[\])'"^I ]\+
 map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
+map <silent> \ns :set nospell<cr>
+
 map <silent> \ns :set nospell<cr>
 
 " When pressing <leader>cd switch to the directory of the open buffer

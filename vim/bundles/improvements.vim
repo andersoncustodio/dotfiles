@@ -41,7 +41,6 @@ Plug 'ncm2/ncm2', Cond(has('nvim'))
 Plug 'roxma/nvim-yarp', Cond(has('nvim'))
 Plug 'ncm2/ncm2-bufword', Cond(has('nvim'))
 Plug 'ncm2/ncm2-path', Cond(has('nvim'))
-Plug 'fgrsnau/ncm2-otherbuf', Cond(has('nvim'))
-
+Plug 'ncm2/ncm2-tmux', Cond(has('nvim'))
 
 Plug 'bfredl/nvim-miniyank'

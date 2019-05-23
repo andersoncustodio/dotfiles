@@ -96,7 +96,9 @@ set lbr
 
 " breakat
 " which characters might cause a line break
-"set brk=\ \	-+;,/?\&
+" set brk=\ \	-+;,/?\&
+
+set shortmess+=c
 
 " showbreak
 " string to put before wrapped screen lines

@@ -9,3 +9,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'tmhedberg/matchit'
+
+Plug 'ncm2/ncm2-cssomni', Cond(has('nvim'))
+Plug 'ncm2/ncm2-tern', Cond(has('nvim'), {'do': 'npm install'})
+Plug 'mhartington/nvim-typescript', Cond(has('nvim'))

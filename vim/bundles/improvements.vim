@@ -6,7 +6,6 @@ Plug 'tpope/vim-markdown'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
@@ -28,7 +27,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+" Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'chemzqm/vim-jsx-improve'
 Plug 'jonsmithers/vim-html-template-literals'
 
 Plug 'Yggdroot/indentLine'
@@ -37,10 +39,6 @@ Plug 'sbdchd/neoformat'
 Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'
 
-Plug 'ncm2/ncm2', Cond(has('nvim'))
-Plug 'roxma/nvim-yarp', Cond(has('nvim'))
-Plug 'ncm2/ncm2-bufword', Cond(has('nvim'))
-Plug 'ncm2/ncm2-path', Cond(has('nvim'))
-Plug 'ncm2/ncm2-tmux', Cond(has('nvim'))
+Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'tag': '*', 'do': './install.sh'}) 
 
 Plug 'bfredl/nvim-miniyank'

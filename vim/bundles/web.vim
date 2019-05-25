@@ -6,6 +6,5 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'groenewege/vim-less'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 

@@ -43,7 +43,7 @@
 ### ~/.gitconfig
 
     [include]
-        path = ~/dotfiles/gitconfig
+        path = ~/dotfiles/git/gitconfig
 
     # additional settings
     # [user]

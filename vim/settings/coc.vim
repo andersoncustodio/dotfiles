@@ -1,5 +1,3 @@
-if !has('nvim') | finish | endif
-
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -57,8 +55,11 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+
+if has('nvim')
+    " Highlight symbol under cursor on CursorHold
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -88,11 +89,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Using CocList
 " Show all diagnostics

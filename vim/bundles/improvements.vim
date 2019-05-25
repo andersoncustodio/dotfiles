@@ -4,8 +4,21 @@ Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
 
 Plug 'mbbill/undotree'
-Plug 'scrooloose/nerdtree'
-Plug 'Lokaltog/vim-easymotion'
+" Plug 'scrooloose/nerdtree'
+
+
+
+
+
+
+Plug 'thaerkh/vim-workspace'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
+
+
+
+
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
@@ -22,7 +35,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'
 Plug 'markonm/traces.vim'
 
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -35,6 +47,7 @@ Plug 'jonsmithers/vim-html-template-literals'
 
 Plug 'Yggdroot/indentLine'
 Plug 'sbdchd/neoformat'
+Plug 'pbrisbin/vim-mkdir'
 
 Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'

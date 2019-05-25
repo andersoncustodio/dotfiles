@@ -31,6 +31,8 @@ endfor
 map <silent> <leader>li :set list!<bar>set nolist?<cr>
 map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
 
+vnoremap <silent> <CR> "+y
+
 " Spell
 set spellcapcheck=[.?!]\_[\])'"^I ]\+
 map <silent> \pt :set spell spelllang=pt<cr>
@@ -41,6 +43,7 @@ map <silent> \ns :set nospell<cr>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
+" map <leader>cd :exec ":cd expand(%:p:h)"<CR>
 
 
 " trim

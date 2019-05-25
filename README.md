@@ -19,15 +19,15 @@
 
 ### OS X
 
-	brew install coreutils zsh ctags git macvim ack
+	brew install coreutils zsh git neovim ctag sag ranger
 
 ### Arch Linux
 
-	sudo pacman -S zsh openssh git gvim ctags ncurses curl wmctrl ack
+	sudo pacman -S zsh openssh git gvim ctags ncurses curl
 
 ### Ubuntu
 
-	sudo apt-get install zsh git neovim exuberant-ctags ncurses-term curl wmctrl ack-grep silversearcher-ag python3-pip
+	sudo apt-get install zsh git neovim exuberant-ctags ncurses-term curl wmctrl silversearcher-ag python3-pip
     sudo pip3 install --upgrade neovim
 
 ### Set zsh as your login shell:
@@ -56,6 +56,9 @@
 
     " additional settings
     " color gruvbox
+
+#### Install coc plugins
+    :CocInstall coc-css coc-html coc-tsserver coc-emmet
 
 ### ~/.bundlerc
 

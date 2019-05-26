@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'andersoncustodio/vim-enter-indent'
-Plug 'vim-scripts/bufexplorer.zip'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-abolish'
 Plug 'mileszs/ack.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -49,3 +49,6 @@ Plug 'andersoncustodio/vim-cmdline-completion'
 Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'tag': '*', 'do': './install.sh'})
 
 Plug 'bfredl/nvim-miniyank'
+
+
+

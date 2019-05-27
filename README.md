@@ -19,7 +19,7 @@
 
 ### OS X
 
-	brew install coreutils zsh git neovim ctag sag ranger
+	brew install coreutils zsh git neovim ctag ag ranger
 
 ### Arch Linux
 

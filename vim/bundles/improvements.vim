@@ -26,14 +26,11 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'
 Plug 'markonm/traces.vim'
 
-Plug 'mhinz/vim-startify'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-" Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'jonsmithers/vim-html-template-literals'
@@ -46,9 +43,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'
 
-Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'tag': '*', 'do': './install.sh'})
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 Plug 'bfredl/nvim-miniyank'
-
-
 

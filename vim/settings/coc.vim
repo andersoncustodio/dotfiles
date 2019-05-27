@@ -14,6 +14,11 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+" preferences
+call coc#config('coc.preferences', {
+    \ 'noselect': 0,
+    \})
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -32,7 +37,8 @@ inoremap <silent><expr> <c-n> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+let g:enter_indent_default_keymap = 0
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<cr>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -84,12 +90,6 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Using CocList
 " Show all diagnostics

@@ -4,7 +4,7 @@ endif
 
 let g:fzf_buffers_jump = 1
 
-noremap <silent><cr> :Buffers<cr>
+noremap <silent><leader><cr> :Buffers<cr>
 
 nnoremap <leader>f :Files<cr>
 nnoremap <space>f :Files<space>

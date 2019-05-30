@@ -28,8 +28,8 @@ for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
-map <silent> <leader>li :set list!<bar>set nolist?<cr>
-map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
+" map <silent> <leader>li :set list!<bar>set nolist?<cr>
+" map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
 
 vnoremap <silent> <CR> "+y
 
@@ -45,7 +45,6 @@ map <silent> \ns :set nospell<cr>
 map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
 " map <leader>cd :exec ":cd expand(%:p:h)"<CR>
 
-
 " trim
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -58,7 +57,9 @@ map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
 
 " Shortcuts for nav tabs
 map \bo :e<Space>
+noremap <silent><cr> :b#<cr>
 map <silent> <Tab> :bn<CR>
 map <silent> <S-Tab> :bp<CR>
+
 
 " vim:noet:foldmethod=marker

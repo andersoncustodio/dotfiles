@@ -10,10 +10,13 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'andersoncustodio/vim-enter-indent'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-abolish'
 Plug 'mileszs/ack.vim'
 Plug 'terryma/vim-multiple-cursors'

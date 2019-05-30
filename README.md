@@ -27,7 +27,7 @@
 
 ### Ubuntu
 
-	sudo apt-get install zsh git neovim exuberant-ctags ncurses-term curl wmctrl silversearcher-ag python3-pip
+	sudo apt-get install zsh git neovim exuberant-ctags ncurses-term curl wmctrl silversearcher-ag python3-pip ranger
     sudo pip3 install --upgrade neovim
 
 ### Set zsh as your login shell:

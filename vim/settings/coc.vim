@@ -38,7 +38,7 @@ inoremap <silent><expr> <c-n> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 let g:enter_indent_default_keymap = 0
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<cr>"
+inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<cr>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)

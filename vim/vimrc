@@ -29,7 +29,7 @@ for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
 endfor
 
 " map <silent> <leader>li :set list!<bar>set nolist?<cr>
-" map <silent> <leader><cr> :set hls!<bar>set nohls?<cr>
+map <silent> \hl :set hls!<bar>set nohls?<cr>
 
 vnoremap <silent> <CR> "+y
 
@@ -37,7 +37,7 @@ vnoremap <silent> <CR> "+y
 set spellcapcheck=[.?!]\_[\])'"^I ]\+
 map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
-map <silent> \ns :set nospell<cr>
+map <silent> \sp :set spell!<cr>
 
 map <silent> \ns :set nospell<cr>
 
@@ -60,6 +60,5 @@ map \bo :e<Space>
 noremap <silent><cr> :b#<cr>
 map <silent> <Tab> :bn<CR>
 map <silent> <S-Tab> :bp<CR>
-
 
 " vim:noet:foldmethod=marker

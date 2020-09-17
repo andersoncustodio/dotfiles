@@ -8,4 +8,3 @@ Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'ap/vim-css-color'
 
-Plug 'shawncplus/phpcomplete.vim'

@@ -1,9 +1,13 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Customize
 DISABLE_AUTO_TITLE="true"
 
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+alias v=nvim
+alias vim=nvim
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export LS_COLORS='ow=01;37;42'
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"

@@ -14,19 +14,25 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+" bundles
 call plug#begin('~/.vim/plugged')
-    if filereadable(expand('~/.bundlerc'))
-        for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
-          exe 'source' fpath
-        endfor
+	for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
+		exe 'source' fpath
+	endfor
 
-        source ~/.bundlerc
+	if filereadable(expand('~/.vim/bundles.vim'))
+        source ~/.vim/bundles.vim
     endif
 call plug#end()
 
+" settings
 for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
+
+if filereadable(expand('~/.vim/settings.vim'))
+	source ~/.vim/settings.vim
+endif
 
 " map <silent> <leader>li :set list!<bar>set nolist?<cr>
 map <silent> \hl :set hls!<bar>set nohls?<cr>

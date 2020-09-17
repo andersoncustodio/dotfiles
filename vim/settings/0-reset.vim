@@ -266,6 +266,10 @@ set cpt=.,w,k,b,u,t,i cpt-=k cpt+=k
 " whether to use a popup menu for Insert mode completion
 " set cot=menu,longest,preview
 
+" Determine how text with the "conceal" syntax attribute |:syn-conceal|
+" is shown:
+let g:indentLine_conceallevel = 0
+set conceallevel=0
 
 " TODO: Talvez remover
 " omnifunc

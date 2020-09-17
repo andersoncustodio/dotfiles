@@ -15,7 +15,7 @@
   ; Show files ignored by git
   ign = ls-files -o -i --exclude-standard
 [color]
-  ui = true                                  
+  ui = true
   branch = auto
   diff = auto
   grep = auto
@@ -33,7 +33,6 @@
   clean = git hawser clean %f
   smudge = git hawser smudge %f
   required = true
-[include]
-  path = .gitconfig.user
 
 # vim:noet:ft=gitconfig
+

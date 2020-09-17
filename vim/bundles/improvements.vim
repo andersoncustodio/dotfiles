@@ -45,7 +45,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'bfredl/nvim-miniyank'
 

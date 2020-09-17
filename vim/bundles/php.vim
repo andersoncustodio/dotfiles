@@ -1,2 +1,3 @@
-Plug 'StanAngeloff/php.vim'
-Plug 'captbaritone/better-indent-support-for-php-with-html'
+" Plug 'StanAngeloff/php.vim'
+" Plug '2072/PHP-Indenting-for-VIm'
+" Plug 'shawncplus/phpcomplete.vim'

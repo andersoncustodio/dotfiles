@@ -27,6 +27,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'
 Plug 'markonm/traces.vim'
+Plug 'godlygeek/tabular'
+Plug 'mattn/emmet-vim'
+
+Plug 'andersoncustodio/vim-sync'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -48,4 +52,3 @@ Plug 'andersoncustodio/vim-cmdline-completion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'bfredl/nvim-miniyank'
-

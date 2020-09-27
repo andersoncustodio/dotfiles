@@ -6,7 +6,7 @@ Plug 'tpope/vim-markdown'
 Plug 'mbbill/undotree'
 
 Plug 'thaerkh/vim-workspace'
-Plug 'francoiscabrol/ranger.vim'
+Plug 'preservim/nerdtree'
 Plug 'rbgrouleff/bclose.vim'
 
 Plug 'vim-airline/vim-airline'

@@ -13,3 +13,6 @@ nnoremap <leader>l :Lines<cr>
 
 nnoremap ; :Commands<cr>
 nnoremap <leader>h :History<cr>
+
+
+nnoremap <leader>t :Tags<cr>

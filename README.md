@@ -23,8 +23,10 @@
 ### Arch Linux
 	sudo pacman -S zsh openssh git gvim ctags ncurses curl
 ### Ubuntu
+	sudo add-apt-repository ppa:neovim-ppa/stable 
+	sudo apt-get update
+
 	sudo apt-get install zsh git neovim exuberant-ctags ncurses-term curl wmctrl silversearcher-ag python3-pip ranger
-    sudo pip3 install --upgrade neovim
 
 ### Set zsh as your login shell:
 	chsh -s $(which zsh)

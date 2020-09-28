@@ -49,6 +49,7 @@ if exists('&inccommand') | set inccommand=split | endif
 " {{{ 3 tags
 " tags list of file names to search for tags (global or local to buffer)
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <c-\> <c-]>
 " }}}
 
 " {{{ 4 displaying text

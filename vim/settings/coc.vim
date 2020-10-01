@@ -1,4 +1,4 @@
-if !exists('*coc#config') | finish |  endif
+if !exists("g:coc_enabled") | finish |  endif
 
 " if hidden is not set, TextEdit might fail.
 set hidden

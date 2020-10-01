@@ -5,7 +5,6 @@ Plug 'tpope/vim-markdown'
 
 Plug 'mbbill/undotree'
 
-Plug 'thaerkh/vim-workspace'
 Plug 'preservim/nerdtree'
 Plug 'rbgrouleff/bclose.vim'
 

@@ -76,4 +76,7 @@ noremap <silent><cr> :b#<cr>
 map <silent> <Tab> :bn<CR>
 map <silent> <S-Tab> :bp<CR>
 
+" Use C-q para seleção em bloco
+noremap <C-v> <Nop>
+
 " vim:noet:foldmethod=marker

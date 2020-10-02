@@ -51,6 +51,16 @@ map <silent> \ns :set nospell<cr>
 map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
 " map <leader>cd :exec ":cd expand(%:p:h)"<CR>
 
+" Toggle virtualedit
+function! <SID>ToogleVirtualEditor()
+	if &virtualedit == "all"
+		set virtualedit=
+	else
+		set virtualedit=all
+	endif
+endfunction
+noremap <silent><leader>v :call <SID>ToogleVirtualEditor()<CR>
+
 " trim
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -58,7 +68,6 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-
 map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
 
 " Shortcuts for nav tabs

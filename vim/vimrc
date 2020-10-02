@@ -16,11 +16,11 @@ endfunction
 
 " bundles
 call plug#begin('~/.vim/plugged')
-	for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
-		exe 'source' fpath
-	endfor
+    for fpath in split(globpath('~/dotfiles/vim/bundles', '*.vim'), '\n')
+        exe 'source' fpath
+    endfor
 
-	if filereadable(expand('~/.vim/bundles.vim'))
+    if filereadable(expand('~/.vim/bundles.vim'))
         source ~/.vim/bundles.vim
     endif
 call plug#end()
@@ -31,7 +31,7 @@ for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
 endfor
 
 if filereadable(expand('~/.vim/settings.vim'))
-	source ~/.vim/settings.vim
+    source ~/.vim/settings.vim
 endif
 
 " map <silent> <leader>li :set list!<bar>set nolist?<cr>
@@ -53,11 +53,11 @@ map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Toggle virtualedit
 function! <SID>ToogleVirtualEditor()
-	if &virtualedit == "all"
-		set virtualedit=
-	else
-		set virtualedit=all
-	endif
+    if &virtualedit == "all"
+        set virtualedit=
+    else
+        set virtualedit=all
+    endif
 endfunction
 noremap <silent><leader>v :call <SID>ToogleVirtualEditor()<CR>
 

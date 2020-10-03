@@ -1,4 +1,4 @@
-if !exists("g:coc_enabled") | finish |  endif
+if exists('g:did_coc_loaded') || v:version < 800 | finish | endif
 
 " if hidden is not set, TextEdit might fail.
 set hidden

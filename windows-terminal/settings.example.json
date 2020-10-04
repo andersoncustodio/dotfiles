@@ -40,6 +40,9 @@
             "foreground": "#e6d4a3"
           }
     ],
-    "keybindings": []
+    "keybindings": [
+        { "command": "openSettings", "keys": "ctrl+shift+," },
+        { "command": null, "keys": "ctrl+," }
+    ]
 }
 

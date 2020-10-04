@@ -72,7 +72,7 @@ map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
 
 " Shortcuts for nav tabs
 map \bo :e<Space>
-noremap <silent><cr> :b#<cr>
+noremap <silent> <leader><Tab> :b#<cr>
 map <silent> <Tab> :bn<CR>
 map <silent> <S-Tab> :bp<CR>
 

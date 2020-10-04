@@ -9,9 +9,9 @@ Plug 'preservim/nerdtree'
 Plug 'rbgrouleff/bclose.vim'
 
 Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'andersoncustodio/vim-enter-indent'
 Plug 'jlanzarotta/bufexplorer'
@@ -20,9 +20,13 @@ Plug 'tpope/vim-abolish'
 Plug 'chrisbra/NrrwRgn'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-fugitive'
+
+" Git
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 Plug 'airblade/vim-gitgutter'
+
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'
 Plug 'markonm/traces.vim'
@@ -33,6 +37,7 @@ Plug 'andersoncustodio/vim-sync'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-dadbod'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'

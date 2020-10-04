@@ -4,15 +4,14 @@ endif
 
 let g:fzf_buffers_jump = 1
 
-noremap <silent><leader><cr> :Buffers<cr>
+noremap <leader>bf :Buffers<cr>
 
-nnoremap <leader>f :Files<cr>
-nnoremap <space>f :Files<space>
+noremap <leader>f :Files<cr>
+noremap <space>f :Files<space>
 
-nnoremap <leader>l :Lines<cr>
+noremap <leader>l :Lines<cr>
 
-nnoremap ; :Commands<cr>
-nnoremap <leader>h :History<cr>
+noremap <leader>: :Commands<cr>
+noremap <leader>h :History<cr>
 
-
-nnoremap <leader>t :Tags<cr>
+noremap <leader>t :Tags<cr>

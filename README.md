@@ -94,8 +94,8 @@
     chmod +x /tmp/win32yank.exe
     mv /tmp/win32yank.exe /usr/local/bin
 
-#### Install Cascadia Code
-https://github.com/microsoft/cascadia-code/releases
+#### Install Source Code Pro
+    https://github.com/adobe-fonts/source-code-pro/blob/release/TTF/SourceCodePro-Regular.ttf
 
 Use example config in ~/dotfiles/windows-terminal
 

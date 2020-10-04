@@ -4,12 +4,14 @@
 
     "copyOnSelect": true,
     "copyFormatting": false,
+    "alwaysShowTabs": false,
+    "showTabsInTitlebar": false,
 
     "profiles":
     {
         "defaults":
         {
-            "fontFace": "Cascadia Code PL",
+            "fontFace": "Source Code Pro",
             "colorScheme": "Gruvbox Dark",
             "cursorShape": "filledBox"
         },

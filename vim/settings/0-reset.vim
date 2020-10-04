@@ -452,9 +452,14 @@ if exists('&udf') | set udf | endif
 
 " undodir list of directories for undo files
 if exists('&udir')
-    let undo_path = expand('~/.vim/tmp/undo')
+    if $HOME != $PWD && isdirectory('.vim')
+        let undo_path = expand('.vim/undo')
+    else
+        let undo_path = expand('~/.vim/tmp/undo')
+    endif
+
     if !isdirectory(undo_path) | call mkdir(undo_path, 'p') | endif
-    set udir=~/.vim/tmp/undo
+    let &udir=undo_path
 endif
 " }}}
 
@@ -473,19 +478,11 @@ set fenc=utf-8
 set fencs=ucs-bom,utf-8,latin1,cp850,default
 " }}}
 
-" {{{ 26 various
-" viminfo list that specifies what to write in the viminfo file
-set vi='100,<50,s10,h,!
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-nmap Y y$
-
-" When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<CR>:pwd<CR>
+" Utilizar um viminfo para cada projeto
+if $HOME != $PWD && isdirectory('.vim')
+    set shadafile=.vim/viminfo
+endif
 
 
-" {{{ Jump to last position of buffer when opening
+" Jump to last position of buffer when opening
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-" }}}

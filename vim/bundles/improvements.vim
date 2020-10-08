@@ -9,6 +9,7 @@ Plug 'preservim/nerdtree'
 Plug 'rbgrouleff/bclose.vim'
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -38,12 +39,15 @@ Plug 'andersoncustodio/vim-sync'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dadbod'
+Plug 'preservim/tagbar'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'jonsmithers/vim-html-template-literals'
+
+Plug 'neoclide/jsonc.vim'
 
 Plug 'Yggdroot/indentLine'
 Plug 'sbdchd/neoformat'
@@ -56,3 +60,8 @@ Plug 'andersoncustodio/vim-cmdline-completion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'bfredl/nvim-miniyank'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+
+Plug 'vim-vdebug/vdebug'

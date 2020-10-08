@@ -157,6 +157,8 @@ set showtabline=1
 " Colors
 set t_Co=256
 
+set termguicolors
+
 " ttyfast set (tf|notf)
 " terminal connection is fast
 set tf
@@ -452,10 +454,10 @@ if exists('&udf') | set udf | endif
 
 " undodir list of directories for undo files
 if exists('&udir')
-    if $HOME != $PWD && isdirectory('.vim')
+    if isdirectory('.vim')
         let undo_path = expand('.vim/undo')
     else
-        let undo_path = expand('~/.vim/tmp/undo')
+        let undo_path = expand('~/.vim/undo')
     endif
 
     if !isdirectory(undo_path) | call mkdir(undo_path, 'p') | endif

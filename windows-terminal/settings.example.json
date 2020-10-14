@@ -6,43 +6,51 @@
     "copyFormatting": false,
     "alwaysShowTabs": false,
     "showTabsInTitlebar": false,
+    "multiLinePasteWarning": false,
 
     "profiles":
     {
         "defaults":
         {
             "fontFace": "Source Code Pro",
-            "colorScheme": "Gruvbox Dark",
+            "colorScheme": "Nord",
             "cursorShape": "filledBox"
         },
         "list": []
     },
     "schemes": [
         {
-            "name": "Gruvbox Dark",
-            "black": "#1e1e1e",
-            "red": "#be0f17",
-            "green": "#868715",
-            "yellow": "#cc881a",
-            "blue": "#377375",
-            "purple": "#a04b73",
-            "cyan": "#578e57",
-            "white": "#978771",
-            "brightBlack": "#7f7061",
-            "brightRed": "#f73028",
-            "brightGreen": "#aab01e",
-            "brightYellow": "#f7b125",
-            "brightBlue": "#719586",
-            "brightPurple": "#c77089",
-            "brightCyan": "#7db669",
-            "brightWhite": "#e6d4a3",
-            "background": "#1e1e1e",
-            "foreground": "#e6d4a3"
-          }
+            "name": "Nord",
+            "foreground": "#D8DEE9",
+            "background": "#2E3440",
+            "black": "#3B4252",
+            "red": "#BF616A",
+            "green": "#A3BE8C",
+            "yellow": "#EBCB8B",
+            "blue": "#81A1C1",
+            "purple": "#B48EAD",
+            "cyan": "#88C0D0",
+            "white": "#E5E9F0",
+            "brightBlack": "#4C566A",
+            "brightRed": "#BF616A",
+            "brightGreen": "#A3BE8C",
+            "brightYellow": "#EBCB8B",
+            "brightBlue": "#81A1C1",
+            "brightPurple": "#B48EAD",
+            "brightCyan": "#8FBCBB",
+            "brightWhite": "#ECEFF4"
+        }
     ],
-    "keybindings": [
+    "keybindings":[
         { "command": "openSettings", "keys": "ctrl+shift+," },
-        { "command": null, "keys": "ctrl+," }
+
+        { "command": null, "keys": "ctrl+shift+p" },
+        { "command": null, "keys": "ctrl+tab" },
+        { "command": null, "keys": "ctrl+shift+tab" },
+        { "command": null, "keys": "ctrl+," },
+        { "command": null, "keys": "f11" },
+        { "command": null, "keys": "alt+enter" },
+        { "command": null, "keys": "ctrl+shift+v" }
     ]
 }
 

@@ -1,3 +1,6 @@
+" Theme
+Plug 'arcticicestudio/nord-vim'
+
 " Syntax
 Plug 'juvenn/mustache.vim'
 Plug 'chr4/nginx.vim'
@@ -6,7 +9,7 @@ Plug 'tpope/vim-markdown'
 Plug 'mbbill/undotree'
 
 Plug 'preservim/nerdtree'
-Plug 'rbgrouleff/bclose.vim'
+Plug 'qpkorr/vim-bufkill'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -16,7 +19,6 @@ Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'andersoncustodio/vim-enter-indent'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-abolish'
 Plug 'chrisbra/NrrwRgn'
 Plug 'tomtom/tcomment_vim'
@@ -58,10 +60,11 @@ Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
+Plug 'andersoncustodio/vim-snippets'
 
-Plug 'bfredl/nvim-miniyank'
-
-Plug 'christoomey/vim-tmux-navigator'
-
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 Plug 'vim-vdebug/vdebug'
+
+Plug 'dhruvasagar/vim-zoom'

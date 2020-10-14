@@ -36,8 +36,8 @@ endif
 
 " map <silent> <leader>li :set list!<bar>set nolist?<cr>
 map <silent> \hl :set hls!<bar>set nohls?<cr>
-
-vnoremap <silent> <CR> "+y
+map <silent> \nu :set rnu!<bar>set rnu?<cr>
+map <silent> \wr :set wrap!<bar>set wrap?<cr>
 
 " Spell
 set spellcapcheck=[.?!]\_[\])'"^I ]\+
@@ -45,21 +45,7 @@ map <silent> \pt :set spell spelllang=pt<cr>
 map <silent> \en :set spell spelllang=en<cr>
 map <silent> \sp :set spell!<cr>
 
-map <silent> \ns :set nospell<cr>
-
-" When pressing <leader>cd switch to the directory of the open buffer
-map <silent><leader>cd :cd %:p:h<CR>:pwd<CR>
-" map <leader>cd :exec ":cd expand(%:p:h)"<CR>
-
-" Toggle virtualedit
-function! <SID>ToogleVirtualEditor()
-    if &virtualedit == "all"
-        set virtualedit=
-    else
-        set virtualedit=all
-    endif
-endfunction
-noremap <silent><leader>v :call <SID>ToogleVirtualEditor()<CR>
+noremap <silent> \ve :let &virtualedit = (&virtualedit == "all" ? "" : "all")<bar>set virtualedit?<CR>
 
 " trim
 fun! <SID>StripTrailingWhitespaces()
@@ -70,13 +56,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
 
-" Shortcuts for nav tabs
-map \bo :e<Space>
-noremap <silent> <leader><Tab> :b#<cr>
-map <silent> <Tab> :bn<CR>
-map <silent> <S-Tab> :bp<CR>
-
-" Use C-q para seleção em bloco
-noremap <C-v> <Nop>
+" Shortcuts for nav buffer
+nmap <silent> <leader><Tab> :b#<cr>
 
 " vim:noet:foldmethod=marker

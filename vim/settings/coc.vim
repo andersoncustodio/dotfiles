@@ -1,5 +1,3 @@
-if exists('g:did_coc_loaded') || v:version < 800 | finish | endif
-
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -19,7 +17,33 @@ set signcolumn=yes
 " preferences
 call coc#config('coc.preferences', {
     \ 'noselect': 0,
-    \})
+    \ })
+
+call coc#add_extension(
+            \ 'coc-calc',
+            \ 'coc-emmet',
+            \ 'coc-eslint',
+            \ 'coc-highlight',
+            \ 'coc-marketplace',
+            \ 'coc-prettier',
+            \ 'coc-smartf',
+            \ 'coc-snippets',
+            \ 'coc-yank',
+            \ )
+
+call coc#add_extension(
+            \ 'coc-css',
+            \ 'coc-html',
+            \ 'coc-json',
+            \ 'coc-phpls',
+            \ 'coc-python',
+            \ 'coc-sh',
+            \ 'coc-sql',
+            \ 'coc-tsserver',
+            \ 'coc-vimlsp',
+            \ 'coc-xml',
+            \ 'coc-yaml',
+            \ )
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -93,20 +117,21 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Using CocList
+" Using CocFzfList
 " Show all diagnostics
-nnoremap <silent> <leader><space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader><space>a  :<C-u>CocFzfList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <leader><space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader><space>e  :<C-u>CocFzfList extensions<cr>
 " Show commands
-nnoremap <silent> <leader><space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader><space>c  :<C-u>CocFzfList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <leader><space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader><space>o  :<C-u>CocFzfList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <leader><space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <leader><space>s  :<C-u>CocFzfList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <leader><space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <leader><space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <leader><space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <leader><space>p  :<C-u>CocFzfListResume<CR>
+

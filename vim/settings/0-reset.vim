@@ -82,6 +82,7 @@ endif
 " number: set (nu|nonu)
 " show the line number for each line (local to window)
 set nu
+set rnu
 
 " wrap: set (wrap|nowrap)
 " long lines wrap
@@ -156,8 +157,14 @@ set showtabline=1
 " set term=xterm
 " Colors
 set t_Co=256
-
 set termguicolors
+
+if exists('$TMUX')
+    " Colors in tmux
+    let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+endif
+
 
 " ttyfast set (tf|notf)
 " terminal connection is fast
@@ -403,7 +410,7 @@ set bdir=~/.vim/tmp/backup
 
 " autoread: set (noar|ar)
 " automatically read a file when it was modified outside of Vim (global or local to buffer)
-set noar
+set autoread
 " }}}
 
 " {{{ 20 the swap file

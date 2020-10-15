@@ -1,12 +1,12 @@
+" behave very Vi compatible (not advisable)
+set nocp
+
 " Default vim path ini all versions
 set rtp +=~/.vim
 
-" vim plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-endif
+" With a map leader it's possible to do extra key combinations
+let mapleader = ","
+let g:mapleader = ","
 
 " Helper conditional install bundle
 function! Cond(cond, ...)
@@ -25,6 +25,205 @@ call plug#begin('~/.vim/plugged')
     endif
 call plug#end()
 
+" vim plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+endif
+
+" Enable filetype
+filetype on
+filetype plugin on
+filetype indent on
+
+" With a map leader it's possible to do extra key combinations
+let mapleader = ","
+let g:mapleader = ","
+
+" moving around, searching and patterns
+set number
+set relativenumber
+set nosol
+set nohls
+set ignorecase
+set incsearch
+set magic
+
+if exists('&inccommand')
+    set inccommand=split
+endif
+
+" multi-byte characters
+set nobomb
+set ff=unix
+set ffs=unix,mac,dos
+
+set enc=utf-8
+set fenc=utf-8
+
+" the swap file
+let swap_path = expand('~/.vim/tmp/swap')
+if !isdirectory(swap_path) | call mkdir(swap_path, 'p') | endif
+let &dir=swap_path
+set swapfile
+set uc=50
+
+" Utilizar um viminfo para cada projeto
+if $HOME != $PWD && isdirectory('.vim')
+    set shadafile=.vim/viminfo
+endif
+
+" backup
+set backup
+let backup_path = expand('~/.vim/tmp/backup')
+if !isdirectory(backup_path)
+    call mkdir(backup_path, 'p')
+endif
+let &backupdir=backup_path
+
+" automatically save and restore undo history
+if exists('&udf') | set udf | endif
+
+if exists('&udir')
+    if isdirectory('.vim')
+        let undo_path = expand('.vim/undo')
+    else
+        let undo_path = expand('~/.vim/undo')
+    endif
+
+    if !isdirectory(undo_path) | call mkdir(undo_path, 'p') | endif
+    let &udir=undo_path
+endif
+
+" trim
+fun! StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+" tags
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <c-\> <c-]>
+
+" 4 displaying text
+syntax on
+colorscheme nord
+set background=dark
+
+" terminal
+
+set t_Co=256
+set termguicolors
+
+if exists('$TMUX')
+    " Colors in tmux
+    let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+set ttyfast
+
+
+" esckeys set (ek|noek)
+" recognize keys that start with <Esc> in Insert mode
+if exists('&noek') | set noek | endif
+
+" listchars list of strings used for list mode
+if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
+    set lcs=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
+else
+    set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
+endif
+
+
+set wrap
+" set ss=0
+" set lbr
+" set sbr=
+
+" Spell
+set spellcapcheck=[.?!]\_[\])'"^I ]\+
+map <silent> \pt :set spell spelllang=pt<cr>
+map <silent> \en :set spell spelllang=en<cr>
+map <silent> \ns :set nospell<cr>
+
+" multiple windows
+set hidden
+
+" multiple tab pages
+set tpm=10
+set showtabline=1
+
+" 12 messages and info
+if has("mac")
+    set guifont=Menlo:h14
+elseif has("unix") && &gfn == ""
+    set guifont=Source\ Code\ Pro\ for\ Powerline
+elseif has("win32")
+    set guifont=Consolas:h11:cANSI
+endif
+
+" guioptions
+set go=c
+set lsp=3
+
+" messages and info
+set showcmd
+set confirm
+set visualbell t_vb=
+set titlestring=%{v:servername}
+
+" formatoptions
+if v:version > 703 || v:version == 703 && has("patch541")
+    " Delete comment character when joining commented lines
+    set formatoptions+=j
+endif
+
+" complete
+" specifies how Insert mode completion works for CTRL-N and CTRL-P (local to buffer)
+" set cpt=.,w,k,b,u,t,i cpt-=k cpt+=k
+
+" completeopt
+" whether to use a popup menu for Insert mode completion
+" set cot=menu,longest,preview
+
+" Tab and indent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set shiftround
+set expandtab
+set autoindent
+set nosmartindent
+set cindent
+set nocopyindent
+set nopreserveindent
+
+" Edit
+set noautowrite
+set autoread
+
+" backup
+set backup
+let backup_path = expand('~/.vim/backup')
+
+if !isdirectory(backup_path)
+    call mkdir(backup_path, 'p')
+endif
+
+let &bdir=backup_path
+
+" command line editing
+set hi=1000
+set wic
+
+" Jump to last position of buffer when opening
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
 " settings
 for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
   exe 'source' fpath
@@ -33,30 +232,3 @@ endfor
 if filereadable(expand('~/.vim/settings.vim'))
     source ~/.vim/settings.vim
 endif
-
-" map <silent> <leader>li :set list!<bar>set nolist?<cr>
-map <silent> \hl :set hls!<bar>set nohls?<cr>
-map <silent> \nu :set rnu!<bar>set rnu?<cr>
-map <silent> \wr :set wrap!<bar>set wrap?<cr>
-
-" Spell
-set spellcapcheck=[.?!]\_[\])'"^I ]\+
-map <silent> \pt :set spell spelllang=pt<cr>
-map <silent> \en :set spell spelllang=en<cr>
-map <silent> \sp :set spell!<cr>
-
-noremap <silent> \ve :let &virtualedit = (&virtualedit == "all" ? "" : "all")<bar>set virtualedit?<CR>
-
-" trim
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-map <silent>\tr :call <SID>StripTrailingWhitespaces()<CR>
-
-" Shortcuts for nav buffer
-nmap <silent> <leader><Tab> :b#<cr>
-
-" vim:noet:foldmethod=marker

@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'andersoncustodio/vim-enter-indent'
@@ -45,14 +46,17 @@ Plug 'preservim/tagbar'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'chemzqm/vim-jsx-improve'
+Plug 'mxw/vim-jsx'
+Plug 'neoclide/vim-jsx-improve'
 Plug 'jonsmithers/vim-html-template-literals'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'neoclide/jsonc.vim'
+Plug 'elzr/vim-json'
 
 Plug 'Yggdroot/indentLine'
-Plug 'sbdchd/neoformat'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'ntpeters/vim-better-whitespace'
 

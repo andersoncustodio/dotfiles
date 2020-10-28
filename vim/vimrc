@@ -8,11 +8,12 @@ set rtp +=~/.vim
 let mapleader = ","
 let g:mapleader = ","
 
-" Helper conditional install bundle
-function! Cond(cond, ...)
-  let opts = get(a:000, 0, {})
-  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
-endfunction
+" vim plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+endif
 
 " bundles
 call plug#begin('~/.vim/plugged')
@@ -24,13 +25,6 @@ call plug#begin('~/.vim/plugged')
         source ~/.vim/bundles.vim
     endif
 call plug#end()
-
-" vim plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-endif
 
 " Enable filetype
 filetype on
@@ -63,11 +57,17 @@ set enc=utf-8
 set fenc=utf-8
 
 " the swap file
-let swap_path = expand('~/.vim/tmp/swap')
+if isdirectory('.vim')
+    let swap_path = expand('.vim/swap')
+else
+    let swap_path = expand('~/.vim/swap')
+endif
+
 if !isdirectory(swap_path) | call mkdir(swap_path, 'p') | endif
-let &dir=swap_path
+let &directory=swap_path
+
 set swapfile
-set uc=50
+set updatecount=50
 
 " Utilizar um viminfo para cada projeto
 if $HOME != $PWD && isdirectory('.vim')
@@ -76,10 +76,14 @@ endif
 
 " backup
 set backup
-let backup_path = expand('~/.vim/tmp/backup')
-if !isdirectory(backup_path)
-    call mkdir(backup_path, 'p')
+
+if isdirectory('.vim')
+    let backup_path = expand('.vim/backup')
+else
+    let backup_path = expand('~/.vim/backup')
 endif
+
+if !isdirectory(backup_path) | call mkdir(backup_path, 'p') | endif
 let &backupdir=backup_path
 
 " automatically save and restore undo history
@@ -110,11 +114,10 @@ nnoremap <c-\> <c-]>
 
 " 4 displaying text
 syntax on
-colorscheme nord
+colorscheme gruvbox
 set background=dark
 
 " terminal
-
 set t_Co=256
 set termguicolors
 

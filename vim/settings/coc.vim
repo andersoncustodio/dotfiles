@@ -1,9 +1,6 @@
-" if hidden is not set, TextEdit might fail.
-set hidden
-
 " Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
+" set nobackup
+" set nowritebackup
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
@@ -15,91 +12,63 @@ set shortmess+=c
 set signcolumn=yes
 
 " preferences
-call coc#config('coc.preferences', {
-    \ 'noselect': 0,
+let g:coc_global_extensions = [
+    \ 'coc-calc',
+    \ 'coc-emmet',
+    \ 'coc-eslint',
+    \ 'coc-highlight',
+    \ 'coc-marketplace',
+    \ 'coc-eslint',
+    \ 'coc-prettier',
+    \ 'coc-smartf',
+    \ 'coc-snippets',
+    \ 'coc-yank',
+    \ 'coc-explorer',
+    \ 'coc-docker',
+    \ 'coc-css',
+    \ 'coc-stylelint',
+    \ 'coc-styled-components',
+    \ 'coc-html',
+    \ 'coc-svg',
+    \ 'coc-json',
+    \ 'coc-phpls',
+    \ 'coc-python',
+    \ 'coc-sh',
+    \ 'coc-sql',
+    \ 'coc-tsserver',
+    \ 'coc-tslint-plugin',
+    \ 'coc-react-refactor',
+    \ 'coc-vimlsp',
+    \ 'coc-xml',
+    \ 'coc-yaml',
+    \ 'coc-tailwindcss',
+    \ ]
+
+" coc-yank
+call coc#config('yank', {
+    \ 'highlight.enable': 0,
+    \ 'enableCompletion' : 0
+    \})
+
+" coc-explorer
+call coc#config('explorer', {
+    \ 'file.autoReveal': 0,
+    \})
+" coc-emmet
+call coc#config('emmet', {
+    \ 'includeLanguages': { 'phtml': 'php' },
+    \ 'showAbbreviationSuggestions': 0,
     \ })
 
-call coc#add_extension(
-            \ 'coc-calc',
-            \ 'coc-emmet',
-            \ 'coc-eslint',
-            \ 'coc-highlight',
-            \ 'coc-marketplace',
-            \ 'coc-prettier',
-            \ 'coc-smartf',
-            \ 'coc-snippets',
-            \ 'coc-yank',
-            \ )
-
-call coc#add_extension(
-            \ 'coc-css',
-            \ 'coc-styled-components',
-            \ 'coc-html',
-            \ 'coc-json',
-            \ 'coc-phpls',
-            \ 'coc-python',
-            \ 'coc-sh',
-            \ 'coc-sql',
-            \ 'coc-tsserver',
-            \ 'coc-vimlsp',
-            \ 'coc-xml',
-            \ 'coc-yaml',
-            \ )
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-n> to trigger completion.
-inoremap <silent><expr> <c-n> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-let g:enter_indent_default_keymap = 0
-inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<cr>"
-
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
+" coc-snippets
+call coc#config('snippets', {
+    \ 'userSnippetsDirectory': '~/.vim/plugged/vim-snippets'
+    \ })
 
 if has('nvim')
     " Highlight symbol under cursor on CursorHold
     autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>= <Plug>(coc-format-selected)
-nmap <leader>= <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!

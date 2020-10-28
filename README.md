@@ -3,7 +3,7 @@
 ## Dependencies
 
 ### Source Code Pro
-    https://github.com/adobe-fonts/source-code-pro/blob/release/TTF/SourceCodePro-Regular.ttf
+    https://github.com/adobe-fonts/source-code-pro/raw/release/TTF/SourceCodePro-Regular.ttf
 
 ### Packages
 

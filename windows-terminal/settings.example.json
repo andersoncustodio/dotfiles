@@ -13,44 +13,48 @@
         "defaults":
         {
             "fontFace": "Source Code Pro",
-            "colorScheme": "Nord",
+            "colorScheme": "Gruvbox Dark",
             "cursorShape": "filledBox"
         },
         "list": []
     },
     "schemes": [
         {
-            "name": "Nord",
-            "foreground": "#D8DEE9",
-            "background": "#2E3440",
-            "black": "#3B4252",
-            "red": "#BF616A",
-            "green": "#A3BE8C",
-            "yellow": "#EBCB8B",
-            "blue": "#81A1C1",
-            "purple": "#B48EAD",
-            "cyan": "#88C0D0",
-            "white": "#E5E9F0",
-            "brightBlack": "#4C566A",
-            "brightRed": "#BF616A",
-            "brightGreen": "#A3BE8C",
-            "brightYellow": "#EBCB8B",
-            "brightBlue": "#81A1C1",
-            "brightPurple": "#B48EAD",
-            "brightCyan": "#8FBCBB",
-            "brightWhite": "#ECEFF4"
+            "name" : "Gruvbox Dark",
+            "background" : "#282828",
+            "black" : "#282828",
+            "blue" : "#458588",
+            "cyan" : "#689D6A",
+            "foreground" : "#EBDBB2",
+            "green" : "#98971A",
+            "purple" : "#B16286",
+            "red" : "#CC241D",
+            "white" : "#A89984",
+            "yellow" : "#D79921",
+            "brightBlack" : "#928374",
+            "brightBlue" : "#83A598",
+            "brightCyan" : "#8EC07C",
+            "brightGreen" : "#B8BB26",
+            "brightPurple" : "#D3869B",
+            "brightRed" : "#FB4934",
+            "brightWhite" : "#EBDBB2",
+            "brightYellow" : "#FABD2F"
         }
     ],
-    "keybindings":[
+    "keybindings": [
         { "command": "openSettings", "keys": "ctrl+shift+," },
 
+        // Reset default maps
         { "command": null, "keys": "ctrl+shift+p" },
         { "command": null, "keys": "ctrl+tab" },
         { "command": null, "keys": "ctrl+shift+tab" },
         { "command": null, "keys": "ctrl+," },
         { "command": null, "keys": "f11" },
         { "command": null, "keys": "alt+enter" },
-        { "command": null, "keys": "ctrl+shift+v" }
+        { "command": null, "keys": "ctrl+shift+v" },
+        { "command": null, "keys": "ctrl+=" },
+        { "command": null, "keys": "ctrl+-" }
     ]
 }
 
+// vim:ft=jsonc

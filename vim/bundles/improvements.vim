@@ -1,5 +1,5 @@
 " Theme
-Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 " Syntax
 Plug 'juvenn/mustache.vim'
@@ -7,23 +7,20 @@ Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
 
 Plug 'mbbill/undotree'
-
 Plug 'preservim/nerdtree'
-Plug 'qpkorr/vim-bufkill'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'andersoncustodio/vim-enter-indent'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-abolish'
 Plug 'chrisbra/NrrwRgn'
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-tbone'
+
+Plug 'alcesleo/vim-uppercase-sql'
 
 " Git
 Plug 'tpope/vim-git'
@@ -36,23 +33,42 @@ Plug 'tpope/vim-eunuch'
 Plug 'markonm/traces.vim'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-ragtag'
+Plug 'vim-scripts/PickAColor.vim'
+Plug 'dhruvasagar/vim-zoom'
 
 Plug 'andersoncustodio/vim-sync'
+Plug 'prabirshrestha/async.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'preservim/tagbar'
 
+" Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'mxw/vim-jsx'
 Plug 'neoclide/vim-jsx-improve'
-Plug 'jonsmithers/vim-html-template-literals'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
+Plug 'styled-components/vim-styled-components'
+Plug 'jparise/vim-graphql'
+
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+" HTML/CSS
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
+
+" PHP
+Plug '2072/PHP-Indenting-for-VIm'
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+
+" JSON
 Plug 'neoclide/jsonc.vim'
 Plug 'elzr/vim-json'
 
@@ -67,8 +83,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'andersoncustodio/vim-snippets'
 
+" Tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'wellle/tmux-complete.vim'
+Plug 'tpope/vim-tbone'
 
+
+" vdebug settings
+let g:vdebug_options = {
+    \ "break_on_open": 0
+    \ }
 Plug 'vim-vdebug/vdebug'
 
-Plug 'dhruvasagar/vim-zoom'

@@ -63,10 +63,10 @@ nnoremap <silent>q/ :History/<CR>
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ coc#pum#visible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -102,7 +102,7 @@ inoremap <silent><expr> <c-n> coc#refresh()
 " Use <CR> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 let g:enter_indent_default_keymap = 0
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)

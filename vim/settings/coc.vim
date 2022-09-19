@@ -65,6 +65,12 @@ call coc#config('snippets', {
     \ 'userSnippetsDirectory': '~/.vim/plugged/vim-snippets'
     \ })
 
+if exists('g:coc_node_path')
+    call coc#config('npm', {
+        \ 'binPath': substitute(g:coc_node_path, 'node$', 'npm', '')
+        \ })
+endif
+
 if has('nvim')
     " Highlight symbol under cursor on CursorHold
     autocmd CursorHold * silent call CocActionAsync('highlight')

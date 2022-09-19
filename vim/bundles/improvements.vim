@@ -44,6 +44,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'preservim/tagbar'
+Plug 'justinmk/vim-sneak'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -94,4 +95,6 @@ let g:vdebug_options = {
     \ "break_on_open": 0
     \ }
 Plug 'vim-vdebug/vdebug'
+
+Plug 'mfussenegger/nvim-dap'
 

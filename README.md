@@ -17,7 +17,7 @@
     sudo add-apt-repository ppa:neovim-ppa/stable
     sudo apt-get update
 
-    sudo apt-get install fish git neovim exuberant-ctags ncurses-term curl wmctrl silversearcher-ag python3-pip ranger
+    sudo apt-get install fish git neovim exuberant-ctags ncurses-term curl wmctrl silversearcher-ag python3-pip ranger ripgrep
 
 
 ## Configuration

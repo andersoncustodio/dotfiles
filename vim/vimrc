@@ -115,7 +115,7 @@ nnoremap <c-\> <c-]>
 " 4 displaying text
 syntax on
 colorscheme gruvbox
-set background=dark
+set background=light
 
 " terminal
 set t_Co=256

@@ -20,8 +20,8 @@ noremap <silent> \ig :IndentLinesToggle<CR>
 map <S-Insert> "+p
 
 " NERDTree
-map <leader>nt :NERDTreeToggle<cr>
-map <leader>fnt :NERDTreeFind<cr>
+map <leader>ntt :NERDTreeToggle<cr>
+map <leader>ntf :NERDTreeFind<cr>
 
 " PickAColor
 noremap <silent><leader>rg :PickRGB<CR>
@@ -95,14 +95,15 @@ nmap <leader>= <Plug>(coc-format-selected)
 
 
 " Use <c-n> to trigger completion.
-inoremap <silent><expr> <c-n> coc#refresh()
+inoremap <silent><expr> <c-Space> coc#refresh()
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 
 " Use <CR> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 let g:enter_indent_default_keymap = 0
-inoremap <silent><expr> <CR> coc#pum#visible() ? "\<C-y>" : "\<c-r>=EnterIndent()\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<c-r>=EnterIndent()\<CR>"
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 nnoremap <expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"

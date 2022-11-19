@@ -1,0 +1,15 @@
+{
+    "editor.formatOnSave": true,
+    "editor.parameterHints.enabled": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "html.suggest.html5": false,
+    "editor.snippetSuggestions": "none",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.4,
+    "window.zoomLevel": 1.2,
+    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "workbench.startupEditor": "none",
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "files.insertFinalNewline": true,
+    "editor.mouseWheelZoom": true
+}

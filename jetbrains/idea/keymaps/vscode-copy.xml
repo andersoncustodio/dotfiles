@@ -1,0 +1,11 @@
+<keymap version="1" name="vscode-copy" parent="VSCode">
+  <action id="CommentByBlockComment">
+    <keyboard-shortcut first-keystroke="shift ctrl a" />
+  </action>
+  <action id="Console.TableResult.ColumnsList">
+    <keyboard-shortcut first-keystroke="ctrl f12" />
+  </action>
+  <action id="SearchEverywhere">
+    <keyboard-shortcut first-keystroke="f1" />
+  </action>
+</keymap>

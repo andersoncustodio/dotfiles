@@ -11,5 +11,11 @@
     "workbench.startupEditor": "none",
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
     "files.insertFinalNewline": true,
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "workbench.colorTheme": "Jetbrains Fleet",
+    "workbench.iconTheme": "vsc-jetbrains-icons-enhanced",
+    "workbench.tree.indent": 18,
+    "workbench.list.horizontalScrolling": true,
+    "explorer.autoReveal": false,
+    "workbench.list.openMode": "doubleClick"
 }

@@ -4,9 +4,8 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "html.suggest.html5": false,
     "editor.snippetSuggestions": "none",
-    "editor.fontSize": 14,
+    "editor.fontSize": 17,
     "editor.lineHeight": 1.4,
-    "window.zoomLevel": 1.2,
     "editor.fontFamily": "SauceCodePro Nerd Font",
     "workbench.startupEditor": "none",
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
@@ -17,5 +16,7 @@
     "workbench.tree.indent": 18,
     "workbench.list.horizontalScrolling": true,
     "explorer.autoReveal": false,
-    "workbench.list.openMode": "doubleClick"
+    "workbench.list.openMode": "doubleClick",
+    "git.autofetch": false,
+    "explorer.compactFolders": false
 }

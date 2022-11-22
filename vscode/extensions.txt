@@ -1,0 +1,8 @@
+BrennonDenny.vsc-jetbrains-icons-enhanced
+dbaeumer.vscode-eslint
+diegoaraujo.vscode-encoding-alert
+EditorConfig.EditorConfig
+MichaelZhou.fleet-theme
+smulyono.reveal
+XadillaX.vim
+shd101wyy.markdown-preview-enhanced

@@ -30,5 +30,13 @@
     {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "workbench.action.openApplicationSettingsJson"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openSettings"
     }
 ]

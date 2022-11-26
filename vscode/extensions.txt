@@ -6,3 +6,7 @@ AlexTi.intellij-idea-light-theme
 smulyono.reveal
 XadillaX.vim
 shd101wyy.markdown-preview-enhanced
+donjayamanne.githistory
+formulahendry.auto-rename-tag
+streetsidesoftware.code-spell-checker
+streetsidesoftware.code-spell-checker-portuguese-brazilian

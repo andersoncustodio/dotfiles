@@ -1,31 +1,23 @@
 [
     {
         "key": "ctrl+p",
-        "command": "workbench.action.quickOpen",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "-workbench.action.quickOpen"
+        "command": "",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+e",
-        "command": "workbench.action.quickOpen",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "ctrl+e",
-        "command": "-workbench.action.quickOpen"
+        "command": "",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+f",
-        "command": "actions.find",
-        "when": "!terminalFocus && editorFocus || editorIsOpen"
+        "command": "",
+        "when": "terminalFocus"
     },
     {
-        "key": "ctrl+f",
-        "command": "-actions.find",
-        "when": "editorFocus || editorIsOpen"
+        "key": "ctrl+k",
+        "command": "",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+j",

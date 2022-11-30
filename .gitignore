@@ -5,3 +5,5 @@ tags
 mkmf.log
 .VimballRecord
 .netrwhist
+.vim/
+.vscode/

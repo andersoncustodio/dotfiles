@@ -7,7 +7,6 @@ Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
 
 Plug 'mbbill/undotree'
-Plug 'preservim/nerdtree'
 
 Plug 'vim-airline/vim-airline'
 
@@ -19,8 +18,6 @@ Plug 'andersoncustodio/vim-enter-indent'
 Plug 'tpope/vim-abolish'
 Plug 'chrisbra/NrrwRgn'
 Plug 'tomtom/tcomment_vim'
-
-Plug 'alcesleo/vim-uppercase-sql'
 
 " Git
 Plug 'tpope/vim-git'
@@ -43,6 +40,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'preservim/tagbar'
 Plug 'justinmk/vim-sneak'
 

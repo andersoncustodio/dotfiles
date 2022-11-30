@@ -4,10 +4,6 @@ set nocp
 " Default vim path ini all versions
 set rtp +=~/.vim
 
-" With a map leader it's possible to do extra key combinations
-let mapleader = ","
-let g:mapleader = ","
-
 " vim plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -43,6 +39,7 @@ set nohls
 set ignorecase
 set incsearch
 set magic
+set mouse=
 
 if exists('&inccommand')
     set inccommand=split
@@ -51,10 +48,7 @@ endif
 " multi-byte characters
 set nobomb
 set ff=unix
-set ffs=unix,mac,dos
-
 set enc=utf-8
-set fenc=utf-8
 
 " the swap file
 if isdirectory('.vim')
@@ -115,7 +109,7 @@ nnoremap <c-\> <c-]>
 " 4 displaying text
 syntax on
 colorscheme gruvbox
-set background=light
+set background=dark
 
 " terminal
 set t_Co=256
@@ -141,17 +135,14 @@ else
     set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
 endif
 
+set noendofline
+set nofixendofline
+
 
 set wrap
 " set ss=0
 " set lbr
 " set sbr=
-
-" Spell
-set spellcapcheck=[.?!]\_[\])'"^I ]\+
-map <silent> \pt :set spell spelllang=pt<cr>
-map <silent> \en :set spell spelllang=en<cr>
-map <silent> \ns :set nospell<cr>
 
 " multiple windows
 set hidden
@@ -209,16 +200,6 @@ set nopreserveindent
 " Edit
 set noautowrite
 set autoread
-
-" backup
-set backup
-let backup_path = expand('~/.vim/backup')
-
-if !isdirectory(backup_path)
-    call mkdir(backup_path, 'p')
-endif
-
-let &bdir=backup_path
 
 " command line editing
 set hi=1000

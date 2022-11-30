@@ -1,9 +1,16 @@
 function! OutSidebar()
-    let is_sidebar = index(['nerdtree', 'undotree', 'tagbar'], &ft) != -1
+    let is_sidebar = index(['nerdtree', 'coc-explorer', 'undotree', 'tagbar'], &ft) != -1
 
     if (is_sidebar && winnr('$') > 1)
         exe "normal! \<c-w>\<c-w>"
     endif
+endfunction
+
+function! s:enter_explorer()
+  if &filetype == 'coc-explorer'
+    " statusline
+    setl statusline=coc-explorer
+  endif
 endfunction
 
 noremap <silent> \li :set list<bar>set nolist?<CR>
@@ -11,17 +18,13 @@ noremap <silent> \hl :set hls!<bar>set nohls?<CR>
 noremap <silent> \rnu :set rnu!<bar>set rnu?<CR>
 noremap <silent> \wr :set wrap!<bar>set wrap?<CR>
 noremap <silent> \ve :let &virtualedit = (&virtualedit == "all" ? "" : "all")<bar>set virtualedit?<CR>
-noremap <silent> \pt :set spell spelllang=pt<CR>
-noremap <silent> \en :set spell spelllang=en<CR>
-noremap <silent> \sp :set spell!<CR>
 noremap <silent> \tr :call StripTrailingWhitespaces()<CR>
 noremap <silent> \ig :IndentLinesToggle<CR>
 
 map <S-Insert> "+p
 
-" NERDTree
-map <leader>ntt :NERDTreeToggle<cr>
-map <leader>ntf :NERDTreeFind<cr>
+" Explorer
+map <silent><space>e :CocCommand explorer --no-reveal-when-open<cr>
 
 " PickAColor
 noremap <silent><leader>rg :PickRGB<CR>
@@ -32,6 +35,8 @@ noremap <silent><leader>ha :PickRAW<CR>
 " gitgutter
 noremap \ggt :GitGutterToggle<CR>
 noremap \ggp <Plug>(GitGutterPreviewHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " CmdlineCompletion
 cmap <silent> <c-x><c-p> <Plug>CmdlineCompletionBackward
@@ -147,8 +152,10 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <leader>x <Plug>(coc-convert-snippet)
 
 " coc-smartf
-map <space>f <Plug>(coc-smartf-forward)
-map <space>F <Plug>(coc-smartf-backward)
+nmap <space>f <Plug>(coc-smartf-forward)
+nmap <space>F <Plug>(coc-smartf-backward)
+nmap <space>; <Plug>(coc-smartf-repeat)
+nmap <space>, <Plug>(coc-smartf-repeat-opposite)
 
 " coc-yank
 nnoremap <silent> <leader>p :<C-u>CocFzfList yank<CR>
@@ -171,5 +178,12 @@ nnoremap <leader>tb :TagbarToggle<CR>
 " UndotreeToggle "
 """"""""""""""""""
 nnoremap <leader>ut :UndotreeToggle<CR>
+
+
+""""""""""""
+" Database "
+""""""""""""
+noremap <leader>db :DBUIToggle<CR>
+
 
 noremap Q q

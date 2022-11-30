@@ -3,7 +3,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl a" />
   </action>
   <action id="Console.TableResult.ColumnsList">
-    <keyboard-shortcut first-keystroke="ctrl f12" />
+    <keyboard-shortcut first-keystroke="ctrl alt b" />
   </action>
   <action id="SearchEverywhere">
     <keyboard-shortcut first-keystroke="f1" />

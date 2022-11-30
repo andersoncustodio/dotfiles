@@ -19,7 +19,6 @@ let g:coc_global_extensions = [
     \ 'coc-highlight',
     \ 'coc-marketplace',
     \ 'coc-eslint',
-    \ 'coc-prettier',
     \ 'coc-smartf',
     \ 'coc-snippets',
     \ 'coc-yank',
@@ -42,7 +41,16 @@ let g:coc_global_extensions = [
     \ 'coc-xml',
     \ 'coc-yaml',
     \ 'coc-tailwindcss',
+    \ 'coc-spell-checker',
+    \ 'coc-cspell-dicts',
+    \ 'coc-diagnostic',
+    \ 'coc-db',
     \ ]
+
+" smartf
+call coc#config('smartf', {
+    \ 'jumpOnTrigger': 0,
+    \})
 
 " coc-yank
 call coc#config('yank', {
@@ -52,12 +60,21 @@ call coc#config('yank', {
 
 " coc-explorer
 call coc#config('explorer', {
-    \ 'file.autoReveal': 0,
+    \ 'file.reveal.auto': 0,
     \})
 " coc-emmet
 call coc#config('emmet', {
     \ 'includeLanguages': { 'phtml': 'php' },
     \ 'showAbbreviationSuggestions': 0,
+    \ })
+
+" coc-spell
+call coc#config('cSpellExt', {
+    \ 'enableDictionaries': ['portuguese'],
+    \ })
+
+call coc#config('cSpell', {
+    \ 'language': "en,pt_BR",
     \ })
 
 " coc-snippets
@@ -83,4 +100,3 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-

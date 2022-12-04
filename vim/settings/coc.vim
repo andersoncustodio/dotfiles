@@ -1,3 +1,7 @@
+if !isdirectory(expand('~/.vim/plugged/coc.nvim'))
+    finish
+endif
+
 " Some servers have issues with backup files, see #649
 " set nobackup
 " set nowritebackup
@@ -31,7 +35,7 @@ let g:coc_global_extensions = [
     \ 'coc-svg',
     \ 'coc-json',
     \ 'coc-phpls',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-sh',
     \ 'coc-sql',
     \ 'coc-tsserver',
@@ -61,20 +65,15 @@ call coc#config('yank', {
 " coc-explorer
 call coc#config('explorer', {
     \ 'file.reveal.auto': 0,
+    \ 'explorer.icon.enableNerdFont': 1,
+    \ 'icon.enableNerdfont': 1,
+    \ 'compactFolders': 0
     \})
+
 " coc-emmet
 call coc#config('emmet', {
     \ 'includeLanguages': { 'phtml': 'php' },
     \ 'showAbbreviationSuggestions': 0,
-    \ })
-
-" coc-spell
-call coc#config('cSpellExt', {
-    \ 'enableDictionaries': ['portuguese'],
-    \ })
-
-call coc#config('cSpell', {
-    \ 'language': "en,pt_BR",
     \ })
 
 " coc-snippets

@@ -36,3 +36,9 @@
 ehthumbs.db
 Thumbs.db
 Session.vim
+
+
+# Python #
+##########
+__pycache__/
+venv/

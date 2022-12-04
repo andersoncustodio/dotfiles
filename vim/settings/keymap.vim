@@ -6,12 +6,6 @@ function! OutSidebar()
     endif
 endfunction
 
-function! s:enter_explorer()
-  if &filetype == 'coc-explorer'
-    " statusline
-    setl statusline=coc-explorer
-  endif
-endfunction
 
 noremap <silent> \li :set list<bar>set nolist?<CR>
 noremap <silent> \hl :set hls!<bar>set nohls?<CR>
@@ -21,10 +15,12 @@ noremap <silent> \ve :let &virtualedit = (&virtualedit == "all" ? "" : "all")<ba
 noremap <silent> \tr :call StripTrailingWhitespaces()<CR>
 noremap <silent> \ig :IndentLinesToggle<CR>
 
-map <S-Insert> "+p
 
 " Explorer
-map <silent><space>e :CocCommand explorer --no-reveal-when-open<cr>
+map <silent><leader>et :CocCommand explorer
+            \ --no-reveal-when-open
+            \ --sources=file+
+            \ <cr>
 
 " PickAColor
 noremap <silent><leader>rg :PickRGB<CR>
@@ -53,6 +49,7 @@ nnoremap <space><C-p> :call OutSidebar()<CR>:Files <C-R>=substitute(expand('%:p:
 nnoremap <silent><leader>h<C-p> :call OutSidebar()<bar>:History<CR>
 nnoremap <silent><leader>t<C-p> :call OutSidebar()<bar>:Tags<CR>
 nnoremap <silent><leader>l<C-p> :call OutSidebar()<bar>:Lines<CR>
+nnoremap <silent><leader>w<C-p> :call OutSidebar()<bar>:Windows<CR>
 nnoremap <silent><leader>ag<C-p> :call OutSidebar()<bar>:Ag<CR>
 nnoremap <silent><leader>rg<C-p> :call OutSidebar()<bar>:Rg<CR>
 nnoremap <silent><leader>bd<C-p> :BuffersDelete<CR>
@@ -96,11 +93,13 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>= <Plug>(coc-format-selected)
-nmap <leader>= <Plug>(coc-format-selected)
+nmap <leader>= <Plug>(coc-format-selected)<CR>
+command! -nargs=0 Format :call CocActionAsync('format')
 
 
 " Use <c-n> to trigger completion.
 inoremap <silent><expr> <c-Space> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 
@@ -108,7 +107,7 @@ inoremap <silent><expr> <c-Space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 let g:enter_indent_default_keymap = 0
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<c-r>=EnterIndent()\<CR>"
+                              \: "\<C-g>u\<CR>\<c-r>=EnterIndent()\<CR>"
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 nnoremap <expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -127,7 +126,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction-cursor)
 xmap <leader>ac  <Plug>(coc-codeaction-selected)
 nmap <leader>qf  <Plug>(coc-fix-current)
 imap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
@@ -160,30 +159,28 @@ nmap <space>, <Plug>(coc-smartf-repeat-opposite)
 " coc-yank
 nnoremap <silent> <leader>p :<C-u>CocFzfList yank<CR>
 
-
-""""""""""""""
-" PickAColor "
-""""""""""""""
-nnoremap <silent>\rg :PickRGB<CR>
-nnoremap <silent>\he :PickHEX<CR>
-nnoremap <silent>\hs :PickHSL<CR>
-nnoremap <silent>\ha :PickRAW<CR>
-
 """"""""""""""""
 " TagbarToggle "
 """"""""""""""""
-nnoremap <leader>tb :TagbarToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
+
 
 """"""""""""""""""
 " UndotreeToggle "
 """"""""""""""""""
-nnoremap <leader>ut :UndotreeToggle<CR>
+nnoremap <leader>ut :call OutSidebar()<bar>:MundoToggle<CR>
 
 
 """"""""""""
 " Database "
 """"""""""""
 noremap <leader>db :DBUIToggle<CR>
+
+
+"""""""""""
+" Buffers "
+"""""""""""
+noremap <silent><Leader>bdd :call OutSidebar()<bar>:Bdelete<CR>
 
 
 noremap Q q

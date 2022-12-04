@@ -1,12 +1,14 @@
 " Theme
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', {'as': 'dracula'}
 
 " Syntax
 Plug 'juvenn/mustache.vim'
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
+Plug 'khaveesh/vim-fish-syntax'
 
-Plug 'mbbill/undotree'
+" History changes
+Plug 'simnalamburt/vim-mundo'
 
 Plug 'vim-airline/vim-airline'
 
@@ -18,6 +20,7 @@ Plug 'andersoncustodio/vim-enter-indent'
 Plug 'tpope/vim-abolish'
 Plug 'chrisbra/NrrwRgn'
 Plug 'tomtom/tcomment_vim'
+Plug 'moll/vim-bbye'
 
 " Git
 Plug 'tpope/vim-git'
@@ -31,7 +34,7 @@ Plug 'markonm/traces.vim'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-ragtag'
-Plug 'vim-scripts/PickAColor.vim'
+Plug 'KabbAmine/vCoolor.vim'
 Plug 'dhruvasagar/vim-zoom'
 
 Plug 'andersoncustodio/vim-sync'
@@ -39,10 +42,12 @@ Plug 'prabirshrestha/async.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/tagbar'
+
+
+" Banco de dados
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'preservim/tagbar'
-Plug 'justinmk/vim-sneak'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -82,9 +87,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'andersoncustodio/vim-snippets'
 
+
 " Tmux
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'wellle/tmux-complete.vim'
 Plug 'tpope/vim-tbone'
 
 

@@ -13,3 +13,11 @@
 
 #### ~/.config/nvim/init.vim
     source ~/.vimrc
+
+
+### Commands
+
+Command             | Description
+:---                | :---
+:NR                 | Open the selected region in a new narrowed window
+:Flog or :Flogsplit | View commits

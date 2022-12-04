@@ -108,8 +108,10 @@ nnoremap <c-\> <c-]>
 
 " 4 displaying text
 syntax on
-colorscheme gruvbox
-set background=dark
+if isdirectory(expand('~/.vim/plugged/dracula'))
+    colorscheme dracula
+    set background=dark
+endif
 
 " terminal
 set t_Co=256
@@ -134,10 +136,6 @@ if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
 else
     set lcs=tab:>\ ,trail:-,eol:\|,extends:>,precedes:<
 endif
-
-set noendofline
-set nofixendofline
-
 
 set wrap
 " set ss=0
@@ -213,6 +211,13 @@ for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
+" Global settings
 if filereadable(expand('~/.vim/settings.vim'))
     source ~/.vim/settings.vim
 endif
+
+" Local settings
+if filereadable(expand('.vim/settings.vim'))
+    source .vim/settings.vim
+endif
+

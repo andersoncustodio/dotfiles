@@ -5,7 +5,7 @@ Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'juvenn/mustache.vim'
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
-Plug 'khaveesh/vim-fish-syntax'
+Plug 'dag/vim-fish'
 
 " History changes
 Plug 'simnalamburt/vim-mundo'
@@ -27,6 +27,8 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-eunuch'

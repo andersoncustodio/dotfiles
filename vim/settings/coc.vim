@@ -9,9 +9,6 @@ endif
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
 " always show signcolumns
 set signcolumn=yes
 
@@ -23,7 +20,6 @@ let g:coc_global_extensions = [
     \ 'coc-highlight',
     \ 'coc-marketplace',
     \ 'coc-eslint',
-    \ 'coc-smartf',
     \ 'coc-snippets',
     \ 'coc-yank',
     \ 'coc-explorer',
@@ -49,12 +45,8 @@ let g:coc_global_extensions = [
     \ 'coc-cspell-dicts',
     \ 'coc-diagnostic',
     \ 'coc-db',
+    \ 'coc-fish',
     \ ]
-
-" smartf
-call coc#config('smartf', {
-    \ 'jumpOnTrigger': 0,
-    \})
 
 " coc-yank
 call coc#config('yank', {
@@ -64,10 +56,10 @@ call coc#config('yank', {
 
 " coc-explorer
 call coc#config('explorer', {
+    \ 'file.tabCD': 1,
     \ 'file.reveal.auto': 0,
     \ 'explorer.icon.enableNerdFont': 1,
     \ 'icon.enableNerdfont': 1,
-    \ 'compactFolders': 0
     \})
 
 " coc-emmet

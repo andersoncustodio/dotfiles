@@ -18,8 +18,7 @@ function! s:delete_buffers(lines)
 endfunction
 
 command! BuffersDelete call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-  \ }))
-
+    \ 'source': s:list_buffers(),
+    \ 'sink*': { lines -> s:delete_buffers(lines) },
+    \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+    \ }))

@@ -23,3 +23,5 @@
 | C-Space %           | Split the window into two panes horizontally.                                                                       |
 | C-Space "           | Split the window into two panes vertically.                                                                         |
 | :swap-wnidow -t <n> | It changes the position of the tmux window from place where <n> is the number to which the current window should go |
+| C-Space (           | Prev session                                                                                                        |
+| C-Space )           | Next session                                                                                                        |

@@ -6,7 +6,7 @@ set rtp +=~/.vim
 
 " vim plug
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
@@ -23,9 +23,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Enable filetype
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
@@ -39,11 +37,16 @@ set nohls
 set ignorecase
 set incsearch
 set magic
+
 set mouse=
+" set guicursor=
 
 if exists('&inccommand')
     set inccommand=split
 endif
+
+set splitright
+set splitbelow
 
 " multi-byte characters
 set nobomb
@@ -149,15 +152,6 @@ set hidden
 set tpm=10
 set showtabline=1
 
-" 12 messages and info
-if has("mac")
-    set guifont=Menlo:h14
-elseif has("unix") && &gfn == ""
-    set guifont=Source\ Code\ Pro\ for\ Powerline
-elseif has("win32")
-    set guifont=Consolas:h11:cANSI
-endif
-
 " guioptions
 set go=c
 set lsp=3
@@ -208,7 +202,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`
 
 " settings
 for fpath in split(globpath('~/dotfiles/vim/settings', '*.vim'), '\n')
-  exe 'source' fpath
+    exe 'source' fpath
 endfor
 
 " Global settings
@@ -220,4 +214,3 @@ endif
 if filereadable(expand('.vim/settings.vim'))
     source .vim/settings.vim
 endif
-

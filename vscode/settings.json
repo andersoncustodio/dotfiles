@@ -6,11 +6,11 @@
     "editor.snippetSuggestions": "none",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.4,
-    "editor.fontFamily": "Anonymice Nerd Font Complete",
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
     "files.insertFinalNewline": true,
     "editor.mouseWheelZoom": true,
     "workbench.iconTheme": "vsc-jetbrains-icons-enhanced",
-    "workbench.colorTheme": "Idea intellij light theme",
+    "workbench.colorTheme": "Dracula Soft",
     "workbench.list.horizontalScrolling": true,
     "workbench.tree.indent": 23,
     "workbench.list.openMode": "doubleClick",
@@ -23,9 +23,6 @@
     "editor.scrollbar.vertical": "visible",
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-    "workbench.colorCustomizations": {
-        "list.activeSelectionIconForeground": "#FFFFFF"
-    },
     "terminal.integrated.fontSize": 16,
     "output.smartScroll.enabled": true
 }

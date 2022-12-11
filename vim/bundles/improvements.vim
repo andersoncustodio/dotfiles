@@ -6,6 +6,7 @@ Plug 'juvenn/mustache.vim'
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-markdown'
 Plug 'dag/vim-fish'
+Plug 'fladson/vim-kitty'
 
 " History changes
 Plug 'simnalamburt/vim-mundo'

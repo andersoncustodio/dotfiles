@@ -2,6 +2,15 @@ if !isdirectory(expand('~/.vim/plugged/coc.nvim'))
     finish
 endif
 
+
+let g:coc_explorer_global_presets = {
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\ }
+
+
 " Some servers have issues with backup files, see #649
 " set nobackup
 " set nowritebackup
@@ -72,6 +81,12 @@ call coc#config('emmet', {
 call coc#config('snippets', {
     \ 'userSnippetsDirectory': '~/.vim/plugged/vim-snippets'
     \ })
+
+" sql
+call coc#config('sql', {
+    \ 'formatOptions': {'tabWidth': 4 }
+    \ })
+
 
 if exists('g:coc_node_path')
     call coc#config('npm', {

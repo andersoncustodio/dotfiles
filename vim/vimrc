@@ -39,7 +39,6 @@ set incsearch
 set magic
 
 set mouse=
-" set guicursor=
 
 if exists('&inccommand')
     set inccommand=split

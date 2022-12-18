@@ -8,8 +8,7 @@ Plug 'tpope/vim-markdown'
 Plug 'dag/vim-fish'
 Plug 'fladson/vim-kitty'
 
-" History changes
-Plug 'simnalamburt/vim-mundo'
+Plug 'simnalamburt/vim-mundo' " History changes
 
 Plug 'vim-airline/vim-airline'
 
@@ -63,9 +62,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'styled-components/vim-styled-components'
 Plug 'jparise/vim-graphql'
 
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-
 " HTML/CSS
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -80,26 +76,21 @@ Plug 'neoclide/jsonc.vim'
 Plug 'elzr/vim-json'
 
 Plug 'Yggdroot/indentLine'
-Plug 'pbrisbin/vim-mkdir'
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'pbrisbin/vim-mkdir'
+
+" Improvement vim command line
 Plug 'andersoncustodio/vim-emacscommandline'
 Plug 'andersoncustodio/vim-cmdline-completion'
 
+" Vim smart like vscode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'andersoncustodio/vim-snippets'
 
 
-" Tmux
-Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-tbone' " Tmux
 
-
-" vdebug settings
-let g:vdebug_options = {
-    \ "break_on_open": 0
-    \ }
-Plug 'vim-vdebug/vdebug'
-
-Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap' " Debug
 

@@ -16,18 +16,12 @@ noremap <silent> \tr :call StripTrailingWhitespaces()<CR>
 noremap <silent> \ig :IndentLinesToggle<CR>
 
 
-" Explorer
-map <silent><leader>et :CocCommand explorer
-            \ --no-reveal-when-open
-            \ --sources=file+
-            \ <cr>
-
 " PickAColor
 command! -nargs=0 PickAColor VCoolor
 
 " gitgutter
-noremap \ggt :GitGutterToggle<CR>
-noremap \ggp <Plug>(GitGutterPreviewHunk)
+noremap \gt :GitGutterToggle<CR>
+noremap \gp <Plug>(GitGutterPreviewHunk)
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 
@@ -50,6 +44,7 @@ nnoremap <silent><leader>w<C-p> :call OutSidebar()<bar>:Windows<CR>
 nnoremap <silent><leader>ag<C-p> :call OutSidebar()<bar>:Ag<CR>
 nnoremap <silent><leader>rg<C-p> :call OutSidebar()<bar>:Rg<CR>
 nnoremap <silent><leader>bd<C-p> :BuffersDelete<CR>
+nnoremap <silent><leader>et :CocCommand explorer --no-reveal-when-open --sources=file+<cr>
 
 nnoremap <silent><leader>: :Commands<CR>
 nnoremap <silent>q: :History:<CR>
@@ -81,7 +76,7 @@ command! -nargs=0 Format :call CocActionAsync('format')
 
 
 " Use <c-n> to trigger completion.
-inoremap <expr> <c-e> coc#refresh()
+inoremap <expr> <c-x><c-n> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -96,8 +91,8 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 nnoremap <expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <expr><C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<Right>"
-inoremap <expr><C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<Left>"
+inoremap <expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+inoremap <expr><C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -149,22 +144,9 @@ nnoremap <silent><leader>tt :TagbarToggle<CR>
 nnoremap <silent><leader>ut :call OutSidebar()<bar>:MundoToggle<CR>
 
 
-""""""""""""
-" Database "
-""""""""""""
-noremap <silent><leader>db :DBUIToggle<CR>
-
-
 """""""""""
 " Buffers "
 """""""""""
-noremap <silent><Leader>bdd :call OutSidebar()<bar>:Bdelete<CR>
-
-
-"""""""""""
-" Buffers "
-"""""""""""
-noremap <silent><Leader>bdd :call OutSidebar()<bar>:Bdelete<CR>
-
+noremap <silent><Leader>bd :call OutSidebar()<bar>:Bdelete<CR>
 
 noremap Q q
